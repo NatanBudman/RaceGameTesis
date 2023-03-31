@@ -29,7 +29,21 @@ MonoBehaviour:
     - Pass
     - Player
     - Level
+  - name: UpdateUserData
+    URL: UpdateUserData.php
+    parameters:
+    - User
+    - Pass
+    - Player
+    - Level
   isBusy: 1
-  Answers:
-    Code: 404
-    Messege: Error
+  answer:
+    Code: 205
+    Messege: Successful login
+    Answer: 1
+  UserData:
+    ID: 0
+    User: 
+    Pass: 
+    Player: 
+    Level: 0
