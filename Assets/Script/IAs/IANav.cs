@@ -16,7 +16,7 @@ public class IANav : MonoBehaviour
     public bool isCheckRaycast = true;
 
 
-    [Space] [Header("Velocity")] [Space] public float Speed;
+    [Space] [Header("Velocity")] [Space] private float Speed;
     public float SpeedToRotate;
 
 
@@ -28,33 +28,17 @@ public class IANav : MonoBehaviour
     private void Awake()
     {
         _model.RayDist = RangeObstacleDetection;
-        //Nav3();
-        // Nav2();
+        
     }
 
     private void Start()
     {
+        Speed = _KartController.maxSpeed;
     }
-
-    private float cooldownNavUpdate = 2;
-    private float TimecooldownNavUpdate;
 
     private void Update()
     {
         Nav3();
-        /*
-        TimecooldownNavUpdate += Time.deltaTime;
-        if (isCheckRaycast && auxiliar.RayCastChocando || auxiliar.Chocando ||
-            TimecooldownNavUpdate >= cooldownNavUpdate)
-        {
-            Nav3();
-        }
-
-        if (isCheckRaycast == false && auxiliar.Chocando || TimecooldownNavUpdate >= cooldownNavUpdate)
-        {
-            Nav3();
-        }
-        */
         if (auxiliar != null)
         {
          
@@ -72,21 +56,22 @@ public class IANav : MonoBehaviour
         gameObjectRotate.transform.rotation = Quaternion.RotateTowards(gameObjectRotate.transform.rotation,
             targetRotation, SpeedToRotate * Time.deltaTime);
     }
-
+// DIOS SE APIADE EL QUE TENGA QUE ENTENDER O LEER ESTO,AMEN.
     public void Nav3()
     {
-        for (int i = 0; i < AngleRayCast.Length; i++)
-        {
-            Vector3 dir = Vector3.Normalize(checks[i].transform.position - transform.position);
-            
-            float angulo = Vector3.Angle(transform.forward, dir);
-            if (checks[i]._NegativeDir)
-            {
-                angulo = -angulo;
-            }
-            AngleRayCast[i] = angulo;
-        }
         
+        if (_KartController.realSpeed >= Speed - 0.5f)
+        {
+            _KartController.maxSpeed = Speed / 2;
+        }
+        else
+        {
+            _KartController.maxSpeed = Speed;
+        }
+            
+        
+        
+
         for (int j = 0; j < checks.Length; j++)
         {
             if (auxiliar == null)
@@ -111,7 +96,44 @@ public class IANav : MonoBehaviour
                 }
                 case true:
                 {
-
+                    if (IAmodel.transform.rotation.y > 90 ||IAmodel.transform.rotation.y < -90 )
+                    {
+                        transform.rotation = new Quaternion(0,0,0,0);
+                    }
+                    for (int i = 0; i < AngleRayCast.Length; i++)
+                    {
+                        Vector3 dir = Vector3.Normalize(checks[i].transform.position - transform.position);
+                        float angulo = Vector3.Angle(transform.forward, dir);
+                        
+                        // la verdad no se como explicar la chota esta asi que dejala como esta y ya
+                        if (IAmodel.transform.position.z > checks[i].transform.position.z) 
+                        {
+                            checks[i]._NegativeDir = true;
+                        }
+                        else
+                        {
+                            checks[i]._NegativeDir = false;
+                        }
+                        if (IAmodel.transform.position.z == checks[i].transform.position.z 
+                            && IAmodel.transform.position.x > checks[i].transform.position.x)
+                        {
+                            checks[i]._NegativeDir = true;
+                        }
+                        else if(IAmodel.transform.position.z == checks[i].transform.position.z 
+                                && IAmodel.transform.position.x < checks[i].transform.position.x)
+                        {
+                            checks[i]._NegativeDir = false;
+                        }
+                        
+                        
+                        
+                        if (checks[i]._NegativeDir)
+                        {
+                            angulo = -angulo;
+                        }
+                        AngleRayCast[i] = angulo;
+                    }
+                    
                     checks[j].RayCastChocando = _model.isCollisionObstacle(checks[j].transform, AngleRayCast[j]);
 
                     if (AuxDist < AuxilairDist || auxiliar.RayCastChocando || auxiliar.Chocando
@@ -119,17 +141,17 @@ public class IANav : MonoBehaviour
                     {
                         auxiliar = checks[j];
                     }
+               
 
                     break;
                 }
             }
 
-            TimecooldownNavUpdate = Random.Range(-1, 0);
         }
 
-
-
     }
+
+   
 }
 
 
