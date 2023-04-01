@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class KartController : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
-    
+    // fuerzaDeChoque
     [SerializeField] private float steerAmount;
     [SerializeField] private float steerDirection;
     [HideInInspector] public float currentSpeed = 0;
     private float driftTime;
-    private float realSpeed; //not the applied speed
+    public float realSpeed; //not the applied speed
+    public float minSpeedToCrash; //not the applied speed
     
     public float maxSpeed; //max possible speed
     public float boostSpeed; //speed while boosting
@@ -23,8 +25,9 @@ public class KartController : MonoBehaviour
     private bool isGrounded;
     public bool isHasInputManager;
 
-    [SerializeField] private Rigidbody rb;
-    
+    [SerializeField] public Rigidbody rb;
+
+    private bool Choco = false;
     private void Start()
     {
     //    rb = GetComponent<Rigidbody>();
@@ -40,7 +43,7 @@ public class KartController : MonoBehaviour
         Drift();
     }
 
-
+    private float velocit;
     private void Drive()
     {
         realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
@@ -69,20 +72,7 @@ public class KartController : MonoBehaviour
         vel.y = rb.velocity.y; //gravity setting
         rb.velocity = vel;
     }
-/*
-    public void Mov(int Input)
-    {
-        
-            if (Input == 0)
-            {
-                currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
-            }
-            else if (Input == 1)
-            {
-                currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / 1.75f, Time.deltaTime * 1f);
-            }
-    }
-    */
+
     private void Steering()
     {
         steerDirection = Input.GetAxisRaw("Horizontal");
@@ -170,4 +160,39 @@ public class KartController : MonoBehaviour
             driftRight = false;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.layer == 6)
+        {
+            if (realSpeed > minSpeedToCrash)
+            {
+                Vector3 posicionAnterior = transform.position;
+                Vector3 posicionActual = collision.collider.gameObject.transform.position;
+
+                Vector3 distanciaMovida = posicionActual - posicionAnterior;
+                float distanciaX = Mathf.Abs(distanciaMovida.x);
+                float distanciaY = Mathf.Abs(distanciaMovida.y);
+                float distanciaZ = Mathf.Abs(distanciaMovida.z);
+
+                if (distanciaX >= distanciaY && distanciaX >= distanciaZ)
+                {
+                    // El objeto ha chocado por el lado derecho o izquierdo
+                    if (distanciaMovida.x >= 0)
+                    {
+                        // El objeto ha chocado por el lado derecho
+                        transform.Rotate(new Vector3(0, transform.forward.y - 25, 0));
+                    }
+                    else
+                    {
+                        // El objeto ha chocado por el lado izquierdo
+                        transform.Rotate(new Vector3(0, transform.forward.y + 25, 0));
+                    }
+                }
+                bool haChocadoPorDerecha = (distanciaMovida.x >= 0);
+                Debug.Log(haChocadoPorDerecha);
+            }
+        }
+    }
+
 }

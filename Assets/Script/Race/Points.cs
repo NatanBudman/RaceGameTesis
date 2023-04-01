@@ -38,7 +38,7 @@ public class Points : MonoBehaviour
             for (int i = 0; i < checkPoints.Length; i++)
             {
                 Transform newpos = checkPoints[i].GetComponent<Point>().InitialPos;
-                checkPoints[index].transform.position = new Vector3( newpos.position.x + Random.Range(-10, 10), newpos.position.y,
+                checkPoints[i].transform.position = new Vector3( newpos.position.x + Random.Range(-10, 10), newpos.position.y,
                     newpos.position.z + Random.Range(-10, 10));
             }
 
