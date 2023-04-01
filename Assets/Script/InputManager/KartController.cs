@@ -26,10 +26,12 @@ public class KartController : MonoBehaviour
     public bool isHasInputManager;
 
     [SerializeField] public Rigidbody rb;
+    [HideInInspector]public float StartVelocity;
 
     private bool Choco = false;
     private void Start()
     {
+        StartVelocity = maxSpeed;
     //    rb = GetComponent<Rigidbody>();
     isHasInputManager = _inputManager;
     }
@@ -46,7 +48,10 @@ public class KartController : MonoBehaviour
     private float velocit;
     private void Drive()
     {
-        realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
+        if (!Choco)
+        {
+            realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
+        }
         
         if (isHasInputManager)
         {
@@ -60,7 +65,7 @@ public class KartController : MonoBehaviour
             }
             else
             {
-                currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 1.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+                currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
             }
         }
         else
@@ -163,36 +168,94 @@ public class KartController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.collider.gameObject.layer == 6)
         {
+            Choco = true;
+            /*
             if (realSpeed > minSpeedToCrash)
             {
-                Vector3 posicionAnterior = transform.position;
-                Vector3 posicionActual = collision.collider.gameObject.transform.position;
+                // obtén el vector de choque normal
+                Vector3 collisionNormal = collision.contacts[0].normal;
 
-                Vector3 distanciaMovida = posicionActual - posicionAnterior;
-                float distanciaX = Mathf.Abs(distanciaMovida.x);
-                float distanciaY = Mathf.Abs(distanciaMovida.y);
-                float distanciaZ = Mathf.Abs(distanciaMovida.z);
+                // obtén la velocidad actual del objeto
+                Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
-                if (distanciaX >= distanciaY && distanciaX >= distanciaZ)
+                // calcula la reflexión de la velocidad en la dirección de la normal de la colisión
+                Vector3 reflectedVelocity = velocity - 2 * (Vector3.Dot(velocity, collisionNormal)) * collisionNormal;
+
+                // verifica si la colisión ocurrió desde el frente del objeto
+                float angleBetween = Vector3.Angle(transform.forward, collisionNormal);
+                if (angleBetween < 90f)
                 {
-                    // El objeto ha chocado por el lado derecho o izquierdo
-                    if (distanciaMovida.x >= 0)
-                    {
-                        // El objeto ha chocado por el lado derecho
-                        transform.Rotate(new Vector3(0, transform.forward.y - 25, 0));
-                    }
-                    else
-                    {
-                        // El objeto ha chocado por el lado izquierdo
-                        transform.Rotate(new Vector3(0, transform.forward.y + 25, 0));
-                    }
+                    // establece la nueva velocidad en el componente Rigidbody
+                    GetComponent<Rigidbody>().velocity = reflectedVelocity;
                 }
-                bool haChocadoPorDerecha = (distanciaMovida.x >= 0);
-                Debug.Log(haChocadoPorDerecha);
+                else
+                {
+                    // no hagas nada, conserva la velocidad actual del objeto
+                }
+
+                // calcula el ángulo de rotación basado en la reflexión de la velocidad
+                float rotationAngle = Mathf.Atan2(reflectedVelocity.x, reflectedVelocity.z) * Mathf.Rad2Deg;
+
+                // rotar el objeto en la dirección calculada
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotationAngle, transform.rotation.eulerAngles.z);
+                
             }
+            */
+            
+            // Obtener la normal de la colisión para obtener la dirección de rebote
+            Vector3 direccionRebote = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
+            realSpeed -= 10;
+            // Aplicar una fuerza en la dirección de rebote
+            rb.AddForce(direccionRebote * realSpeed, ForceMode.Impulse);
+
+            
         }
     }
 
+
+    private void OnCollisionExit(Collision other)
+    {
+        Choco = false;
+    }
+
+
+    private void Crash(GameObject collision)
+        {
+            Vector3 posicionAnterior = transform.position;
+            Vector3 posicionActual = collision.gameObject.transform.position;
+
+            Vector3 distanciaMovida = posicionActual - posicionAnterior;
+            float distanciaX = Mathf.Abs(distanciaMovida.x);
+            float distanciaY = Mathf.Abs(distanciaMovida.y);
+            float distanciaZ = Mathf.Abs(distanciaMovida.z);
+
+            if (distanciaX >= distanciaY && distanciaX >= distanciaZ)
+            {
+                // El objeto ha chocado por el lado derecho o izquierdo
+                if (distanciaMovida.x >= 0)
+                {
+                    // El objeto ha chocado por el lado derecho
+                    transform.Rotate(new Vector3(0, transform.forward.y - 25, 0));
+                }
+                else
+                {
+                    // El objeto ha chocado por el lado izquierdo
+                    transform.Rotate(new Vector3(0, transform.forward.y + 25, 0));
+                }
+            }
+            bool haChocadoPorDerecha = (distanciaMovida.x >= 0);
+            Debug.Log(haChocadoPorDerecha);
+        }
+
+        private void Crash2(GameObject collision)
+        {
+       
+        }
+
+      
+        
+        
 }

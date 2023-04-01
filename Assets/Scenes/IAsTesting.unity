@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 393183889}
   - component: {fileID: 393183891}
   - component: {fileID: 393183890}
+  - component: {fileID: 393183892}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -812,12 +813,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393183888}
   m_LocalRotation: {x: 0.31070137, y: -0, z: -0, w: 0.9505076}
-  m_LocalPosition: {x: 0, y: 13.76001, z: -9.91}
+  m_LocalPosition: {x: 1286.2, y: 271.286, z: -85.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1819024269}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 36.203, y: 0, z: 0}
 --- !u!81 &393183890
 AudioListener:
@@ -870,6 +871,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &393183892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393183888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4d88673efc5be4888d80bebe0d8a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KartController: {fileID: 694465079}
+  objectToFollow: {fileID: 694465077}
+  cameraHeight: 10
+  maxSpeedDistance: 15
+  minSpeedDistance: 30
+  minSpeedDistanceTurboInclude: 30
+  lerp: 1
 --- !u!1 &399015542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694465080}
   - component: {fileID: 694465079}
+  - component: {fileID: 694465083}
   - component: {fileID: 694465078}
   - component: {fileID: 694465081}
   - component: {fileID: 694465082}
@@ -1856,8 +1877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ef7827bf02f244181911336a61a2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turboManager: {fileID: 694465083}
   MovForward: 119
   MovReverse: 115
+  TurboActive: 304
+  DriftActive: 32
 --- !u!114 &694465079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +1905,7 @@ MonoBehaviour:
   outwardDriftForce: 50000
   isHasInputManager: 1
   rb: {fileID: 694465081}
+  StartVelocity: 0
 --- !u!4 &694465080
 Transform:
   m_ObjectHideFlags: 0
@@ -1895,7 +1920,7 @@ Transform:
   m_Children:
   - {fileID: 1819024269}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &694465081
 Rigidbody:
@@ -1926,6 +1951,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4810791
   m_Center: {x: 0, y: -0.018920898, z: 0}
+--- !u!114 &694465083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694465077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc380bbf0942ecd4aadeed8a9d8e0a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kart: {fileID: 694465079}
+  TurboSpeed: 60
+  turboAmount: 0
+  ConsumeTurboAmount: 0.1
+  MaxTurboAmount: 100
+  TurboAmountGet: 0.05
 --- !u!1 &731846903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,7 +3906,7 @@ Transform:
   - {fileID: 1286294161}
   - {fileID: 1300458700}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600964939
 GameObject:
@@ -4232,6 +4275,7 @@ MonoBehaviour:
   outwardDriftForce: 0
   isHasInputManager: 0
   rb: {fileID: 1663847161}
+  StartVelocity: 0
 --- !u!135 &1663847166
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4627,7 +4671,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819024262}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1819024269
 Transform:
   m_ObjectHideFlags: 0
@@ -4639,8 +4683,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 393183889}
+  m_Children: []
   m_Father: {fileID: 694465080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
