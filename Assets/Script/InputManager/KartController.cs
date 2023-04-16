@@ -11,6 +11,7 @@ public class KartController : MonoBehaviour
     [SerializeField] private float steerAmount;
     [SerializeField] private float steerDirection;
     [HideInInspector] public float currentSpeed = 0;
+    [SerializeField] private float gravity;
     private float driftTime;
     public float realSpeed; //not the applied speed
     public float minSpeedToCrash; //not the applied speed
@@ -55,22 +56,39 @@ public class KartController : MonoBehaviour
         
         if (isHasInputManager)
         {
-            if (Input.GetKey(_inputManager.MovForward) )
+            if (Input.GetKey(_inputManager.MovForward) && isGrounded )
             {
                 currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
 
-            }else if (Input.GetKey(_inputManager.MovReverse) )
+            }else if (Input.GetKey(_inputManager.MovReverse) && isGrounded )
             {
                 currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / 1.75f, Time.deltaTime * 1f);
             }
-            else
+            else 
             {
-                currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+                if (isGrounded)
+                {
+                    currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+                }
+                else
+                {
+                    rb.AddForce(Vector3.down * gravity,ForceMode.Impulse);
+                }
+
             }
         }
         else
         {
-            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+            if (isGrounded)
+            {
+                currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+
+            }
+            else if(!isGrounded)
+            {
+                rb.AddForce(Vector3.down * gravity,ForceMode.Impulse);
+            }
+
         }
 
         Vector3 vel = transform.forward * currentSpeed;
@@ -103,7 +121,8 @@ public class KartController : MonoBehaviour
                 rb.AddForce(transform.right * (-outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);
             }
         }
-        
+
+       
         //como la direccion del auto es mas fuerte al ir a velocidades mas bajas, ajustamos steerAmount en base a la velocidad real del kart y luego rotamos el kart sobre su eje con steerAmount
         // los numeros 4 y 1.5 pueden requerir ajustes segun la maniobrabilidad del kart
 

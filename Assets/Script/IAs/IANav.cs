@@ -6,152 +6,84 @@ using Random = UnityEngine.Random;
 
 public class IANav : MonoBehaviour
 {
-    public IAModel _model;
     public KartController _KartController;
+    public KartEntity KartEntity;
+    public KartEntity playerEntiti;
 
-    [Header("NAV3")] [Space] [Header("RayCast")] [Space] [SerializeField]
-    private float[] AngleRayCast = { 0, 40, 90, 140, 180, -40, -90, -140 };
-
-    [SerializeField] private float RangeObstacleDetection;
-    public bool isCheckRaycast = true;
-
-
-    [Space] [Header("Velocity")] [Space] private float Speed;
-    public float SpeedToRotate;
-
+    private float Speed => KartEntity.Speed;
 
     [Space] [Header("Others")] [Space] public Transform point;
-    public IAChecks[] checks;
-    [HideInInspector] public IAChecks auxiliar;
 
-    public GameObject IAmodel;
+    [Header("Persuit")] 
+    public int time;
+
+    public float _distanceToPursuit;
+
+    [Header("Obstacles")] 
+    [SerializeField] private float radius;
+    public LayerMask Mask;
+    public int maxObstacleDetected;
+    public float angle;
+    public int mutliplier;
+
+    private ObstacleAvoidance _obstacleAvoidance;
+    private Pursuit _pursuit;
+    void Inicialize()
+    {
+        var Obstacle = new ObstacleAvoidance(transform,Mask,maxObstacleDetected,radius,angle);
+        var pursuit = new Pursuit(transform,playerEntiti,time);
+        _obstacleAvoidance = Obstacle;
+        _pursuit = pursuit;
+    }
+
     private void Awake()
     {
-        _model.RayDist = RangeObstacleDetection;
-        
+        Inicialize();
     }
 
     private void Start()
     {
-        Speed = _KartController.maxSpeed;
+        KartEntity.Speed  = _KartController.maxSpeed;
     }
+
+ 
 
     private void Update()
     {
-        Nav3();
-        if (auxiliar != null)
-        {
-         
-            LookRotate(IAmodel, auxiliar.gameObject);
-            LookRotate(this.gameObject, auxiliar.gameObject);
-        }
+        Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
+        Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
+        
+        KartEntity.LookRotate(direc);
     }
 
-    void LookRotate(GameObject gameObjectRotate, GameObject Target)
+    private Vector3 GetDir()
     {
-        Vector3 dir = Target.transform.position - gameObjectRotate.transform.position;
+        Vector3 dir = Vector3.zero;
+        
+        float diffDist = Vector3.Distance(playerEntiti.transform.position, transform.position);
+        
+        if (_distanceToPursuit > diffDist && transform.position.z < playerEntiti.transform.position.z) 
+        {
+            dir = (playerEntiti.transform.position - transform.position).normalized;
+            Debug.Log("entre");
+        }
+        else if(_distanceToPursuit < diffDist)
+        {
+            dir = (point.transform.position - transform.position).normalized;
+        }
 
-        Quaternion targetRotation = Quaternion.LookRotation(dir);
-
-        gameObjectRotate.transform.rotation = Quaternion.RotateTowards(gameObjectRotate.transform.rotation,
-            targetRotation, SpeedToRotate * Time.deltaTime);
+        return dir;
     }
-// DIOS SE APIADE EL QUE TENGA QUE ENTENDER O LEER ESTO,AMEN.
-    public void Nav3()
+
+    private void OnDrawGizmos()
     {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position,radius);
+        Gizmos.color = Color.red;
         
-        if (_KartController.realSpeed >= Speed - 0.5f)
-        {
-            _KartController.maxSpeed = Speed / 2;
-        }
-        else
-        {
-            _KartController.maxSpeed = Speed;
-        }
-            
-        
-        
-
-        for (int j = 0; j < checks.Length; j++)
-        {
-            if (auxiliar == null)
-            {
-                auxiliar = checks[j];
-            }
-
-            float AuxilairDist = Vector3.Distance(point.transform.position, auxiliar.transform.position);
-            float AuxDist = Vector3.Distance(point.transform.position, checks[j].transform.position);
-
-            switch (isCheckRaycast)
-            {
-                case false:
-                {
-                    if (AuxDist < AuxilairDist || auxiliar.Chocando
-                        && !checks[j].Chocando)
-                    {
-                        auxiliar = checks[j];
-                    }
-
-                    break;
-                }
-                case true:
-                {
-                    if (IAmodel.transform.rotation.y > 90 ||IAmodel.transform.rotation.y < -90 )
-                    {
-                        transform.rotation = new Quaternion(0,0,0,0);
-                    }
-                    for (int i = 0; i < AngleRayCast.Length; i++)
-                    {
-                        Vector3 dir = Vector3.Normalize(checks[i].transform.position - transform.position);
-                        float angulo = Vector3.Angle(transform.forward, dir);
-                        
-                        // la verdad no se como explicar la chota esta asi que dejala como esta y ya
-                        if (IAmodel.transform.position.z > checks[i].transform.position.z) 
-                        {
-                            checks[i]._NegativeDir = true;
-                        }
-                        else
-                        {
-                            checks[i]._NegativeDir = false;
-                        }
-                        if (IAmodel.transform.position.z == checks[i].transform.position.z 
-                            && IAmodel.transform.position.x > checks[i].transform.position.x)
-                        {
-                            checks[i]._NegativeDir = true;
-                        }
-                        else if(IAmodel.transform.position.z == checks[i].transform.position.z 
-                                && IAmodel.transform.position.x < checks[i].transform.position.x)
-                        {
-                            checks[i]._NegativeDir = false;
-                        }
-                        
-                        
-                        
-                        if (checks[i]._NegativeDir)
-                        {
-                            angulo = -angulo;
-                        }
-                        AngleRayCast[i] = angulo;
-                    }
-                    
-                    checks[j].RayCastChocando = _model.isCollisionObstacle(checks[j].transform, AngleRayCast[j]);
-
-                    if (AuxDist < AuxilairDist || auxiliar.RayCastChocando || auxiliar.Chocando
-                        && !checks[j].Chocando && !checks[j].RayCastChocando)
-                    {
-                        auxiliar = checks[j];
-                    }
-               
-
-                    break;
-                }
-            }
-
-        }
-
+        Gizmos.DrawRay(transform.position,Quaternion.Euler(0,angle / 2,0)*transform.forward * radius);
+        Gizmos.DrawRay(transform.position,Quaternion.Euler(0,-angle / 2,0)*transform.forward * radius);
     }
-
-   
 }
 
 
