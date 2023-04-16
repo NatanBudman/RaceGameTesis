@@ -21,7 +21,8 @@ public class TurboManager : MonoBehaviour
 
    private bool isHasTurboToUse()
    {
-      return turboAmount > 0;
+      
+      return turboAmount > 1;
    }
 
    private bool isHasMaxTurboAmount()
@@ -42,7 +43,7 @@ public class TurboManager : MonoBehaviour
          _kart.maxSpeed = Speed + TurboSpeed;
          _kart.realSpeed = _kart.maxSpeed;
       }
-      else if (!Activate || !isKartAcceleration())
+      else if (!Activate || !isKartAcceleration() || !isHasTurboToUse())
       {
          _kart.maxSpeed = Speed;
       }
