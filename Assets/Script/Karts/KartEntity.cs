@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class KartEntity : MonoBehaviour
 {
+    [SerializeField] private GameManager _manager;
     [SerializeField] private Rigidbody _rb;
+    private KartStats _kartStats;
 
-    [SerializeField] private float SpeedRotate;
-    public float Speed;
+    #region KartStats
+
+        public float SpeedRotate => _kartStats.SteerDirSpeed;
+        public float Speed => _kartStats.MaxSpeed;
+
+
+    #endregion
 
     public Vector3 GetForward => transform.forward;
 

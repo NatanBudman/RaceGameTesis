@@ -7,21 +7,39 @@ using UnityEngine;
 public class KartController : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
-    // fuerzaDeChoque
-    [SerializeField] private float steerAmount;
-    [SerializeField] private float steerDirection;
-    [HideInInspector] public float currentSpeed = 0;
-    [SerializeField] private float gravity;
-    private float driftTime;
-    public float realSpeed; //not the applied speed
-    public float minSpeedToCrash; //not the applied speed
-    
-    public float maxSpeed; //max possible speed
-    public float boostSpeed; //speed while boosting
+    [SerializeField] private KartEntity kartEntity;
 
-    [SerializeField] private float outwardDriftForce;
-    private bool driftLeft;
-    private bool driftRight;
+    #region Stats
+
+    private float SpeedStats => kartEntity.Speed;
+
+    private float SteerDirStats => kartEntity.SpeedRotate;
+
+    #endregion
+    
+    [Space]
+    [Space]
+
+    #region Paramets
+
+      [SerializeField] private float steerAmount;
+        [SerializeField] private float steerDirection;
+        [HideInInspector] public float currentSpeed = 0;
+        [SerializeField] private float gravity;
+        private float driftTime;
+        public float realSpeed; //not the applied speed
+        public float minSpeedToCrash; //not the applied speed
+        public float maxSpeed; //max possible speed
+        public float boostSpeed; //speed while boosting
+    
+        [SerializeField] private float outwardDriftForce;
+        private bool driftLeft;
+        private bool driftRight;
+
+    #endregion
+    
+    // fuerzaDeChoque
+  
 
     private bool isGrounded;
     public bool isHasInputManager;
@@ -32,6 +50,11 @@ public class KartController : MonoBehaviour
     private bool Choco = false;
     private void Start()
     {
+        // Set Kart Stats
+        maxSpeed = SpeedStats;
+        steerDirection = SteerDirStats;
+        
+        
         StartVelocity = maxSpeed;
     //    rb = GetComponent<Rigidbody>();
     isHasInputManager = _inputManager;

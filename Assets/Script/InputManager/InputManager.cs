@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class InputManager : MonoBehaviour
+[RequireComponent(typeof(OptimizatedUpdateGameplay))]
+public class InputManager : MonoBehaviour,IOptimizatedUpdate
 {
     public TurboManager _turboManager;
     #region MoveInputs
@@ -26,9 +26,7 @@ public class InputManager : MonoBehaviour
 
     #endregion
     
-
-    // Update is called once per frame
-    void Update()
+    public void Op_UpdateGameplay()
     {
         if (Input.GetKey(TurboActive))
         {
@@ -43,8 +41,9 @@ public class InputManager : MonoBehaviour
         {
             _turboManager.GetTurbo();
         }
-
     }
-    
-    
+
+    public void Op_UpdateUX()
+    {
+    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Points : MonoBehaviour
+public class Points : MonoBehaviour,IOptimizatedUpdate
 {
     public GameObject granPoint;
     public GameObject[] checkPoints;
@@ -16,17 +16,12 @@ public class Points : MonoBehaviour
         granPoint.transform.position = checkPoints[index].transform.position;
         
         int order = 0;
+        
         for (int i = 0; i < checkPoints.Length; i++)
         {
            checkPoints[i].GetComponent<Point>().PointOrder = order;
            order++;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void NextPoint()
@@ -48,5 +43,13 @@ public class Points : MonoBehaviour
         granPoint.transform.position = checkPoints[index].transform.position;
 
     }
-    
+
+    public void Op_UpdateGameplay()
+    {
+        
+    }
+
+    public void Op_UpdateUX()
+    {
+    }
 }
