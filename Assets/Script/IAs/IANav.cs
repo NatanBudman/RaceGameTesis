@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
-public class IANav : MonoBehaviour
+[RequireComponent(typeof(OptimizatedUpdateGameplay))]
+public class IANav : MonoBehaviour,IOptimizatedUpdate
 {
     public KartController _KartController;
     public KartEntity KartEntity;
@@ -41,21 +41,6 @@ public class IANav : MonoBehaviour
         Inicialize();
     }
 
-    private void Start()
-    {
-        KartEntity.Speed  = _KartController.maxSpeed;
-    }
-
- 
-
-    private void Update()
-    {
-        Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
-        Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
-        
-        KartEntity.LookRotate(direc);
-    }
-
     private Vector3 GetDir()
     {
         Vector3 dir = Vector3.zero;
@@ -83,6 +68,18 @@ public class IANav : MonoBehaviour
         
         Gizmos.DrawRay(transform.position,Quaternion.Euler(0,angle / 2,0)*transform.forward * radius);
         Gizmos.DrawRay(transform.position,Quaternion.Euler(0,-angle / 2,0)*transform.forward * radius);
+    }
+
+    public void Op_UpdateGameplay()
+    {
+        Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
+        Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
+        
+        KartEntity.LookRotate(direc);
+    }
+
+    public void Op_UpdateUX()
+    {
     }
 }
 
