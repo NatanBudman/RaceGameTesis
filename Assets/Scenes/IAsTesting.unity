@@ -1333,13 +1333,14 @@ GameObject:
   - component: {fileID: 694465081}
   - component: {fileID: 694465082}
   - component: {fileID: 694465084}
+  - component: {fileID: 694465085}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &694465078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,6 +1462,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manager: {fileID: 923625237}
   _rb: {fileID: 694465081}
+--- !u!114 &694465085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694465077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateManager: {fileID: 0}
 --- !u!1 &731846903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,7 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d823f654f30f30747bdb1b2b3a6f07e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Manager: {fileID: 0}
+  _Manager: {fileID: 923625237}
   GameplayUpdates: []
   UXUpdates: []
 --- !u!4 &1570970823
@@ -2947,6 +2961,7 @@ GameObject:
   - component: {fileID: 1663847165}
   - component: {fileID: 1663847166}
   - component: {fileID: 1663847167}
+  - component: {fileID: 1663847168}
   m_Layer: 0
   m_Name: IA_Novena_Version (1)
   m_TagString: Player
@@ -3064,6 +3079,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manager: {fileID: 923625237}
   _rb: {fileID: 1663847161}
+--- !u!114 &1663847168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663847159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateManager: {fileID: 0}
 --- !u!1 &1766859277
 GameObject:
   m_ObjectHideFlags: 0

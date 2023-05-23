@@ -52,9 +52,9 @@ public class UpdateManager : MonoBehaviour
         GameplaynextTime += Time.deltaTime;
         UInextTime += Time.deltaTime;
 
-
-        if (GameplaytimePerFrame < GameplaynextTime)
+        if (GameplaynextTime >= GameplaytimePerFrame)
         {
+            Debug.Log("entre");
             for (int i = 0; i < gameplayLenght; i++)
             {
                 if ( GameplayUpdates[i].isActiveAndEnabled)
@@ -70,7 +70,7 @@ public class UpdateManager : MonoBehaviour
             GameplaynextTime = 0;
         }
       
-        if (UItimePerFrame < UInextTime)
+        if (UItimePerFrame <= UInextTime)
         {
             for (int i = 0; i < UXLenght; i++)
             {
