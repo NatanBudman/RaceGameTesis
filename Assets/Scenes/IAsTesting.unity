@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 694465081}
   - component: {fileID: 694465082}
   - component: {fileID: 694465084}
+  - component: {fileID: 694465085}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Untagged
@@ -1353,8 +1354,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turboManager: {fileID: 694465083}
+  _KartController: {fileID: 694465079}
   MovForward: 119
   MovReverse: 115
+  JumpActive: 106
   TurboActive: 304
   DriftActive: 32
 --- !u!114 &694465079
@@ -1371,16 +1374,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 694465078}
   kartEntity: {fileID: 694465084}
+  currentSpeed: 0
   steerAmount: 0
   steerDirection: 120
-  currentSpeed: 0
-  gravity: 9.8
-  realSpeed: 0
+  gravity: 9
+  jumpForce: 200
+  deaccelerationTime: 0.25
   minSpeedToCrash: 10
+  realSpeed: 0
   maxSpeed: 60
   boostSpeed: 12
+  jumpDirection: {x: 0, y: 0, z: 1}
   outwardDriftForce: 50000
-  isHasInputManager: 1
+  hasInputManager: 1
   rb: {fileID: 694465081}
   StartVelocity: 0
 --- !u!4 &694465080
@@ -1444,7 +1450,7 @@ MonoBehaviour:
   _kart: {fileID: 694465079}
   TurboSpeed: 60
   turboAmount: 100
-  ConsumeTurboAmount: 0.1
+  ConsumeTurboAmount: 0.05
   MaxTurboAmount: 100
   TurboAmountGet: 0.05
 --- !u!114 &694465084
@@ -1461,6 +1467,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manager: {fileID: 923625237}
   _rb: {fileID: 694465081}
+--- !u!114 &694465085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694465077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateManager: {fileID: 1570970822}
 --- !u!1 &731846903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,6 +2966,7 @@ GameObject:
   - component: {fileID: 1663847165}
   - component: {fileID: 1663847166}
   - component: {fileID: 1663847167}
+  - component: {fileID: 1663847168}
   m_Layer: 0
   m_Name: IA_Novena_Version (1)
   m_TagString: Player
@@ -3025,16 +3045,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   kartEntity: {fileID: 1663847167}
+  currentSpeed: 0
   steerAmount: 0
   steerDirection: 0
-  currentSpeed: 0
   gravity: 9.8
-  realSpeed: 0
+  jumpForce: 0
+  deaccelerationTime: 0
   minSpeedToCrash: 0
+  realSpeed: 0
   maxSpeed: 60
   boostSpeed: 12
+  jumpDirection: {x: 0, y: 0, z: 1}
   outwardDriftForce: 0
-  isHasInputManager: 0
+  hasInputManager: 0
   rb: {fileID: 1663847161}
   StartVelocity: 0
 --- !u!135 &1663847166
@@ -3064,6 +3087,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manager: {fileID: 923625237}
   _rb: {fileID: 1663847161}
+--- !u!114 &1663847168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663847159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateManager: {fileID: 0}
 --- !u!1 &1766859277
 GameObject:
   m_ObjectHideFlags: 0
