@@ -54,7 +54,6 @@ public class UpdateManager : MonoBehaviour
 
         if (GameplaynextTime >= GameplaytimePerFrame)
         {
-            Debug.Log("entre");
             for (int i = 0; i < gameplayLenght; i++)
             {
                 if ( GameplayUpdates[i].isActiveAndEnabled)

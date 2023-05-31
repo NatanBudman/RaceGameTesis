@@ -18,4 +18,11 @@ public class GameManager : MonoBehaviour
   public KartStats[] StatsArray;
   
   public KartStats PlayerStats => Settings.playerStats;
+
+    private void Awake()
+    {
+        GameObject player = FindObjectOfType<InputManager>().gameObject;
+
+        player.GetComponent<KartEntity>()._kartStats = PlayerStats;
+    }
 }
