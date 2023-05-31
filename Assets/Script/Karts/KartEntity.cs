@@ -6,7 +6,7 @@ public class KartEntity : MonoBehaviour
 {
     [SerializeField] private GameManager _manager;
     [SerializeField] private Rigidbody _rb;
-    private KartStats _kartStats;
+    [SerializeField] private KartStats _kartStats;
 
     #region KartStats
 
