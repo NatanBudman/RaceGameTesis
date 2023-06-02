@@ -52,9 +52,10 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
         Collider boxCollider = BoxModel.GetComponent<Collider>();
 
-        for (int i = 0; i < gameManager.KartsInGame.Length; i++) 
+
+        foreach (GameObject kart in gameManager.KartsInGame) 
         {
-            Collider kartCollider = gameManager.KartsInGame[i].GetComponent<Collider>();
+            Collider kartCollider = kart.GetComponent<Collider>();
 
             if (kartCollider.bounds.Intersects(boxCollider.bounds)) 
             {
@@ -62,6 +63,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
                 OnBoxFuncion -= Box;
             }
         }
+       
     }
    
     public void Op_UpdateGameplay()
