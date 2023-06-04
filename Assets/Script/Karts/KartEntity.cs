@@ -13,7 +13,9 @@ public class KartEntity : MonoBehaviour
         public float SpeedRotate => _kartStats.SteerDirSpeed;
         public float Speed => _kartStats.MaxSpeed;
 
+        private float CurrentSpeed;
 
+        private float CurrentRotate;
     #endregion
 
     #region KartGameplay
@@ -25,9 +27,13 @@ public class KartEntity : MonoBehaviour
     public Vector3 GetForward => transform.forward;
 
     public float GetVelocity => _rb.velocity.magnitude;
-      
-    
-     public void LookRotate(Vector3 dir)
+
+    private void Start()
+    {
+        CurrentSpeed = Speed;
+        CurrentRotate = SpeedRotate;
+    }
+    public void LookRotate(Vector3 dir)
       {
 
           Quaternion targetRotation = Quaternion.LookRotation(dir);
@@ -35,6 +41,28 @@ public class KartEntity : MonoBehaviour
           transform.transform.rotation = Quaternion.RotateTowards(transform.transform.rotation,
               targetRotation, SpeedRotate * Time.deltaTime);
       }
+
+    bool isCatchKart = true;
+    public void KartStop(bool isCatch) 
+    {
+
+        if (isCatch) CurrentSpeed = 0;
+        else CurrentSpeed = Speed;
+
+        isCatchKart = isCatch;
+    }
+
+    public void SetCurrentSpeed(float Amount) 
+    {
+        CurrentSpeed = Amount;
+    }
+    public float GetNormalSpeed() => Speed;
+    public bool isCatch() 
+    {
+        return isCatchKart;
+    }
+    public float GetKartSpeed() => CurrentSpeed;
+    public float GetKartSpeedRotate() => CurrentRotate;
 
     public void SetPoint(int point) 
     {

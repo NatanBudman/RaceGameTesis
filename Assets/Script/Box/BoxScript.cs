@@ -36,9 +36,10 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
         else if(OnBoxFuncion == null)
         {
             _currentBoxSpawned += Time.deltaTime;
-
+            
             if (_currentBoxSpawned >= CooldownBoxSpawned) 
             {
+                Debug.Log("entre");
                 OnBoxFuncion += Box;
                 BoxModel.SetActive(true);
                 _currentBoxSpawned = 0;
@@ -48,7 +49,8 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
     void Box()
     {
-        BoxModel.transform.Rotate(0, transform.rotation.y + Rotatespeed * Time.fixedTime, 0);
+        BoxModel.transform.Rotate(0, transform.rotation.y + Rotatespeed * Time.fixedDeltaTime * 0.5f, 0);
+
 
         Collider boxCollider = BoxModel.GetComponent<Collider>();
 
