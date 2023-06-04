@@ -22,15 +22,18 @@ public class KartController : MonoBehaviour
 
     #region Paramets
 
-      [SerializeField] private float steerAmount;
-        [SerializeField] private float steerDirection;
         [HideInInspector] public float currentSpeed = 0;
+        [SerializeField] private float steerAmount;
+        [SerializeField] private float steerDirection;
         [SerializeField] private float gravity;
+        [SerializeField] private float jumpForce;
+        [SerializeField] private float deaccelerationTime;
         private float driftTime;
+        public float minSpeedToCrash;
         public float realSpeed; //not the applied speed
-        public float minSpeedToCrash; //not the applied speed
         public float maxSpeed; //max possible speed
         public float boostSpeed; //speed while boosting
+        public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
     
         [SerializeField] private float outwardDriftForce;
         private bool driftLeft;
@@ -42,10 +45,10 @@ public class KartController : MonoBehaviour
   
 
     private bool isGrounded;
-    public bool isHasInputManager;
+    public bool hasInputManager;
 
     [SerializeField] public Rigidbody rb;
-    [HideInInspector]public float StartVelocity;
+    [HideInInspector] public float StartVelocity;
 
     private bool Choco = false;
     private void Start()
@@ -53,11 +56,9 @@ public class KartController : MonoBehaviour
         // Set Kart Stats
         maxSpeed = SpeedStats;
         steerDirection = SteerDirStats;
-        
-        
         StartVelocity = maxSpeed;
-    //    rb = GetComponent<Rigidbody>();
-    isHasInputManager = _inputManager;
+        //rb = GetComponent<Rigidbody>();
+        hasInputManager = _inputManager;
     }
 
 
@@ -77,13 +78,14 @@ public class KartController : MonoBehaviour
             realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
         }
         
-        if (isHasInputManager)
+        if (hasInputManager) //Controls for players
         {
             if (Input.GetKey(_inputManager.MovForward) && isGrounded )
             {
                 currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
 
-            }else if (Input.GetKey(_inputManager.MovReverse) && isGrounded )
+            }
+            else if (Input.GetKey(_inputManager.MovReverse) && isGrounded )
             {
                 currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / 1.75f, Time.deltaTime * 1f);
             }
@@ -91,16 +93,17 @@ public class KartController : MonoBehaviour
             {
                 if (isGrounded)
                 {
-                    currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+                    currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * deaccelerationTime); //reduccion de velocidad a 0 en el piso si no acelera ni retrocede
                 }
                 else
                 {
-                    rb.AddForce(Vector3.down * gravity,ForceMode.Impulse);
+                    currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * deaccelerationTime); //reduccion de velocidad a 0 en el aire si no acelera ni retrocede
+                    rb.AddForce(Vector3.down * gravity, ForceMode.Impulse);
                 }
 
             }
         }
-        else
+        else //Controls for AIs
         {
             if (isGrounded)
             {
@@ -185,6 +188,11 @@ public class KartController : MonoBehaviour
         }
     }
 
+    public void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+    
     private void Drift()
     {
         if (Input.GetKey(KeyCode.Space) && isGrounded)
@@ -292,7 +300,7 @@ public class KartController : MonoBehaviour
             Debug.Log(haChocadoPorDerecha);
         }
 
-        private void Crash2(GameObject collision)
+    private void Crash2(GameObject collision)
         {
        
         }
