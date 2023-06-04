@@ -9,7 +9,7 @@ public class TurboManager : MonoBehaviour
    [SerializeField] private float TurboSpeed;
    
    [Header("Turbo Bar")]
-   [SerializeField] private float turboAmount;
+   public float turboAmount;
    [SerializeField] private float ConsumeTurboAmount;
    [SerializeField] private float MaxTurboAmount;
    [SerializeField] private float TurboAmountGet;
@@ -22,7 +22,6 @@ public class TurboManager : MonoBehaviour
     }
     private bool isHasTurboToUse()
    {
-      
       return turboAmount > 1;
    }
 
@@ -47,7 +46,6 @@ public class TurboManager : MonoBehaviour
       {
             kart.SetCurrentSpeed(kart.GetNormalSpeed());
       }
-    
    }
 
    public void GetTurbo()
@@ -57,5 +55,4 @@ public class TurboManager : MonoBehaviour
          turboAmount += TurboAmountGet;
       }
    }
-
 }
