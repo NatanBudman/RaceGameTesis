@@ -10,7 +10,7 @@ public class TurboManager : MonoBehaviour
    [SerializeField] private int TurboSpeed;
    
    [Header("Turbo Bar")]
-   [SerializeField] private float turboAmount;
+   [SerializeField] public float turboAmount;
    [SerializeField] private float ConsumeTurboAmount;
    [SerializeField] private float MaxTurboAmount;
    [SerializeField] private float TurboAmountGet;

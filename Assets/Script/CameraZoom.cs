@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-   /* public int zoom = 80;
+    public int zoom = 80;
     public int normal = 60;
     public float smooth = 5;
-    [SerializeField] private TurboSystem turboSystem;
+    [SerializeField] private TurboManager turboSystem;
     private bool isZoomed = false;
 
     private void Update()
     {
-        if (turboSystem._currentTurboAmount >= 1)
+        if (turboSystem.turboAmount >= 1)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
@@ -26,7 +26,7 @@ public class CameraZoom : MonoBehaviour
             isZoomed = false;
 
         }
-        if (turboSystem._currentTurboAmount <= 0)
+        if (turboSystem.turboAmount <= 0)
         {
             isZoomed = false;
 
@@ -41,5 +41,5 @@ public class CameraZoom : MonoBehaviour
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
         }
     }
-*/
+
 }

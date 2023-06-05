@@ -837,7 +837,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393183888
 GameObject:
@@ -851,6 +851,7 @@ GameObject:
   - component: {fileID: 393183891}
   - component: {fileID: 393183890}
   - component: {fileID: 393183892}
+  - component: {fileID: 393183893}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -866,12 +867,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393183888}
   m_LocalRotation: {x: 0.31070137, y: -0, z: -0, w: 0.9505076}
-  m_LocalPosition: {x: 1293.15, y: 262.5, z: -122.7}
+  m_LocalPosition: {x: -2.1500244, y: 4.973999, z: -8.799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 694465080}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 36.203, y: 0, z: 0}
 --- !u!81 &393183890
 AudioListener:
@@ -933,16 +934,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 393183888}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4579a876b6044281a51daaa59c110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoom: 80
+  normal: 60
+  smooth: 5
+  turboSystem: {fileID: 694465083}
+--- !u!114 &393183893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393183888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4d88673efc5be4888d80bebe0d8a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   KartController: {fileID: 694465079}
-  objectToFollow: {fileID: 694465077}
-  cameraHeight: 10
-  maxSpeedDistance: 15
-  minSpeedDistance: 30
-  minSpeedDistanceTurboInclude: 30
-  lerp: 1
+  objectToFollow: {fileID: 1819024262}
+  cameraHeight: 5
+  maxSpeedDistance: 10
+  minSpeedDistance: 5
+  minSpeedDistanceTurboInclude: 5
+  lerp: 0
 --- !u!1 &423545442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1276,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498896536}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &516015131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516015132}
+  m_Layer: 0
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516015132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516015131}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -3.68, z: -3.7200012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 694465080}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &542729415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 694465078}
   kartEntity: {fileID: 694465084}
+  BackPowerPos: {fileID: 516015132}
+  risingWallPrefab: {fileID: -5123939862304654802, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
   steerAmount: 0
   steerDirection: 120
   currentSpeed: 0
@@ -1575,8 +1625,10 @@ Transform:
   m_Children:
   - {fileID: 1597965302}
   - {fileID: 1819024269}
+  - {fileID: 393183889}
+  - {fileID: 516015132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &694465081
 Rigidbody:
@@ -2037,7 +2089,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947374575
 GameObject:
@@ -2988,7 +3040,7 @@ Transform:
   m_Children:
   - {fileID: 1300458700}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568526427
 GameObject:
@@ -3099,7 +3151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570970821
 GameObject:
@@ -3146,7 +3198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597965301
 GameObject:
@@ -3345,6 +3397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   kartEntity: {fileID: 1663847167}
+  BackPowerPos: {fileID: 0}
+  risingWallPrefab: {fileID: 0}
   steerAmount: 0
   steerDirection: 0
   currentSpeed: 0
@@ -3496,7 +3550,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1764060831
 MonoBehaviour:
@@ -3885,7 +3939,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1820955976
 MonoBehaviour:
