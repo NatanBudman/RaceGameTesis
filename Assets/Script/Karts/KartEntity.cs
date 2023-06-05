@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KartEntity : MonoBehaviour
 {
-    [SerializeField] private GameManager _manager;
     [SerializeField] private Rigidbody _rb;
     public KartStats _kartStats;
 
