@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turboManager: {fileID: 694465083}
-  _KartController: {fileID: 0}
+  _KartController: {fileID: 694465079}
   MovForward: 119
   MovReverse: 115
   JumpActive: 106
@@ -1689,7 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc380bbf0942ecd4aadeed8a9d8e0a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _kart: {fileID: 694465079}
+  kart: {fileID: 694465084}
   TurboSpeed: 60
   turboAmount: 100
   ConsumeTurboAmount: 0.1
@@ -1707,9 +1707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16a7ee7d5cbca34985cfaa7092f43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 923625237}
   _rb: {fileID: 694465081}
   _kartStats: {fileID: 0}
+  RealSpeed: 0
+  RealSpeedRotate: 0
   currentPoint: 0
   currentTurning: 0
 --- !u!114 &694465085
@@ -2126,6 +2127,7 @@ MonoBehaviour:
   Settings: {fileID: 11400000, guid: 49cff7e5f03239a44b7efb6e0bbcc159, type: 2}
   StatsArray: []
   KartsInGame: []
+  StartRaceTimer: 3
 --- !u!4 &923625238
 Transform:
   m_ObjectHideFlags: 0
@@ -3518,9 +3520,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16a7ee7d5cbca34985cfaa7092f43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 923625237}
   _rb: {fileID: 1663847161}
   _kartStats: {fileID: 0}
+  RealSpeed: 0
+  RealSpeedRotate: 0
   currentPoint: 0
   currentTurning: 0
 --- !u!114 &1663847168

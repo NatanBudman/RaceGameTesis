@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class KartEntity : MonoBehaviour
 {
-    [SerializeField] private GameManager _manager;
     [SerializeField] private Rigidbody _rb;
     public KartStats _kartStats;
 
     #region KartStats
 
-        public float SpeedRotate => _kartStats.SteerDirSpeed;
-        public float Speed => _kartStats.MaxSpeed;
+        private float SpeedRotate => _kartStats.SteerDirSpeed;
+        private float Speed => _kartStats.MaxSpeed;
+
+        public float RealSpeed;
+        public float RealSpeedRotate;
 
 
     #endregion
@@ -59,4 +61,23 @@ public class KartEntity : MonoBehaviour
     }
 
     public int GetCurrentTurning() => currentTurning;
+
+    public float GetRealSpeed => RealSpeed;
+    public float GetSpeed => Speed;
+
+    public void SetRealSpeed(float Speed) 
+    {
+        RealSpeed = Speed;
+    }
+    public float GetRealSpeedRotate => RealSpeedRotate;
+    public float GetSpeedRotate => SpeedRotate;
+
+    private bool isCatch = true;
+
+    public void CatchKart(bool isCachted) 
+    {
+        isCatch = isCachted;
+    }
+
+    public bool isKartCatch() => isCatch;
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class TurboManager : MonoBehaviour
 {
-   public KartController _kart;
-   private float Speed;
+    public KartEntity kart;
    [SerializeField] private int TurboSpeed;
    
    [Header("Turbo Bar")]
@@ -16,7 +15,7 @@ public class TurboManager : MonoBehaviour
    [SerializeField] private float TurboAmountGet;
    private void Start()
    {
-      Speed = _kart.maxSpeed;
+        TurboSpeed += (int)kart.GetRealSpeed;
    }
 
    private bool isHasTurboToUse()
@@ -32,20 +31,28 @@ public class TurboManager : MonoBehaviour
 
    private bool isKartAcceleration()
    {
-      return _kart.realSpeed > 1;
+      return kart.GetVelocity > 1;
    }
 
    public void Turbo(bool Activate)
    {
       if (Activate && isHasTurboToUse() && isKartAcceleration())
       {
-         turboAmount -= ConsumeTurboAmount;
-         _kart.maxSpeed = Speed + TurboSpeed;
-         _kart.realSpeed = _kart.maxSpeed;
+            if (kart.isKartCatch() == false) 
+            {
+                turboAmount -= ConsumeTurboAmount;
+                kart.SetRealSpeed(TurboSpeed);
+            }
+       
+
       }
       else if (!Activate || !isKartAcceleration() || !isHasTurboToUse())
       {
-         _kart.maxSpeed = Speed;
+            if (kart.isKartCatch() == false) 
+            {
+                kart.SetRealSpeed(kart.GetSpeed);
+            }
+                
       }
     
    }

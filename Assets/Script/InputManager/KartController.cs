@@ -12,9 +12,9 @@ public class KartController : MonoBehaviour
 
     #region Stats
 
-    private float SpeedStats => kartEntity.Speed;
+    private float SpeedStats => kartEntity.GetRealSpeed;
 
-    private float SteerDirStats => kartEntity.SpeedRotate;
+    private float SteerDirStats => kartEntity.GetRealSpeedRotate;
 
     #endregion
     
@@ -32,7 +32,7 @@ public class KartController : MonoBehaviour
         private float driftTime;
         public float minSpeedToCrash;
         public float realSpeed; //not the applied speed
-        public float maxSpeed; //max possible speed
+        public float maxSpeed => SpeedStats; //max possible speed
 
         public float boostSpeed; //speed while boosting
         public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
@@ -55,12 +55,6 @@ public class KartController : MonoBehaviour
     private bool Choco = false;
     private void Start()
     {
-        // Set Kart Stats
-        maxSpeed = SpeedStats;
-        steerDirection = SteerDirStats;
-
-        StartVelocity = maxSpeed;
-        //rb = GetComponent<Rigidbody>();
         hasInputManager = _inputManager;
     }
 

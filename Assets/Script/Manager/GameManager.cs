@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     int karts => Settings.Bots;
     public GameObject[] KartsInGame;
+
+    [Space]
+    public int StartRaceTimer;
   
   public KartStats PlayerStats => Settings.playerStats;
 
@@ -36,7 +39,37 @@ public class GameManager : MonoBehaviour
         {
             KartsInGame[i] = kart[i].gameObject;
         }
+
+       
        
     }
 
+    private void Start()
+    {
+        StartCoroutine(InitRace());
+    }
+    IEnumerator InitRace() 
+    {
+
+        for (int i = 0; i < KartsInGame.Length; i++)
+        {
+            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+            kart.CatchKart(true);
+            kart.SetRealSpeed(0);
+        }
+
+        yield return new WaitForSeconds(StartRaceTimer);
+
+
+        for (int i = 0; i < KartsInGame.Length; i++)
+        {
+            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+
+            kart.CatchKart(false);
+            kart.SetRealSpeed(kart.GetSpeed);
+            Debug.Log("entre");
+
+        }
+        StopCoroutine(InitRace());
+    }
 }

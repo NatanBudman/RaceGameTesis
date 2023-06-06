@@ -10,7 +10,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public KartEntity KartEntity;
     public KartEntity playerEntiti;
 
-    private float Speed => KartEntity.Speed;
+    private float Speed => KartEntity.GetSpeed;
 
     [Space] [Header("Others")] [Space] public Transform point;
 
