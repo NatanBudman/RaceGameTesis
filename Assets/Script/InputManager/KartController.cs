@@ -44,7 +44,7 @@ public class KartController : MonoBehaviour
     // fuerzaDeChoque
   
 
-    private bool isGrounded;
+    public bool isGrounded;
     public bool hasInputManager;
 
     [SerializeField] public Rigidbody rb;
@@ -166,7 +166,7 @@ public class KartController : MonoBehaviour
         }
         else if ((realSpeed < 10f) || (realSpeed > -5f))
         {
-            steerAmount = 0;
+            steerAmount = (2f * realSpeed) * steerDirection;
         }
 
         steerDirVector = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + steerAmount, transform.eulerAngles.z);
