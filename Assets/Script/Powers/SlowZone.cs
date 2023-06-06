@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlowZone : MonoBehaviour
 {
     public float slowDrag = 5f; // Valor de drag para ralentizar los objetos
-
+    public GameObject Owner;
     private void OnTriggerStay(Collider other)
     {
         Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();

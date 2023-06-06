@@ -48,7 +48,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
     void Box()
     {
-        BoxModel.transform.Rotate(0, transform.rotation.y + Rotatespeed * Time.fixedTime, 0);
+        BoxModel.transform.Rotate(0, transform.rotation.y + Rotatespeed * Time.deltaTime, 0);
 
         Collider boxCollider = BoxModel.GetComponent<Collider>();
 
@@ -60,7 +60,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
             if (kartCollider.bounds.Intersects(boxCollider.bounds)) 
             {
 
-                Invoke("DeactivateBoxModel", 1f);
+                Invoke("DeactivateBoxModel", 0.5f);
                 OnBoxFuncion -= Box;
             }
         }
