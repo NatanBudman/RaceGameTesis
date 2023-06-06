@@ -46,7 +46,7 @@ public class KartController : MonoBehaviour
     // fuerzaDeChoque
   
 
-    private bool isGrounded;
+    public bool isGrounded;
     public bool hasInputManager;
 
     [SerializeField] public Rigidbody rb;
