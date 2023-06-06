@@ -8,8 +8,6 @@ public class KartController : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private KartEntity kartEntity;
-    public Transform BackPowerPos;
-    public IceWall risingWallPrefab; 
 
 
     #region Stats
@@ -74,14 +72,7 @@ public class KartController : MonoBehaviour
        
     
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-
-            Instantiate(risingWallPrefab, BackPowerPos.position, BackPowerPos.rotation);
-        }
-    }
+    
 
     private float velocit;
     private void Drive()

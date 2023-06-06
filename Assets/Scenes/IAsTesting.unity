@@ -415,6 +415,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1763423710352473605, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
+      propertyPath: m_TagString
+      value: PowerBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763423710352474106, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1763423710527660614, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -462,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 1763423710527660615, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
       propertyPath: m_Name
       value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763423710527660615, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
+      propertyPath: m_TagString
+      value: PowerBox
       objectReference: {fileID: 0}
     - target: {fileID: 4409603829793067568, guid: 5550a77dfba3a48429f65baa072d2e78, type: 3}
       propertyPath: gameManager
@@ -1286,7 +1298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516015132}
   m_Layer: 0
-  m_Name: Back
+  m_Name: IceSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,6 +1571,8 @@ GameObject:
   - component: {fileID: 694465084}
   - component: {fileID: 694465085}
   - component: {fileID: 694465086}
+  - component: {fileID: 694465088}
+  - component: {fileID: 694465087}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Untagged
@@ -1579,8 +1593,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turboManager: {fileID: 694465083}
+  _KartController: {fileID: 0}
   MovForward: 119
   MovReverse: 115
+  JumpActive: 106
   TurboActive: 304
   DriftActive: 32
 --- !u!114 &694465079
@@ -1597,18 +1613,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 694465078}
   kartEntity: {fileID: 694465084}
-  BackPowerPos: {fileID: 516015132}
-  risingWallPrefab: {fileID: -5123939862304654802, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
+  currentSpeed: 0
   steerAmount: 0
   steerDirection: 120
-  currentSpeed: 0
   gravity: 9.8
-  realSpeed: 0
+  jumpForce: 0
+  deaccelerationTime: 0
   minSpeedToCrash: 10
+  realSpeed: 0
   maxSpeed: 60
   boostSpeed: 12
+  jumpDirection: {x: 0, y: 0, z: 1}
   outwardDriftForce: 50000
-  isHasInputManager: 1
+  hasInputManager: 0
   rb: {fileID: 694465081}
   StartVelocity: 0
 --- !u!4 &694465080
@@ -1627,6 +1644,7 @@ Transform:
   - {fileID: 1819024269}
   - {fileID: 393183889}
   - {fileID: 516015132}
+  - {fileID: 961640541}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1720,6 +1738,38 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &694465087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694465077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d273c2967cd546459b0e0688864a0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poderes:
+  - {fileID: 3240615640774796749, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
+  - {fileID: 322887673027414093, guid: 07c41c6366dc34847a31226ca228e45d, type: 3}
+--- !u!114 &694465088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694465077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaab42d9d57c40499aaaf9f5d120837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerRoulette: {fileID: 694465087}
+  risingWallPrefab: {fileID: 3240615640774796749, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
+  mug: {fileID: 322887673027414093, guid: 07c41c6366dc34847a31226ca228e45d, type: 3}
+  BackPowerPos: {fileID: 516015132}
+  BackPowerPos2: {fileID: 961640541}
 --- !u!1 &731846903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2239,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947374575}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &961640540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961640541}
+  m_Layer: 0
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &961640541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961640540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.83, z: -9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 694465080}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976382920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3397,18 +3478,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   kartEntity: {fileID: 1663847167}
-  BackPowerPos: {fileID: 0}
-  risingWallPrefab: {fileID: 0}
+  currentSpeed: 0
   steerAmount: 0
   steerDirection: 0
-  currentSpeed: 0
   gravity: 9.8
-  realSpeed: 0
+  jumpForce: 0
+  deaccelerationTime: 0
   minSpeedToCrash: 0
+  realSpeed: 0
   maxSpeed: 60
   boostSpeed: 12
+  jumpDirection: {x: 0, y: 0, z: 1}
   outwardDriftForce: 0
-  isHasInputManager: 0
+  hasInputManager: 0
   rb: {fileID: 1663847161}
   StartVelocity: 0
 --- !u!135 &1663847166

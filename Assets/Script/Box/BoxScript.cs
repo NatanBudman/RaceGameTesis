@@ -59,13 +59,18 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
             if (kartCollider.bounds.Intersects(boxCollider.bounds)) 
             {
-                BoxModel.SetActive(false);
+
+                Invoke("DeactivateBoxModel", 1f);
                 OnBoxFuncion -= Box;
             }
         }
        
     }
-   
+    void DeactivateBoxModel()
+    {
+        BoxModel.SetActive(false);
+    }
+
     public void Op_UpdateGameplay()
     {
         OnBox();
