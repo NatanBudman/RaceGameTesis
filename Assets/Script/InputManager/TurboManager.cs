@@ -6,22 +6,21 @@ using UnityEngine;
 public class TurboManager : MonoBehaviour
 {
     public KartEntity kart;
-   [SerializeField] private float TurboSpeed;
+   [SerializeField] private int TurboSpeed;
    
    [Header("Turbo Bar")]
-   public float turboAmount;
+   [SerializeField] public float turboAmount;
    [SerializeField] private float ConsumeTurboAmount;
    [SerializeField] private float MaxTurboAmount;
    [SerializeField] private float TurboAmountGet;
-
-    private float turbo;
-
-    private void Start()
-    {
-        turbo = kart.GetKartSpeed() + TurboSpeed;
-    }
-    private bool isHasTurboToUse()
+   private void Start()
    {
+        TurboSpeed += (int)kart.GetRealSpeed;
+   }
+
+   private bool isHasTurboToUse()
+   {
+      
       return turboAmount > 1;
    }
 
@@ -32,20 +31,30 @@ public class TurboManager : MonoBehaviour
 
    private bool isKartAcceleration()
    {
-      return kart.GetComponent<Rigidbody>().velocity.magnitude > 1;
+      return kart.GetVelocity > 1;
    }
 
    public void Turbo(bool Activate)
    {
       if (Activate && isHasTurboToUse() && isKartAcceleration())
       {
-            turboAmount -= ConsumeTurboAmount;
-            kart.SetCurrentSpeed(turbo);
+            if (kart.isKartCatch() == false) 
+            {
+                turboAmount -= ConsumeTurboAmount;
+                kart.SetRealSpeed(TurboSpeed);
+            }
+       
+
       }
-      else if (!Activate || !isKartAcceleration() || !isHasTurboToUse() && kart.GetKartSpeed() > 1)
+      else if (!Activate || !isKartAcceleration() || !isHasTurboToUse())
       {
-            kart.SetCurrentSpeed(kart.GetNormalSpeed());
+            if (kart.isKartCatch() == false) 
+            {
+                kart.SetRealSpeed(kart.GetSpeed);
+            }
+                
       }
+    
    }
 
    public void GetTurbo()
@@ -55,4 +64,5 @@ public class TurboManager : MonoBehaviour
          turboAmount += TurboAmountGet;
       }
    }
+
 }
