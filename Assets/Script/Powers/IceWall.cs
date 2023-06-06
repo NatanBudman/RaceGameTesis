@@ -11,6 +11,8 @@ public class IceWall : MonoBehaviour
     private float elapsedTime;
     public float destroyDuration;
     private float currentDestroyDuration;
+    public GameObject Owner;
+
     private void Start()
     {
         initialPosition = transform.position;
