@@ -5,11 +5,12 @@ using UnityEngine;
 public class InputManager : MonoBehaviour,IOptimizatedUpdate
 {
     public TurboManager _turboManager;
+    public KartController _KartController;
     #region MoveInputs
 
-       public KeyCode MovForward;
        private KeyCode MovLeft;
        private KeyCode MovRight;
+       public KeyCode MovForward;
        public KeyCode MovReverse;
 
     #endregion
@@ -17,11 +18,9 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
     #region ActionInputs
 
       private KeyCode PowerActive;
-      private KeyCode JumpActive;
-      public KeyCode TurboActive = KeyCode.LeftShift;
-
       private KeyCode SkillActivate;
-
+      public KeyCode JumpActive = KeyCode.J;
+      public KeyCode TurboActive = KeyCode.LeftShift;
       public KeyCode DriftActive = KeyCode.Space;
 
     #endregion
@@ -37,6 +36,13 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
             _turboManager.Turbo(false);
         }
 
+        if (Input.GetKeyDown(JumpActive) && _turboManager.turboAmount >= 50)
+        {
+            Debug.Log("salto");
+            _turboManager.turboAmount -= 50;
+            _KartController.Jump();
+        }
+        
         if (Input.GetKey(DriftActive))
         {
             _turboManager.GetTurbo();
@@ -45,5 +51,6 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
 
     public void Op_UpdateUX()
     {
+        
     }
 }
