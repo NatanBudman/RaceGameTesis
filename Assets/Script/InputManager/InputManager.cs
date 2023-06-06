@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
             _turboManager.Turbo(false);
         }
 
-        if (Input.GetKeyDown(JumpActive) && _turboManager.turboAmount >= 50)
+        if (Input.GetKeyDown(JumpActive) && _turboManager.turboAmount >= 50 && _KartController.isGrounded)
         {
             Debug.Log("salto");
             _turboManager.turboAmount -= 50;
