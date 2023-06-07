@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject player = FindObjectOfType<InputManager>().gameObject;
+//       GameObject player = FindObjectOfType<InputManager>().gameObject;
 
-        player.GetComponent<KartEntity>()._kartStats = PlayerStats;
+ //       player.GetComponent<KartEntity>()._kartStats = PlayerStats;
 
         KartsInGame = new GameObject[karts + 1];
 
@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
 
             kart.CatchKart(false);
             kart.SetRealSpeed(kart.GetSpeed);
-            Debug.Log("entre");
 
         }
         StopCoroutine(InitRace());

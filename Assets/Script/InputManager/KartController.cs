@@ -12,9 +12,9 @@ public class KartController : MonoBehaviour
 
     #region Stats
 
-    private float SpeedStats => kartEntity.GetRealSpeed;
+    private float SpeedStats => kartEntity.GetMaxRealSpeed;
 
-    private float SteerDirStats => kartEntity.GetRealSpeedRotate;
+    private float SteerDirStats => kartEntity.GetMaxRealSpeedRotate;
 
     #endregion
     
