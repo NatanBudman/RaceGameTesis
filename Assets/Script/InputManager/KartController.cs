@@ -75,7 +75,7 @@ public class KartController : MonoBehaviour
     {
         if (!Choco)
         {
-            realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
+            realSpeed = transform.InverseTransformDirection(rb.velocity).z; 
         }
         
         if (hasInputManager) //Controls for players
@@ -103,12 +103,11 @@ public class KartController : MonoBehaviour
 
             }
         }
-        else //Controls for AIs
+        else //Controls for Bots
         {
             if (isGrounded)
             {
                 currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
-
             }
             else if(!isGrounded)
             {
@@ -154,11 +153,11 @@ public class KartController : MonoBehaviour
 
         if ((realSpeed > 30f))
         {
-            steerAmount = realSpeed / 2.5f * steerDirection;
+            steerAmount = realSpeed / 2.25f * steerDirection;
         }
         else if ((realSpeed <= 30f && realSpeed > 20f) || (realSpeed < -20f))
         {
-            steerAmount = realSpeed / 2f * steerDirection;
+            steerAmount = realSpeed / 1.8f * steerDirection;
         }
         else if ((realSpeed <= 20f && realSpeed > 10f) || (realSpeed < -10f && realSpeed >= -20f))
         {
@@ -209,7 +208,7 @@ public class KartController : MonoBehaviour
             }
         }
 
-        if (!Input.GetKey(KeyCode.Space) || realSpeed < 35f) //aca podemos dar turbo luego terminar un derrape en base al tiempo de derrape (aun no implementado)
+        if (!Input.GetKey(KeyCode.Space))
         {
             driftLeft = false;
             driftRight = false;
