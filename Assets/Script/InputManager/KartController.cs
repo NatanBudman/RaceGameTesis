@@ -73,6 +73,8 @@ public class KartController : MonoBehaviour
     private float velocit;
     private void Drive()
     {
+        
+        
         if (!Choco)
         {
             realSpeed = transform.InverseTransformDirection(rb.velocity).z; 
@@ -113,7 +115,6 @@ public class KartController : MonoBehaviour
             {
                 rb.AddForce(Vector3.down * gravity,ForceMode.Impulse);
             }
-
         }
 
         Vector3 vel = transform.forward * currentSpeed;
@@ -125,6 +126,11 @@ public class KartController : MonoBehaviour
     {
         steerDirection = Input.GetAxisRaw("Horizontal");
         Vector3 steerDirVector; //se usa para la rotacion final del kart al doblar
+        
+        float normalizedCurrentSpeed = currentSpeed / maxSpeed;
+        float normalizedSteerAmount = steerAmount / 50f;
+        
+        outwardDriftForce = normalizedSteerAmount / normalizedCurrentSpeed;
         
         if (driftLeft && !driftRight) //drift a izq
         {
@@ -163,7 +169,7 @@ public class KartController : MonoBehaviour
         {
             steerAmount = realSpeed * steerDirection;
         }
-        else if ((realSpeed < 10f) || (realSpeed > -5f))
+        else if ((realSpeed < 1f) || (realSpeed > -1f))
         {
             steerAmount = (2f * realSpeed) * steerDirection;
         }
