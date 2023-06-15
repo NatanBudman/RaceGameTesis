@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour, IOptimizatedUpdate
+public class GameManager : MonoBehaviour
 {
     [Header("SettingsGame")] 
 
@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour, IOptimizatedUpdate
 
     int karts => Settings.Bots;
     public GameObject[] KartsInGame;
+
+    [Space]
+    public int StartRaceTimer;
   
   public KartStats PlayerStats => Settings.playerStats;
 
@@ -36,40 +39,37 @@ public class GameManager : MonoBehaviour, IOptimizatedUpdate
         {
             KartsInGame[i] = kart[i].gameObject;
         }
+
+       
        
     }
 
-
-    [SerializeField] private float StartCounter;
-    private float CurrentStartCounter = 0;
-
-    public void Op_UpdateGameplay()
+    private void Start()
     {
-        CurrentStartCounter += Time.deltaTime;
-     
-        if (CurrentStartCounter >= StartCounter)
-        {
-           
-            foreach (GameObject karts in KartsInGame)
-            {
-
-                KartEntity kart = karts.GetComponent<KartEntity>();
-
-                if (kart.isCatch()) { kart.KartStop(false); }
-            }
-        }
-        else 
-        {
-            for (int i = 0; i < KartsInGame.Length; i++) 
-            {
-                KartsInGame[i].GetComponent<KartEntity>().KartStop(true);
-            }
-            
-        }
+        StartCoroutine(InitRace());
     }
-
-    public void Op_UpdateUX()
+    IEnumerator InitRace() 
     {
-        throw new System.NotImplementedException();
+
+        for (int i = 0; i < KartsInGame.Length; i++)
+        {
+            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+            kart.CatchKart(true);
+            kart.SetRealSpeed(0);
+        }
+
+        yield return new WaitForSeconds(StartRaceTimer);
+
+
+        for (int i = 0; i < KartsInGame.Length; i++)
+        {
+            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+
+            kart.CatchKart(false);
+            kart.SetRealSpeed(kart.GetSpeed);
+            Debug.Log("entre");
+
+        }
+        StopCoroutine(InitRace());
     }
 }
