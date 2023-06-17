@@ -16,7 +16,6 @@ public class RacePoint : MonoBehaviour
            
             if (kart.isNextCurrentPoint(Point)) 
             {
-                Debug.Log("entre");
                 kart.SetPoint(Point + 1);
             }
         }

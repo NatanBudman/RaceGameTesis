@@ -4,24 +4,25 @@ using UnityEngine;
 [RequireComponent(typeof(OptimizatedUpdateGameplay))]
 public class InputManager : MonoBehaviour,IOptimizatedUpdate
 {
+    public KartControls Controls;
     public TurboManager _turboManager;
     public KartController _KartController;
     #region MoveInputs
 
-       private KeyCode MovLeft;
-       private KeyCode MovRight;
-       public KeyCode MovForward;
-       public KeyCode MovReverse;
+       private KeyCode MovLeft => Controls.Left;
+       private KeyCode MovRight => Controls.Right;
+       public KeyCode MovForward => Controls.Forward;
+       public KeyCode MovReverse => Controls.Reverse;
 
     #endregion
 
     #region ActionInputs
 
-      private KeyCode PowerActive;
+      private KeyCode PowerActive => Controls.Power;
       private KeyCode SkillActivate;
-      public KeyCode JumpActive = KeyCode.J;
-      public KeyCode TurboActive = KeyCode.LeftShift;
-      public KeyCode DriftActive = KeyCode.Space;
+      public KeyCode JumpActive => Controls.Jump;
+      public KeyCode TurboActive => Controls.Turbo;
+      public KeyCode DriftActive => Controls.Drift;
 
     #endregion
     

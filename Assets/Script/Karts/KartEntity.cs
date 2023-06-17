@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class KartEntity : MonoBehaviour
 {
@@ -12,8 +14,9 @@ public class KartEntity : MonoBehaviour
         private float SpeedRotate => _kartStats.SteerDirSpeed;
         private float Speed => _kartStats.MaxSpeed;
 
-        public float RealSpeed;
-        public float RealSpeedRotate;
+        public float MaxRealSpeed;
+        
+        public float MaxRealSpeedRotate;
 
 
     #endregion
@@ -27,17 +30,28 @@ public class KartEntity : MonoBehaviour
     public Vector3 GetForward => transform.forward;
 
     public float GetVelocity => _rb.velocity.magnitude;
-      
-    
-     public void LookRotate(Vector3 dir)
+
+    private void Start()
+    {
+        MaxRealSpeedRotate = GetSpeedRotate;
+    }
+
+    public void LookRotate(Vector3 dir)
       {
 
-          Quaternion targetRotation = Quaternion.LookRotation(dir);
+          Vector3 direction = dir - transform.position;
 
-          transform.transform.rotation = Quaternion.RotateTowards(transform.transform.rotation,
-              targetRotation, SpeedRotate * Time.deltaTime);
+          dir.y = 0;
+
+          var rotation = Quaternion.LookRotation(dir);
+
+          transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
+          
+          
       }
 
+
+    #region Turnings
     public void SetPoint(int point) 
     {
         currentPoint = point;
@@ -62,22 +76,31 @@ public class KartEntity : MonoBehaviour
 
     public int GetCurrentTurning() => currentTurning;
 
-    public float GetRealSpeed => RealSpeed;
+    #endregion
+
+
+    public float GetMaxRealSpeed => MaxRealSpeed;
     public float GetSpeed => Speed;
 
+    
+    public float GetMaxRealSpeedRotate => MaxRealSpeedRotate;
+    public float GetSpeedRotate => SpeedRotate;
+    
+    private bool isCatch = true;
+    
+    public bool isKartCatch() => isCatch;
+    
+    
     public void SetRealSpeed(float Speed) 
     {
-        RealSpeed = Speed;
+        MaxRealSpeed = Speed;
     }
-    public float GetRealSpeedRotate => RealSpeedRotate;
-    public float GetSpeedRotate => SpeedRotate;
-
-    private bool isCatch = true;
-
     public void CatchKart(bool isCachted) 
     {
         isCatch = isCachted;
     }
 
-    public bool isKartCatch() => isCatch;
+    
+    
+    
 }

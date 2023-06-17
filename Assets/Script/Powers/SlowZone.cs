@@ -6,23 +6,26 @@ public class SlowZone : MonoBehaviour
 {
     public float slowDrag = 5f; // Valor de drag para ralentizar los objetos
     public GameObject Owner;
-    private void OnTriggerStay(Collider other)
+    public float slowTime;
+    private void OnTriggerEnter(Collider other)
     {
-        Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
+        KartEntity kart = other.GetComponent<KartEntity>();
 
-        if (otherRigidbody != null)
+        if (kart != null)
         {
-            otherRigidbody.drag = slowDrag; // Aplica el valor de drag para ralentizar el objeto
+            StartCoroutine(Slower(kart));
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
 
-        if (otherRigidbody != null)
-        {
-            otherRigidbody.drag = 0f; // Restaura el valor de drag a cero para que los objetos vuelvan a su velocidad normal al salir de la zona de ralentización
-        }
+    IEnumerator Slower(KartEntity car)
+    {
+        car.SetRealSpeed(slowDrag);
+        car.CatchKart(true);
+        yield return new WaitForSeconds(slowTime);
+
+        car.SetRealSpeed(car.GetSpeed);
+        car.CatchKart(false);
+        StopCoroutine(Slower(car));
     }
 }

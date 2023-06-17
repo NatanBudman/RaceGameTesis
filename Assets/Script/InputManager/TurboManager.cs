@@ -15,7 +15,7 @@ public class TurboManager : MonoBehaviour
    [SerializeField] private float TurboAmountGet;
    private void Start()
    {
-        TurboSpeed += (int)kart.GetRealSpeed;
+        TurboSpeed += (int)kart.GetMaxRealSpeed;
    }
 
    private bool isHasTurboToUse()

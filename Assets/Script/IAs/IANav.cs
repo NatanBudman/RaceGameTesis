@@ -9,8 +9,12 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public KartController _KartController;
     public KartEntity KartEntity;
     public KartEntity playerEntiti;
+    public pathfinding Pathfinding;
+    public Node from;
+    public Node to;
+    public List<Node> path;
 
-    private float Speed => KartEntity.GetSpeed;
+    private float Speed => KartEntity.GetMaxRealSpeed;
 
     [Space] [Header("Others")] [Space] public Transform point;
 
@@ -38,7 +42,13 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     private void Awake()
     {
+       
         Inicialize();
+    }
+
+    private void Start()
+    {
+        road();
     }
 
     private Vector3 GetDir()
@@ -59,23 +69,32 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
         return dir;
     }
+    
+    private int currentWaypointIndex = 0;
 
-    private void OnDrawGizmos()
+    void road()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position,radius);
-        Gizmos.color = Color.red;
-        
-        Gizmos.DrawRay(transform.position,Quaternion.Euler(0,angle / 2,0)*transform.forward * radius);
-        Gizmos.DrawRay(transform.position,Quaternion.Euler(0,-angle / 2,0)*transform.forward * radius);
+        path = Pathfinding.Path(from,to);
     }
 
+   
     public void Op_UpdateGameplay()
     {
-        Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
-        Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
+       // Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
+      //  Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
         
-        KartEntity.LookRotate(direc);
+      //  KartEntity.LookRotate(direc);
+      //Mueve el objeto
+      
+      if (Vector3.Distance( path[currentWaypointIndex].transform.position,transform.position) > 1)
+      {
+          Vector3 dir = (path[currentWaypointIndex].transform.position - transform.position).normalized;
+          Debug.Log(currentWaypointIndex);
+          KartEntity.LookRotate(dir);
+      } else {
+          currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+      }
+      
     }
 
     public void Op_UpdateUX()
