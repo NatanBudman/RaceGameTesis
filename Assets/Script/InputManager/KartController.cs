@@ -127,10 +127,7 @@ public class KartController : MonoBehaviour
         steerDirection = Input.GetAxisRaw("Horizontal");
         Vector3 steerDirVector; //se usa para la rotacion final del kart al doblar
         
-        float normalizedCurrentSpeed = currentSpeed / maxSpeed;
-        float normalizedSteerAmount = steerAmount / 50f;
-        
-        outwardDriftForce = normalizedSteerAmount / normalizedCurrentSpeed;
+        outwardDriftForce = 10000 * (currentSpeed / 10f);
         
         if (driftLeft && !driftRight) //drift a izq
         {
@@ -227,38 +224,6 @@ public class KartController : MonoBehaviour
         if (collision.collider.gameObject.layer == 6)
         {
             Choco = true;
-            /*
-            if (realSpeed > minSpeedToCrash)
-            {
-                // obtén el vector de choque normal
-                Vector3 collisionNormal = collision.contacts[0].normal;
-
-                // obtén la velocidad actual del objeto
-                Vector3 velocity = GetComponent<Rigidbody>().velocity;
-
-                // calcula la reflexión de la velocidad en la dirección de la normal de la colisión
-                Vector3 reflectedVelocity = velocity - 2 * (Vector3.Dot(velocity, collisionNormal)) * collisionNormal;
-
-                // verifica si la colisión ocurrió desde el frente del objeto
-                float angleBetween = Vector3.Angle(transform.forward, collisionNormal);
-                if (angleBetween < 90f)
-                {
-                    // establece la nueva velocidad en el componente Rigidbody
-                    GetComponent<Rigidbody>().velocity = reflectedVelocity;
-                }
-                else
-                {
-                    // no hagas nada, conserva la velocidad actual del objeto
-                }
-
-                // calcula el ángulo de rotación basado en la reflexión de la velocidad
-                float rotationAngle = Mathf.Atan2(reflectedVelocity.x, reflectedVelocity.z) * Mathf.Rad2Deg;
-
-                // rotar el objeto en la dirección calculada
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotationAngle, transform.rotation.eulerAngles.z);
-                
-            }
-            */
             
             // Obtener la normal de la colisión para obtener la dirección de rebote
             Vector3 direccionRebote = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
