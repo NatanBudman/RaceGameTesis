@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
     public int StartRaceTimer;
-  
+    [HideInInspector]  public float CurrRaceTimer;
   public KartStats PlayerStats => Settings.playerStats;
 
     private void Awake()
@@ -40,17 +40,17 @@ public class GameManager : MonoBehaviour
             KartsInGame[i] = kart[i].gameObject;
         }
 
-       
+        CurrRaceTimer = StartRaceTimer;
+
        
     }
-
     private void Start()
     {
         StartCoroutine(InitRace());
     }
     IEnumerator InitRace() 
     {
-
+        
         for (int i = 0; i < KartsInGame.Length; i++)
         {
             KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
             kart.SetRealSpeed(0);
         }
 
+        
         yield return new WaitForSeconds(StartRaceTimer);
 
 
