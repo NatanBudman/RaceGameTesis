@@ -10,6 +10,8 @@ public class OptimizatedUpdateUX : MonoBehaviour
 
     private void Start()
     {
+        _updateManager = FindObjectOfType<UpdateManager>();
+        
         _updateManager.AddUpdate(this);
 
         _optimizatedUpdate = GetComponents<IOptimizatedUpdate>();

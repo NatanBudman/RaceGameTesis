@@ -69,7 +69,7 @@ public class UpdateManager : MonoBehaviour
             GameplaynextTime = 0;
         }
       
-        if (UItimePerFrame <= UInextTime)
+        if (UInextTime >= UItimePerFrame)
         {
             for (int i = 0; i < UXLenght; i++)
             {
