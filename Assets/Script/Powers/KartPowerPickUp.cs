@@ -56,6 +56,5 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
     public void Op_UpdateUX()
     {
-        throw new System.NotImplementedException();
     }
 }
