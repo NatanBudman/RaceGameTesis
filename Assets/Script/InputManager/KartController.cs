@@ -35,7 +35,7 @@ public class KartController : MonoBehaviour
         public float boostSpeed; //speed while boosting
         public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
     
-        private float outwardDriftForce;
+        [SerializeField] private float outwardDriftForce;
         private bool driftLeft;
         private bool driftRight;
 
@@ -127,7 +127,7 @@ public class KartController : MonoBehaviour
         steerDirection = Input.GetAxisRaw("Horizontal");
         Vector3 steerDirVector; //se usa para la rotacion final del kart al doblar
         
-        //outwardDriftForce = 10000 * ();
+        outwardDriftForce = 10000 * (currentSpeed / 10f);
         
         if (driftLeft && !driftRight) //drift a izq
         {
