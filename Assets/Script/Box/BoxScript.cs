@@ -50,7 +50,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
     {
         BoxModel.transform.Rotate(0, transform.rotation.y + Rotatespeed * Time.deltaTime, 0);
 
-        Collider boxCollider = BoxModel.GetComponent<Collider>();
+        Collider boxCollider = this.gameObject.GetComponent<Collider>();
 
 
         foreach (GameObject kart in gameManager.KartsInGame) 

@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Controls" , menuName = "NewControl")]
 public class KartControls : ScriptableObject
 {
-   public KeyCode Forward;
-   public KeyCode Reverse;
-   public KeyCode Left;
-   public KeyCode Right;
+   public KeyCode Forward = KeyCode.W;
+   public KeyCode Reverse = KeyCode.S;
+   public KeyCode Left = KeyCode.A;
+   public KeyCode Right = KeyCode.D;
    
-   public KeyCode Jump;
-   public KeyCode Turbo;
-   public KeyCode Drift;
-   public KeyCode Power;
+   public KeyCode Jump = KeyCode.Q;
+   public KeyCode Turbo = KeyCode.LeftShift;
+   public KeyCode Drift = KeyCode.Space;
+   public KeyCode Power = KeyCode.E;
 }
