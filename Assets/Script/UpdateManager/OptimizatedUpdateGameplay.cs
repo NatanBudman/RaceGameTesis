@@ -9,14 +9,27 @@ public class OptimizatedUpdateGameplay : MonoBehaviour
 
     private IOptimizatedUpdate[] _optimizatedUpdate;
 
+    public bool isAddManager;
+
     private void Start()
     {
         _updateManager = FindObjectOfType<UpdateManager>();
         
-        _updateManager.AddUpdate(this);
+        if (isAddManager)
+            AddUpdateManger();
         
         _optimizatedUpdate = GetComponents<IOptimizatedUpdate>();
 
+    }
+
+    public void AddUpdateManger()
+    {
+        _updateManager.AddUpdate(this);
+    }
+
+    public void RemoveUpdateManager()
+    {
+        _updateManager.RemoveUpdate(this);
     }
 
     public void UpdateGameplay()

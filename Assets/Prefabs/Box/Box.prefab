@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1763423710352473604}
   - component: {fileID: 1763423710352474104}
   - component: {fileID: 1763423710352474105}
-  - component: {fileID: 1763423710352474106}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Box
   m_TagString: PowerBox
   m_Icon: {fileID: 0}
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1763423710352474106
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763423710352473605}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1763423710527660615
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +94,8 @@ GameObject:
   - component: {fileID: 1763423710527660614}
   - component: {fileID: 3122747663374035735}
   - component: {fileID: 4409603829793067568}
-  m_Layer: 0
+  - component: {fileID: 3295122975644884322}
+  m_Layer: 7
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _updateManager: {fileID: 0}
+  isAddManager: 0
 --- !u!114 &4409603829793067568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +148,16 @@ MonoBehaviour:
   BoxModel: {fileID: 1763423710352473605}
   Rotatespeed: 120
   CooldownBoxSpawned: 3
+--- !u!65 &3295122975644884322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763423710527660615}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}

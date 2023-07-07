@@ -16,14 +16,13 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
    private void Start()
    {
       OnTimerCurrent += TimerCurrent;
-      curr = Manager.CurrRaceTimer;
    }
 
    void TimerCurrent()
    {
+      curr = Manager.CurrRaceTimer;
       if (curr >= 0)
       {
-         curr -= Time.deltaTime * 4.5f;
          currTime.text = "" + Mathf.Ceil(curr);
       }
       else

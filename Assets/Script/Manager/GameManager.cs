@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour,IOptimizatedUpdate
 {
     [Header("SettingsGame")] 
 
@@ -23,7 +23,14 @@ public class GameManager : MonoBehaviour
     [Space]
     public int StartRaceTimer;
     [HideInInspector]  public float CurrRaceTimer;
-  public KartStats PlayerStats => Settings.playerStats;
+
+
+    private delegate void StartRace();
+
+    private event StartRace OnStartRace;
+    
+        
+    public KartStats PlayerStats => Settings.playerStats;
 
     private void Awake()
     {
@@ -42,34 +49,45 @@ public class GameManager : MonoBehaviour
 
         CurrRaceTimer = StartRaceTimer;
 
-       
+        OnStartRace += StartRacing;
     }
-    private void Start()
+
+    void StartRacing()
     {
-        StartCoroutine(InitRace());
+        CurrRaceTimer -= Time.deltaTime * 1;
+
+        if (CurrRaceTimer <= 0)
+        {
+            for (int i = 0; i < KartsInGame.Length; i++)
+            {
+                KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+
+                kart.CatchKart(false);
+                kart.SetRealSpeed(kart.GetSpeed);
+
+            }
+
+            OnStartRace -= StartRacing;
+        }
+        else
+        {
+            for (int i = 0; i < KartsInGame.Length; i++)
+            {
+                KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
+                kart.CatchKart(true);
+                kart.SetRealSpeed(0);
+            }
+        }
     }
-    IEnumerator InitRace() 
+
+    public void Op_UpdateGameplay()
     {
-        
-        for (int i = 0; i < KartsInGame.Length; i++)
-        {
-            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
-            kart.CatchKart(true);
-            kart.SetRealSpeed(0);
-        }
+        if (OnStartRace != null)
+            OnStartRace();
+    }
 
-        
-        yield return new WaitForSeconds(StartRaceTimer);
-
-
-        for (int i = 0; i < KartsInGame.Length; i++)
-        {
-            KartEntity kart = KartsInGame[i].GetComponent<KartEntity>();
-
-            kart.CatchKart(false);
-            kart.SetRealSpeed(kart.GetSpeed);
-
-        }
-        StopCoroutine(InitRace());
+    public void Op_UpdateUX()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -40,10 +40,6 @@ public class UpdateManager : MonoBehaviour
         UItimePerFrame = 1f / UXFPS;
 
     }
-
-
-
-    // Update is called once per frame
     void Update()
     {
         var gameplayLenght = GameplayUpdates.Count;
@@ -54,33 +50,26 @@ public class UpdateManager : MonoBehaviour
 
         if (GameplaynextTime >= GameplaytimePerFrame)
         {
-            for (int i = 0; i < gameplayLenght; i++)
+            List<OptimizatedUpdateGameplay> updatesCopy = new List<OptimizatedUpdateGameplay>(GameplayUpdates);
+
+            foreach (var updateGameplay in updatesCopy)
             {
-                if ( GameplayUpdates[i].isActiveAndEnabled)
+                if (updateGameplay != null)
                 {
-                    GameplayUpdates[i].UpdateGameplay();
-                }
-                else
-                {
-                    RemoveUpdate(GameplayUpdates[i]);
+                    updateGameplay.UpdateGameplay();
                 }
             }
+            updatesCopy = GameplayUpdates;
 
             GameplaynextTime = 0;
+
         }
       
         if (UInextTime >= UItimePerFrame)
         {
             for (int i = 0; i < UXLenght; i++)
             {
-                if ( UXUpdates[i].isActiveAndEnabled)
-                {
                     UXUpdates[i].UpdateUX();
-                }
-                else
-                {
-                    RemoveUpdate(UXUpdates[i]);
-                }
             }
 
             UInextTime = 0;
@@ -90,25 +79,33 @@ public class UpdateManager : MonoBehaviour
 
 
     #region Method
+// Agregar objeto a actualizar a la lista
+   public void AddUpdate(OptimizatedUpdateGameplay obj)
+    {
+        if (!GameplayUpdates.Contains(obj))
+        {
+            GameplayUpdates.Add(obj);
+        }
+    }
 
+// Quitar objeto de la lista
+  public  void RemoveUpdate(OptimizatedUpdateGameplay obj)
+    {
+        if (GameplayUpdates.Contains(obj))
+        {
+            GameplayUpdates.Remove(obj);
+        }
+    }
     public void AddUpdate(OptimizatedUpdateUX UX)
     {
         UXUpdates.Add(UX);
     }
 
-    public void AddUpdate(OptimizatedUpdateGameplay Gameplay)
-    {
-        GameplayUpdates.Add(Gameplay);
-    }
     public void RemoveUpdate(OptimizatedUpdateUX UX)
     {
         UXUpdates.Remove(UX);
     }
 
-    public void RemoveUpdate(OptimizatedUpdateGameplay Gameplay)
-    {
-        GameplayUpdates.Remove(Gameplay);
-    }
 
     #endregion
 }
