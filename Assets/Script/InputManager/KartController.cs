@@ -63,17 +63,12 @@ public class KartController : MonoBehaviour
         Drive();
         Steering();
         GroundNormalRotation();
-        Drift();
-       
-    
-    }
+        Drift(); }
     
 
     private float velocit;
     private void Drive()
     {
-        
-        
         if (!Choco)
         {
             realSpeed = transform.InverseTransformDirection(rb.velocity).z; 
@@ -153,17 +148,21 @@ public class KartController : MonoBehaviour
         //como la direccion del auto es mas fuerte al ir a velocidades mas bajas, ajustamos steerAmount en base a la velocidad real del kart y luego rotamos el kart sobre su eje con steerAmount
         // los numeros 4 y 1.5 pueden requerir ajustes segun la maniobrabilidad del kart
 
-        if ((realSpeed > 30f))
+        if ((realSpeed > SpeedStats / 2))
         {
-            steerAmount = realSpeed / 2.25f * steerDirection;
+            steerAmount = (realSpeed / 1.5f * steerDirection) * SteerDirStats;
         }
-        else if ((realSpeed <= 30f && realSpeed > 20f) || (realSpeed < -20f))
+        else if ((realSpeed <= SpeedStats / 2  && realSpeed > SpeedStats / 4) || (realSpeed < -(SpeedStats / 4)))
         {
-            steerAmount = realSpeed / 1.8f * steerDirection;
+            steerAmount = (realSpeed / 1.25f * steerDirection) * SteerDirStats;
         }
-        else if ((realSpeed <= 20f && realSpeed > 10f) || (realSpeed < -10f && realSpeed >= -20f))
+        else if ((realSpeed <= SpeedStats / 4 && realSpeed > SpeedStats / 6) || (realSpeed < -(SpeedStats / 6) && realSpeed >= -(SpeedStats / 4)))
         {
-            steerAmount = realSpeed * steerDirection;
+            steerAmount = (realSpeed * steerDirection) * SteerDirStats;
+        }
+        else if ((realSpeed <= SpeedStats / 6 && realSpeed > 0.01f) || (realSpeed < -1f))
+        {
+            steerAmount = (realSpeed * steerDirection * 0.5f) * SteerDirStats;
         }
         else if ((realSpeed < 1f) || (realSpeed > -1f))
         {
