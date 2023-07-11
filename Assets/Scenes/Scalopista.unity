@@ -1562,7 +1562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &464911565
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,13 +1570,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464911564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 8.8817826e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1181304838}
-  m_RootOrder: 5
+  m_Father: {fileID: 1233161018}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &464911566
 ParticleSystemRenderer:
@@ -2365,7 +2365,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 5.35
+      value: 7.27
       mode: 0
       spread: 0
       speed:
@@ -52239,6 +52239,38 @@ MonoBehaviour:
   perpDirRotated: {x: -0.3675659, y: 0, z: -0.9299975}
   markerStartUVY: 0.6542969
   customPoints: []
+--- !u!1 &1233161017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233161018}
+  m_Layer: 0
+  m_Name: efectoVelocidad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233161018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233161017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 464911565}
+  m_Father: {fileID: 1181304838}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1241822689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55977,6 +56009,7 @@ MonoBehaviour:
   smooth: 5
   turboSystem: {fileID: 1357835405}
   kart: {fileID: 1357835389}
+  viento: {fileID: 1233161017}
 --- !u!114 &1815754991
 MonoBehaviour:
   m_ObjectHideFlags: 0
