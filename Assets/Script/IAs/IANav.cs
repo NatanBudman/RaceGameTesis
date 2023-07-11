@@ -77,24 +77,26 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
         path = Pathfinding.Path(from,to);
     }
 
-   
+
     public void Op_UpdateGameplay()
     {
-       // Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
-      //  Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
+
+        //Mueve el objeto
+        if (path.Count > 0)
+        {
+            if (Vector3.Distance(path[currentWaypointIndex].transform.position, transform.position) > 1)
+            {
+                Vector3 dir = (path[currentWaypointIndex].transform.position - transform.position).normalized;
+                Debug.Log(currentWaypointIndex);
+                KartEntity.LookRotate(dir);
+            }
+            else
+            {
+                currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+            }
+
+        }
         
-      //  KartEntity.LookRotate(direc);
-      //Mueve el objeto
-      
-      if (Vector3.Distance( path[currentWaypointIndex].transform.position,transform.position) > 1)
-      {
-          Vector3 dir = (path[currentWaypointIndex].transform.position - transform.position).normalized;
-          Debug.Log(currentWaypointIndex);
-          KartEntity.LookRotate(dir);
-      } else {
-          currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
-      }
-      
     }
 
     public void Op_UpdateUX()

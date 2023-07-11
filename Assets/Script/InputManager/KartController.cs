@@ -63,11 +63,12 @@ public class KartController : MonoBehaviour
         Drive();
         Steering();
         GroundNormalRotation();
-        Drift(); }
+        Drift(); 
+    }
     
 
     private float velocit;
-    private void Drive()
+    public void Drive()
     {
         if (!Choco)
         {

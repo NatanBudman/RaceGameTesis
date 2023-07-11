@@ -18,7 +18,7 @@ public class pathfinding : MonoBehaviour
         Node currentNode = from;
         
         int maxIterations = 0;
-        while (currentNode.ID != to.ID && maxIterations < 1000)
+        while (currentNode.ID != to.ID && maxIterations < 2500)
         {
             maxIterations++;
 
