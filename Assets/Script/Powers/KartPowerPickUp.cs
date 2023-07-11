@@ -10,8 +10,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     private GameObject selectedPower;
     public GameObject risingWallPrefab;
     public GameObject mug;
+    public GameObject acelerate;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
+    public Transform BackPowerPos3;
+    Vector3 destination;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +44,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             _mug.GetComponent<SlowZone>().Owner = this.gameObject;
 
         }
-
+        else if (selectedPower.CompareTag("aceleration"))
+        {
+            GameObject _acelerate = Instantiate(acelerate, BackPowerPos3.position, BackPowerPos3.rotation);
+            _acelerate.GetComponent<accelerate>().Owner = this.gameObject;
+        }
     }
 
     public void Op_UpdateGameplay()

@@ -35,28 +35,24 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
 
     private void Awake()
     {
-        Time.timeScale = 1;
 //       GameObject player = FindObjectOfType<InputManager>().gameObject;
 
  //       player.GetComponent<KartEntity>()._kartStats = PlayerStats;
 
-   //     KartsInGame = new GameObject[karts + 1];
+        KartsInGame = new GameObject[karts + 1];
 
-      
+        KartEntity[] kart = FindObjectsOfType<KartEntity>();
+
+        for (int i = 0; i < kart.Length; i++) 
+        {
+            KartsInGame[i] = kart[i].gameObject;
+        }
 
         CurrRaceTimer = StartRaceTimer;
 
         OnStartRace += StartRacing;
     }
-  /*  private void Start()
-    {
-        KartEntity[] kart = FindObjectsOfType<KartEntity>();
 
-        for (int i = 0; i < kart.Length; i++)
-        {
-            KartsInGame[i] = kart[i].gameObject;
-        }
-    }*/
     void StartRacing()
     {
         CurrRaceTimer -= Time.deltaTime * speedStartRace;
