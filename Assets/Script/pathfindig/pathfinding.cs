@@ -72,8 +72,8 @@ public class pathfinding : MonoBehaviour
                 }
             }
         }
-       
         path.Reverse();
+        path.Add(to);
         
         return path;
     }

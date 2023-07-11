@@ -94,20 +94,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80ad30b27fca8d74bb1eb8edd24e6073, type: 3}
   m_PrefabInstance: {fileID: 4588182607875269468}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2649864890121881264
-MonoBehaviour:
+--- !u!135 &7821393964121311914
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3705642344340184589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _updateManager: {fileID: 0}
-  isAddManager: 0
+  serializedVersion: 2
+  m_Radius: 2.3586595
+  m_Center: {x: 0, y: 1.0975915, z: -0.3836775}
 --- !u!114 &448239607520692951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +165,20 @@ MonoBehaviour:
   hasInputManager: 0
   rb: {fileID: 0}
   StartVelocity: 0
+--- !u!114 &2649864890121881264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705642344340184589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateManager: {fileID: 0}
+  isAddManager: 0
 --- !u!114 &8304356814533580664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,33 +197,6 @@ MonoBehaviour:
   MaxRealSpeedRotate: 0
   currentPoint: 0
   currentTurning: 0
---- !u!114 &7633979577417630903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705642344340184589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a6b98519599f194d8b1253c398a9a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _updateManager: {fileID: 0}
-  isAddManager: 0
---- !u!135 &7821393964121311914
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705642344340184589}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.3586595
-  m_Center: {x: 0, y: 1.0975915, z: -0.3836775}
 --- !u!4 &4046139811864151223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 80ad30b27fca8d74bb1eb8edd24e6073, type: 3}
