@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
 
     [Space]
     public int StartRaceTimer;
+    public float speedStartRace;
     [HideInInspector]  public float CurrRaceTimer;
 
 
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
     }*/
     void StartRacing()
     {
-        CurrRaceTimer -= Time.deltaTime * 1;
+        CurrRaceTimer -= Time.deltaTime * speedStartRace;
 
         if (CurrRaceTimer <= 0)
         {
