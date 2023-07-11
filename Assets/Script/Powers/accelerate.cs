@@ -18,7 +18,15 @@ public class accelerate : MonoBehaviour
             StartCoroutine(Slower(kart));
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        KartEntity kart = other.GetComponent<KartEntity>();
 
+        if (kart != null)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     IEnumerator Slower(KartEntity car)
     {
