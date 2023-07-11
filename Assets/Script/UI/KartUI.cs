@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class KartUI : MonoBehaviour,IOptimizatedUpdate
 {
    public GameManager Manager;
-   public Text currTime;
+   public Image One;
+   public Image Two;
+   public Image Three;
+   public Image Go;
 
    private delegate void StartTimer();
 
@@ -21,13 +24,29 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
    void TimerCurrent()
    {
       curr = Manager.CurrRaceTimer;
-      if (curr >= 0)
+      if (curr > 0 && curr <= 1)
       {
-         currTime.text = "" + Mathf.Ceil(curr);
+            One.gameObject.SetActive(true);
+            Two.gameObject.SetActive(false);
+
+        }
+        if (curr > 1 && curr <= 2) 
+      {
+            Two.gameObject.SetActive(true);
+            Three.gameObject.SetActive(false);
+
+
+        }
+        if (curr > 2 && curr <= 3) 
+      {
+            Three.gameObject.SetActive(true);
       }
-      else
+      else if(curr <= 0)
       {
-         OnTimerCurrent -= TimerCurrent;
+            Go.gameObject.SetActive(true);
+            One.gameObject.SetActive(false);
+
+            OnTimerCurrent -= TimerCurrent;
       }
    }
 
@@ -43,11 +62,15 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
       }
       else
       {
-         if (currTime.gameObject.activeInHierarchy)
-         {
-            currTime.gameObject.SetActive(false);
-         }
+            Invoke("Go_text", 2);
       }
 
    }
+
+    void Go_text() 
+    {
+        Go.gameObject.SetActive(false);
+
+    }
+
 }
