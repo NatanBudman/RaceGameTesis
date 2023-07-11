@@ -11,6 +11,7 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
    public Image Two;
    public Image Three;
    public Image Go;
+   public GameObject Pause;
 
    private delegate void StartTimer();
 
@@ -49,10 +50,21 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
             OnTimerCurrent -= TimerCurrent;
       }
    }
-
-   public void Op_UpdateGameplay()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            OnPause(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPause(true);
+        }
+    }
+    public void Op_UpdateGameplay()
    {
-   }
+     
+    }
 
    public void Op_UpdateUX()
    {
@@ -73,4 +85,18 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
 
     }
 
+    public void OnPause(bool pause) 
+    {
+        if (pause)
+        {
+            Time.timeScale = 0;
+            Pause.SetActive(true);
+        }
+        else 
+        {
+            Time.timeScale = 1;
+            Pause.SetActive(false);
+
+        }
+    }
 }
