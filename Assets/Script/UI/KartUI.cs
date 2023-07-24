@@ -7,20 +7,29 @@ using UnityEngine.UI;
 public class KartUI : MonoBehaviour,IOptimizatedUpdate
 {
    public GameManager Manager;
+   public PositionStack stackPos;
+    [Space]
+    [Header("StartCount")]
    public Image One;
    public Image Two;
    public Image Three;
    public Image Go;
    public GameObject Pause;
-
-   private delegate void StartTimer();
+    private delegate void StartTimer();
 
    private event StartTimer OnTimerCurrent;
    private float curr;
+    [Space]
+    [Header("Laps")]
+    public Text currLaps;
+    public Text Laps;
+    public Text CurrentPos;
+
    private void Start()
    {
       OnTimerCurrent += TimerCurrent;
-   }
+        Laps.text = "" + Manager.RaceLaps;
+    }
 
    void TimerCurrent()
    {
@@ -50,6 +59,14 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
             OnTimerCurrent -= TimerCurrent;
       }
    }
+
+    [HideInInspector]public int currentLaps;
+    [HideInInspector]public int currentTotalLaps ;
+    public void UpdateLaps() 
+    {
+        currLaps.text = "" + currentLaps;
+       
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -62,8 +79,8 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
         }
     }
     public void Op_UpdateGameplay()
-   {
-     
+    {
+      
     }
 
    public void Op_UpdateUX()
@@ -77,6 +94,7 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
             Invoke("Go_text", 2);
       }
 
+        CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
    }
 
     void Go_text() 
