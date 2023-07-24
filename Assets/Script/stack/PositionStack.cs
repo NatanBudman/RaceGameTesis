@@ -33,7 +33,7 @@ public class PositionStack : MonoBehaviour
         {
             if (Runners[i].gameObject == key) 
             {
-                return i;
+                return i + 1;
             }
         }
         return 0;
