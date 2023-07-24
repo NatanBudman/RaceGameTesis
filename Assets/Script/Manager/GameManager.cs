@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
     public int StartRaceTimer;
     public float speedStartRace;
     [HideInInspector]  public float CurrRaceTimer;
+    public int RaceLaps => Settings.Racelaps;
 
+    public GameObject[] Points;
 
     private delegate void StartRace();
 
