@@ -8,35 +8,37 @@ public class CameraZoom : MonoBehaviour
     public int normal = 60;
     public float smooth = 5;
     [SerializeField] private TurboManager turboSystem;
-    [SerializeField]  KartController kart;
-    public GameObject viento;
     private bool isZoomed = false;
 
     private void Update()
     {
-       if (kart.realSpeed >= 70)
+        if (turboSystem.turboAmount >= 1)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                isZoomed = true;
+                isZoomed = !isZoomed;
             }
-        
+        }
 
-        if (kart.realSpeed <= 70)
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
 
             isZoomed = false;
 
         }
-      
+        if (turboSystem.turboAmount <= 0)
+        {
+            isZoomed = false;
+
+        }
         if (isZoomed)
         {
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
-            viento.SetActive(true);
         }
 
         if (!isZoomed)
         {
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
-            viento.SetActive(false);
         }
     }
 
