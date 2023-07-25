@@ -23,13 +23,15 @@ public class KartEntity : MonoBehaviour
 
     #region KartGameplay
 
-    [SerializeField]private int currentPoint;
-    [SerializeField]private int currentTurning;
+    public int currentPoint;
+    [HideInInspector]public int currentTurning;
 
     #endregion
     public Vector3 GetForward => transform.forward;
 
+
     public float GetVelocity => _rb.velocity.magnitude;
+
 
     private void Start()
     {
@@ -52,6 +54,13 @@ public class KartEntity : MonoBehaviour
 
 
     #region Turnings
+ 
+   public void GetPoint() 
+    {
+        SetTurning(GetCurrentTurning() + 1);
+        SetPoint(0);
+
+    }
     public void SetPoint(int point) 
     {
         currentPoint = point;
