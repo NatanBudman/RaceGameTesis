@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
@@ -16,7 +17,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Transform BackPowerPos2;
     public Transform BackPowerPos3;
     Vector3 destination;
-
+    public Text powerText;
     public GameObject SelectedPower
     {
         get { return selectedPower; }
@@ -49,6 +50,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
                     selectedPower = powerRoulette.GirarRuleta();
                     hasPower = true;
                     Debug.Log(selectedPower);
+                    UpdatePowerText();
                 }
             }
         }
@@ -72,13 +74,20 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             _acelerate.GetComponent<accelerate>().Owner = this.gameObject;
         }
     }
-
+    private void UpdatePowerText()
+    {
+        if (powerText != null)
+        {
+            powerText.text = selectedPower.name;
+        }
+    }
     public void Op_UpdateGameplay()
     {
         if (hasPower && Input.GetKey(KeyCode.P))
         {
             ActivatePower();
             hasPower = false;
+            powerText.text = "";
         }
     }
 

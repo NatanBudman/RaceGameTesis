@@ -5,7 +5,7 @@ using System.Linq;
 
 public class AgentController : MonoBehaviour
 {
-    public CI_Model crash;
+    public CI_Model kart;
     public Box box;
     public diffNode goalNode;
     public diffNode startNode;
@@ -26,16 +26,23 @@ public class AgentController : MonoBehaviour
         
         _ast = new AStar<diffNode>();
         _colliders = new Collider[10];
+        AStarPlusRun();
     }
-  
-  
+
+    private void Update()
+    {
+        if (Vector3.Distance(kart.transform.position, goalNode.transform.position) < 3f)
+        {
+            AStarPlusRun();
+        }
+    }
     public void AStarPlusRun()
     {
         var start = startNode;
         if (start == null) return;
         var path = _ast.Run(start, Satisfies, GetConections, GetCost, Heuristic, 500);
         path = _ast.CleanPath(path, InView);
-        crash.SetWayPoints(path);
+        kart.SetWayPoints(path);
         box.SetWayPoints(path);
     }
    
@@ -79,13 +86,13 @@ public class AgentController : MonoBehaviour
     }
     diffNode GetStartNode()
     {
-        int count = Physics.OverlapSphereNonAlloc(crash.transform.position, radius, _colliders, maskNodes);
+        int count = Physics.OverlapSphereNonAlloc(kart.transform.position, radius, _colliders, maskNodes);
         float bestDistance = 0;
         Collider bestCollider = null;
         for (int i = 0; i < count; i++)
         {
             Collider currColl = _colliders[i];
-            float currDistance = Vector3.Distance(crash.transform.position, currColl.transform.position);
+            float currDistance = Vector3.Distance(kart.transform.position, currColl.transform.position);
             if (bestCollider == null || bestDistance > currDistance)
             {
                 bestDistance = currDistance;
