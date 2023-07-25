@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerController : MonoBehaviour
+public interface IAIController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void DecideAction(GameObject kart, RuletaPoderes powerRoulette);
+}
 
-    // Update is called once per frame
-    void Update()
+public class PowerController : MonoBehaviour, IAIController
+{
+    public void DecideAction(GameObject kart, RuletaPoderes powerRoulette)
     {
-        
+        KartPowerPickUp powerPickUp = kart.GetComponent<KartPowerPickUp>();
+
+        // Simulamos una acción aleatoria solo si el kart de la IA no tiene un poder
+        if (!powerPickUp.HasPower)
+        {
+            powerPickUp.SelectedPower = powerRoulette.GirarRuleta();
+            powerPickUp.HasPower = true;
+            Debug.Log(powerPickUp.SelectedPower);
+
+            // Activar el poder seleccionado
+            powerPickUp.ActivatePower();
+            powerPickUp.HasPower = false;
+        }
     }
 }

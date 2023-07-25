@@ -12,10 +12,8 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     private GameObject selectedPower;
     public GameObject risingWallPrefab;
     public GameObject mug;
-    public GameObject acelerate;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
-    public Transform BackPowerPos3;
     Vector3 destination;
     public Text powerText;
     public GameObject SelectedPower
@@ -79,7 +77,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     }
     public void Op_UpdateGameplay()
     {
-        if (hasPower && Input.GetKey(KeyCode.P))
+        if (hasPower && Input.GetKey(KeyCode.F))
         {
             ActivatePower();
             hasPower = false;
