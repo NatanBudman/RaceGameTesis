@@ -7,81 +7,33 @@ using UnityEngine.UI;
 public class KartUI : MonoBehaviour,IOptimizatedUpdate
 {
    public GameManager Manager;
-   public PositionStack stackPos;
-    [Space]
-    [Header("StartCount")]
-   public Image One;
-   public Image Two;
-   public Image Three;
-   public Image Go;
-   public GameObject Pause;
-    private delegate void StartTimer();
+   public Text currTime;
+
+   private delegate void StartTimer();
 
    private event StartTimer OnTimerCurrent;
    private float curr;
-    [Space]
-    [Header("Laps")]
-    public Text currLaps;
-    public Text Laps;
-    public Text CurrentPos;
-
    private void Start()
    {
       OnTimerCurrent += TimerCurrent;
-        Laps.text = "" + Manager.RaceLaps;
-    }
+   }
 
    void TimerCurrent()
    {
       curr = Manager.CurrRaceTimer;
-      if (curr > 0 && curr <= 1)
+      if (curr >= 0)
       {
-            One.gameObject.SetActive(true);
-            Two.gameObject.SetActive(false);
-
-        }
-        if (curr > 1 && curr <= 2) 
-      {
-            Two.gameObject.SetActive(true);
-            Three.gameObject.SetActive(false);
-
-
-        }
-        if (curr > 2 && curr <= 3) 
-      {
-            Three.gameObject.SetActive(true);
+         currTime.text = "" + Mathf.Ceil(curr);
       }
-      else if(curr <= 0)
+      else
       {
-            Go.gameObject.SetActive(true);
-            One.gameObject.SetActive(false);
-
-            OnTimerCurrent -= TimerCurrent;
+         OnTimerCurrent -= TimerCurrent;
       }
    }
 
-    [HideInInspector]public int currentLaps;
-    [HideInInspector]public int currentTotalLaps ;
-    public void UpdateLaps() 
-    {
-        currLaps.text = "" + currentLaps;
-       
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            OnPause(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            OnPause(true);
-        }
-    }
-    public void Op_UpdateGameplay()
-    {
-      
-    }
+   public void Op_UpdateGameplay()
+   {
+   }
 
    public void Op_UpdateUX()
    {
@@ -91,30 +43,11 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
       }
       else
       {
-            Invoke("Go_text", 2);
+         if (currTime.gameObject.activeInHierarchy)
+         {
+            currTime.gameObject.SetActive(false);
+         }
       }
 
-        CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
    }
-
-    void Go_text() 
-    {
-        Go.gameObject.SetActive(false);
-
-    }
-
-    public void OnPause(bool pause) 
-    {
-        if (pause)
-        {
-            Time.timeScale = 0;
-            Pause.SetActive(true);
-        }
-        else 
-        {
-            Time.timeScale = 1;
-            Pause.SetActive(false);
-
-        }
-    }
 }

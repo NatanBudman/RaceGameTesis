@@ -8,29 +8,12 @@ public class RaceFinish : MonoBehaviour
 
     public int MaxTurning;
 
-    LookUpTable<GameObject,KartEntity> lookUpTable ;
-    LookUpTable<GameObject,KartUI> lookUpTableUI ;
-
-    private void Start()
-    {
-        lookUpTable = new LookUpTable<GameObject, KartEntity>(ActionLookUpTable);
-        lookUpTableUI = new LookUpTable<GameObject, KartUI>(ActionLookUpTableUI);
-    }
-    KartEntity ActionLookUpTable(GameObject key)
-    {
-        return key.GetComponent<KartEntity>();
-    }
-    KartUI ActionLookUpTableUI(GameObject key)
-    {
-        return key.GetComponent<KartUI>();
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (ActionLookUpTable(other.gameObject) != null)
+        if (other.GetComponent<KartEntity>() != null)
         {
-            KartEntity kart = ActionLookUpTable(other.gameObject);
-       
+            KartEntity kart = other.GetComponent<KartEntity>();
 
 
             if (kart.isNextCurrentPoint(pointsInRace))
@@ -41,16 +24,8 @@ public class RaceFinish : MonoBehaviour
                 }
                 else 
                 {
-                    kart.GetPoint();
-
-                    if (other.gameObject.GetComponent<KartUI>() != null)
-                    {
-                        KartUI kartUI = ActionLookUpTableUI(other.gameObject);
-                        kartUI.currentLaps += 1;
-                        kartUI.currentTotalLaps = MaxTurning;
-                        kartUI.UpdateLaps();
-                    }
-
+                    kart.SetTurning(kart.GetCurrentTurning() + 1);
+                    kart.SetPoint(0);
                 }
               
             }

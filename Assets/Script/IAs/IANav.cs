@@ -12,7 +12,6 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public pathfinding Pathfinding;
     public Node from;
     public Node to;
-    public Node to2;
     public List<Node> path;
 
     private float Speed => KartEntity.GetMaxRealSpeed;
@@ -76,57 +75,28 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     void road()
     {
         path = Pathfinding.Path(from,to);
-        isTo = true;
     }
-    bool isTo = true;
-    void road2()
-    {
-        path = Pathfinding.Path(to, to2);
-        isTo = false;
-    }
+
+   
     public void Op_UpdateGameplay()
     {
-
+       // Vector3 obstacleAvoid = _obstacleAvoidance.GetDir();
+      //  Vector3 direc = (GetDir() + obstacleAvoid * mutliplier).normalized;
         
-       
-        if (path.Count > 0)
-        {
-            List<Node> copy = new List<Node>(path);
-
-            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 8)
-            {
-                Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
-                Debug.Log(copy[currentWaypointIndex].name);
-                KartEntity.LookRotate(dir);
-            }
-            else
-            {
-                currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
-            }
-            if (currentWaypointIndex >= path.Count - 1) 
-            {
-                roads();
-                currentWaypointIndex = 0;
-            }
-            copy = path;
-        }
-
-    }
-
-    void roads() 
-    {
-        if (isTo)
-        {
-            road2();
-            return;
-        }
-        else 
-        {
-            road();
-            return;
-        }
+      //  KartEntity.LookRotate(direc);
+      //Mueve el objeto
+      
+      if (Vector3.Distance( path[currentWaypointIndex].transform.position,transform.position) > 1)
+      {
+          Vector3 dir = (path[currentWaypointIndex].transform.position - transform.position).normalized;
+          Debug.Log(currentWaypointIndex);
+          KartEntity.LookRotate(dir);
+      } else {
+          currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+      }
       
     }
+
     public void Op_UpdateUX()
     {
     }
