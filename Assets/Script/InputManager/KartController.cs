@@ -61,17 +61,13 @@ public class KartController : MonoBehaviour
     private void FixedUpdate()
     {
         Drive();
-        if (_inputManager != null) 
-        {
-            Steering();
-        }
+        Steering();
         GroundNormalRotation();
-        Drift(); 
-    }
+        Drift(); }
     
 
     private float velocit;
-    public void Drive()
+    private void Drive()
     {
         if (!Choco)
         {
@@ -105,11 +101,9 @@ public class KartController : MonoBehaviour
         }
         else //Controls for Bots
         {
-           
             if (isGrounded)
             {
-                currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f);
-                //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
+                currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
             }
             else if(!isGrounded)
             {
