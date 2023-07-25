@@ -46,7 +46,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
     public void Op_UpdateGameplay()
     {
-        if (hasPower && Input.GetKey(KeyCode.P))
+        if (hasPower && Input.GetKey(KeyCode.G))
         {
             Debug.Log("entre");
             ActivatePower();
