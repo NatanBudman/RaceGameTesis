@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class KartUI : MonoBehaviour,IOptimizatedUpdate
 {
    public GameManager Manager;
-   public PositionStack stackPos;
+  // public PositionStack stackPos;
     [Space]
     [Header("StartCount")]
    public Image One;
@@ -94,7 +94,7 @@ public class KartUI : MonoBehaviour,IOptimizatedUpdate
             Invoke("Go_text", 2);
       }
 
-        CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
+     //   CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
    }
 
     void Go_text() 
