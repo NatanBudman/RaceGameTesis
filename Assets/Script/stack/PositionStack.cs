@@ -28,7 +28,7 @@ public class PositionStack : MonoBehaviour
         {
             Runners.Add(kartEntities[i].gameObject);
 
-            y += 20;
+            y -= 35;
             Vector2 pos = new Vector2(SpawnTabletPositions.position.x , SpawnTabletPositions.position.y + y);
             GameObject text = Instantiate(TextPrefab, pos, Quaternion.identity, SpawnTabletPositions);
             OrderList[i] = text.transform;
