@@ -17,7 +17,14 @@ public class TurboManager : MonoBehaviour
    {
         TurboSpeed += (int)kart.GetMaxRealSpeed;
    }
-
+    public float GetTurboAmount() 
+    {
+        return turboAmount;
+    }
+    public float GetMaxTurboAmount() 
+    {
+        return MaxTurboAmount;
+    }
    private bool isHasTurboToUse()
    {
       

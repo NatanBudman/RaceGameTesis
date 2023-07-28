@@ -24,7 +24,7 @@ public class KartEntity : MonoBehaviour
     #region KartGameplay
 
     public int currentPoint;
-    [HideInInspector]public int currentTurning;
+    public int currentTurning = 1; 
 
     #endregion
     public Vector3 GetForward => transform.forward;
