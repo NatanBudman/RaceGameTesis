@@ -58,7 +58,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void StartLap()
+    public void StartLap()
     {
         lapStarted = true;
         lapStartTime = Time.time;
