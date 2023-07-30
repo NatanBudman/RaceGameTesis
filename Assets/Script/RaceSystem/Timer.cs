@@ -14,6 +14,9 @@ public class Timer : MonoBehaviour
     private int lapCount;
     private bool lapStarted = false;
     private List<float> lapTimes = new List<float>();
+    public Collider carCollider;
+    private bool lapCompleted = false;
+
 
     private void Update()
     {
@@ -24,30 +27,32 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider carCollider)
     {
-        InputManager car = other.GetComponent<InputManager>();
-
-        if (car != null)
+        InputManager car = carCollider.GetComponent<InputManager>();
+        if (car != null && carCollider.isTrigger == false)
         {
-            if (!lapStarted)
+            if (car != null)
             {
-                StartLap();
-
-            }
-            else
-            {
-                SaveLapTime();
-                lapCount++;
-
-                if (lapCount >= 3)
+                if (!lapStarted)
                 {
-                    StopTimer();
-                    ShowLapTimes();
+                    StartLap();
+
                 }
                 else
                 {
-                    StartLap();
+                    SaveLapTime();
+                    lapCount++;
+                    lapCompleted = true;
+                    if (lapCount >= 3)
+                    {
+                        StopTimer();
+                        ShowLapTimes();
+                    }
+                    else
+                    {
+                        StartLap();
+                    }
                 }
             }
         }
@@ -57,6 +62,7 @@ public class Timer : MonoBehaviour
     {
         lapStarted = true;
         lapStartTime = Time.time;
+        lapCompleted = false;
     }
 
     private void SaveLapTime()
@@ -87,8 +93,7 @@ public class Timer : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
-        float milliseconds = (time * 1000) % 1000;
 
-        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
