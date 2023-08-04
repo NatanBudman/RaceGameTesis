@@ -16,8 +16,12 @@ public class Timer : MonoBehaviour
     private List<float> lapTimes = new List<float>();
     public Collider carCollider;
     private bool lapCompleted = false;
+    private GameManager gameManager;
 
-
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
         if (lapStarted == true)
@@ -44,7 +48,7 @@ public class Timer : MonoBehaviour
                     SaveLapTime();
                     lapCount++;
                     lapCompleted = true;
-                    if (lapCount >= 3)
+                    if (lapCount >= gameManager.RaceLaps)
                     {
                         StopTimer();
                         ShowLapTimes();

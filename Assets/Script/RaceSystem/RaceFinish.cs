@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RaceFinish : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public int pointsInRace;
 
-    public int MaxTurning;
+    public int MaxTurning => gameManager.RaceLaps;
 
     LookUpTable<GameObject,KartEntity> lookUpTable ;
     LookUpTable<GameObject,KartUI> lookUpTableUI ;
