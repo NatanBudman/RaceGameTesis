@@ -24,7 +24,10 @@ public class SettingMap : MonoBehaviour
     public Text LapsTxt;
     public Text BoxTxt;
     public Text DiffTxt;
-
+    [Space]
+    [Space]
+    [Space]
+    public string Map;
     private void Start()
     {
         RunnersTxt.text = "" + Runners;
@@ -108,5 +111,10 @@ public class SettingMap : MonoBehaviour
                 Dificulty = 0;
                 break;
         }
+    }
+
+    public void SetMap(string SceneMap) 
+    {
+        Map = SceneMap;
     }
 }
