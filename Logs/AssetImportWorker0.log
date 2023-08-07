@@ -15,7 +15,7 @@ D:/GitHubRepos/RaceGameTesis
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52650
+52938
 Successfully changed project path to: D:/GitHubRepos/RaceGameTesis
 D:/GitHubRepos/RaceGameTesis
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ D:/GitHubRepos/RaceGameTesis
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8496] Host "[IP] 192.168.1.43 [Port] 0 [Flags] 2 [Guid] 3830545527 [EditorId] 3830545527 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [10700] Host "[IP] 192.168.1.43 [Port] 0 [Flags] 2 [Guid] 4208492419 [EditorId] 4208492419 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [8496] Host "[IP] 192.168.1.43 [Port] 0 [Flags] 2 [Guid] 3830545527 [EditorId] 3830545527 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [10700] Host "[IP] 192.168.1.43 [Port] 0 [Flags] 2 [Guid] 4208492419 [EditorId] 4208492419 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 32.19 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 33.03 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.18f1 (3129e69bc0c7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -67,75 +67,75 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56200
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.022591 seconds.
+Registered in 0.023030 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 28.81 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 30.20 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.598 seconds
+- Completed reload, in  0.613 seconds
 Domain Reload Profiling:
-	ReloadAssembly (599ms)
-		BeginReloadAssembly (105ms)
+	ReloadAssembly (614ms)
+		BeginReloadAssembly (104ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (355ms)
-			LoadAssemblies (99ms)
+		EndReloadAssembly (367ms)
+			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (93ms)
+			SetupTypeCache (99ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (22ms)
-			SetupLoadedEditorAssemblies (186ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (188ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (12ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (29ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (30ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (104ms)
-				ProcessInitializeOnLoadMethodAttributes (40ms)
+				ProcessInitializeOnLoadAttributes (105ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004483 seconds.
+Registered in 0.004440 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 Mono: successfully reloaded assembly
-- Completed reload, in  0.917 seconds
+- Completed reload, in  0.897 seconds
 Domain Reload Profiling:
-	ReloadAssembly (918ms)
-		BeginReloadAssembly (136ms)
+	ReloadAssembly (898ms)
+		BeginReloadAssembly (148ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (652ms)
-			LoadAssemblies (100ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (619ms)
+			LoadAssemblies (108ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (182ms)
+			SetupTypeCache (168ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (308ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (295ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
+				RefreshPlugins (0ms)
 				BeforeProcessingInitializeOnLoad (68ms)
-				ProcessInitializeOnLoadAttributes (187ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
-				AfterProcessingInitializeOnLoad (23ms)
+				ProcessInitializeOnLoadAttributes (173ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
+				AfterProcessingInitializeOnLoad (24ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
@@ -143,12 +143,12 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1695 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 25 unused Assets / (60.7 KB). Loaded Objects now: 2295.
 Memory consumption went from 91.8 MB to 91.7 MB.
-Total: 2.668800 ms (FindLiveObjects: 0.183900 ms CreateObjectMapping: 0.050300 ms MarkObjects: 2.340200 ms  DeleteObjects: 0.093200 ms)
+Total: 2.740200 ms (FindLiveObjects: 0.262600 ms CreateObjectMapping: 0.056000 ms MarkObjects: 2.311600 ms  DeleteObjects: 0.108300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,97 +162,25 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 31014.238506 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c15f33aa01407dda1c294d48647ccdf0') in 0.119486 seconds 
+  Time since last request: 32105.145533 seconds.
+  path: Assets/3DModels/PistaArg/PistaArgWithLODs.fbx
+  artifactKey: Guid(d53fbb891ba833c4eaaf94fd73b76616) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/PistaArg/PistaArgWithLODs.fbx using Guid(d53fbb891ba833c4eaaf94fd73b76616) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4f533b31aeb3e775bc00d1de3f826a1') in 0.383190 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef80a1585c796db270775455ad2b9478') in 0.029132 seconds 
+  Time since last request: 5.440222 seconds.
+  path: Assets/3DModels/PistaArg/PistaArg.fbx
+  artifactKey: Guid(68b32b6f613415e41b4212e4efade100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/PistaArg/PistaArg.fbx using Guid(68b32b6f613415e41b4212e4efade100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4797fdeadf31493dbf95382e3b0b83e8') in 0.208822 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.783991 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd71281ef9025a639fd5da2fcf5ac571c') in 0.013313 seconds 
+  Time since last request: 1552.031627 seconds.
+  path: Assets/3DModels/PistaArg/PistaArg.fbx
+  artifactKey: Guid(68b32b6f613415e41b4212e4efade100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/PistaArg/PistaArg.fbx using Guid(68b32b6f613415e41b4212e4efade100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '931f7b4cc1b266de851672cd9bbfd5e0') in 0.357287 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3012ae00afac5c65f0a8f281da7e551') in 0.010890 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.906770 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '908da99a03e8d00473c49fce9b3e1585') in 0.013424 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7ce9b11feda60a276aabef1daac5e5d') in 0.015859 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.622448 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2c3e16e8ae7d49142380d381c9706a3') in 0.020497 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d4ca56f660e6a90c18c917c78f4f128') in 0.017534 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.956461 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dabefa4ae63259fa9364f0fefe5884b3') in 0.033099 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43daba1ad33bf43a59f0e9e7e070d1b6') in 0.011004 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.413035 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45da93d1e2fc32ce9e53bbd18ed6e193') in 0.013694 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8c09c3029edf6820ad050a3949eb550') in 0.014038 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 111.312214 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '572a4637ffb7c034bd0e3b806d36c86a') in 0.020272 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01b20f481fcfb414bc49c98b247e637b') in 0.010362 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.550871 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbb95253eac65cf380f0253900cfb4c6') in 0.012123 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Sphere.prefab
-  artifactKey: Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Sphere.prefab using Guid(503eac92bba2d3041b4b5cda5e3772fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '088f1a8a69e3081f3162b03d4dfd83f9') in 0.010107 seconds 
+  Time since last request: 869.637547 seconds.
+  path: Assets/3DModels/PistaArg/Materials
+  artifactKey: Guid(241ee965fe48deb429185b2c8e5a0d7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/PistaArg/Materials using Guid(241ee965fe48deb429185b2c8e5a0d7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecaf9f8c8aa2f6583e16adc9108adaef') in 0.008948 seconds 
