@@ -96,7 +96,6 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 8)
             {
                 Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
-                Debug.Log(copy[currentWaypointIndex].name);
                 KartEntity.LookRotate(dir);
             }
             else

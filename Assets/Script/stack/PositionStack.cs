@@ -9,30 +9,20 @@ public class PositionStack : MonoBehaviour
     public List<GameObject> Runners = new List<GameObject>();
 
     public GameObject[] Points;
-    public Text[] RunnersList;
-    private Transform[] OrderList;
+    public GameObject Player;
+    public Image Position;
 
-    [Header("Table Position")]
-    public Transform SpawnTabletPositions;
-    public GameObject TextPrefab;
+    public Sprite[] PositionImages;
     
     private void Start()
     {
         KartEntity[] kartEntities = FindObjectsOfType<KartEntity>();
         int lenght = kartEntities.Length;
-        RunnersList = new Text[lenght];
-        OrderList = new Transform[lenght];
 
-        int y = 0;
         for (int i = 0; i < lenght; i++) 
         {
             Runners.Add(kartEntities[i].gameObject);
 
-            y -= 35;
-            Vector2 pos = new Vector2(SpawnTabletPositions.position.x , SpawnTabletPositions.position.y + y);
-            GameObject text = Instantiate(TextPrefab, pos, Quaternion.identity, SpawnTabletPositions);
-            OrderList[i] = text.transform;
-            RunnersList[i] = text.GetComponent<Text>();
         }
     }
     public void AddRunners(GameObject runner)
@@ -83,10 +73,7 @@ public class PositionStack : MonoBehaviour
             }
      
         }
-
-        for (int i = 0; i < Runners.Count; i++)
-        {
-            RunnersList[i].text = $"{Runners[i].name }  :   {1 + i }";
-        }
+        Debug.Log(GetPos(Player));
+        Position.sprite = PositionImages[GetPos(Player) - 1];
     }
 }
