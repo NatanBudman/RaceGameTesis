@@ -12,10 +12,24 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     private GameObject selectedPower;
     public GameObject risingWallPrefab;
     public GameObject mug;
+    public GameObject missile;
+    public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
     Vector3 destination;
     public Text powerText;
+    private bool isSlowed;
+
+    private float TimeSlowed;
+    private float VelSlowed;
+    private float BaseKarVel;
+    [SerializeField] private KartController kart;
+
+    public void Start()
+    {
+        BaseKarVel = kart.maxSpeed;
+
+    }
     public GameObject SelectedPower
     {
         get { return selectedPower; }
@@ -53,7 +67,12 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             }
         }
     }
-
+    public void Slowed(bool isSlowed, float TimeSlow, float velocySlow)
+    {
+        this.isSlowed = isSlowed;
+        TimeSlowed = TimeSlow;
+        VelSlowed = velocySlow;
+    }
     public void ActivatePower()
     {
         if (selectedPower.CompareTag("IceWall"))
@@ -65,6 +84,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         {
             GameObject _mug = Instantiate(mug, BackPowerPos2.position, BackPowerPos2.rotation);
             _mug.GetComponent<SlowZone>().Owner = this.gameObject;
+
+        }else if (selectedPower.CompareTag("Missile"))
+        {
+            GameObject _missile = Instantiate(missile, FrontPowerPos.position, FrontPowerPos.rotation);
+            _missile.GetComponent<Missile>().Owner = this.gameObject;
         }
       
     }
@@ -75,6 +99,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             powerText.text = selectedPower.name;
         }
     }
+    
     public void Op_UpdateGameplay()
     {
         if (hasPower && Input.GetKey(KeyCode.F))
@@ -82,6 +107,22 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             ActivatePower();
             hasPower = false;
             powerText.text = "";
+        }
+
+        if (isSlowed)
+        {
+
+            if (TimeSlowed > 0f)
+            {
+                TimeSlowed -= Time.deltaTime;
+                kart.currentSpeed = VelSlowed;
+            }
+            else
+            {
+                kart.currentSpeed = BaseKarVel;
+
+                isSlowed = false;
+            }
         }
     }
 
