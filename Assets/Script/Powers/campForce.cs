@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class campForce : MonoBehaviour
 {
@@ -14,60 +15,29 @@ public class campForce : MonoBehaviour
     public float flickerRestDuration = 3; //Duration between flickers
     public float idleFloatDistance = 0.5f; //Floating; Y distance for the wisp to move up and down
     private bool flickering = false, isAlive; //These bools control our loops
-    private float flickerDurationCounter, flickerRestDurationCounter; //More hidden counter/timer
-    private ParticleSystem particle; //Wisp particle
-    private Transform wisp; //The transform to move up and down
-    private Vector3 upPos, downPos; //Saved positions to move our wisp transform
+    public float flickerDurationCounter;  //More hidden counter/timer
+    private float flickerRestDurationCounter;
 
     private void Start()
     {
-        wisp = transform.Find("Wisp"); //Assign our wisp transform
-
-        //Assign the locations for our wisp to move up and down
-        upPos = wisp.position;
-        upPos.y += idleFloatDistance;
-        downPos = wisp.position;
-        downPos.y -= idleFloatDistance;
-
-        particle = transform.Find("Wisp/Effect").GetComponent<ParticleSystem>(); //Assign our particle system
+        
 
         //Making sure our values are set correctly
-        flickerDurationCounter = flickerDuration;
+        flickerRestDurationCounter = flickerDurationCounter ;
         isAlive = true;
     }
 
     void Update()
     {
-        if (isAlive) //If our flicker amount is bigger than 0 then we are alive
+        if (flickerRestDurationCounter > 0) //If our flicker amount is bigger than 0 then we are alive
         {
             //Loop that moves the wisp transform up and down
-            wisp.position = Vector3.Lerp(upPos, downPos, (Mathf.Sin(1 * Time.time) + 1.0f) / 2.0f);
 
-            if (flickerAmount > 0)
-            {
-                if (flickering)
-                {
-                    Flicker(transform.position); //Call our function that moves affected units towards wisp
-                }
-                else
-                {
-                    if (flickerRestDurationCounter > 0)
-                    {
-                        flickerRestDurationCounter -= Time.deltaTime;
-                    }
-                    else
-                    {
-                        //Set our particle's rate over time
-                        var emi = particle.emission;
-                        emi.rateOverTime = 20;
+            flickerRestDurationCounter -= Time.deltaTime;
 
-                        //Set our bool to true so that we start flickering
-                        flickering = true;
-                        flickerDurationCounter = flickerDuration;
-                    }
-                }
-            }
-            else { isAlive = false; }
+            Flicker(transform.position); //Call our function that moves affected units towards wisp
+               
+            
         }
         else
         {
@@ -77,10 +47,7 @@ public class campForce : MonoBehaviour
 
     void Flicker(Vector3 destination)
     {
-        if (flickerDurationCounter > 0)
-        {
-            flickerDurationCounter -= Time.deltaTime;
-            flickering = true;
+     
 
             //Create a sphere around location using our radius
             Collider[] objectsInRange = Physics.OverlapSphere(transform.position, radius);
@@ -105,20 +72,7 @@ public class campForce : MonoBehaviour
                     col.transform.rotation = Quaternion.Slerp(col.transform.rotation, rot, rotationSpeed * Time.deltaTime);
                 }
             }
-        }
-        else
-        {
-            //Set our particle's rate over time
-            var emi = particle.emission;
-            emi.rateOverTime = 0;
-
-            //Reset our loop
-            flickering = false;
-            //Set our resting between flicker counter
-            flickerRestDurationCounter = flickerRestDuration;
-            //Lower the flicker amount
-            flickerAmount -= 1;
-        }
+       
     }
 
     private void OnDrawGizmos() //Visualize our area of effect using gizmos
