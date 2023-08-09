@@ -13,6 +13,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public GameObject risingWallPrefab;
     public GameObject mug;
     public GameObject missile;
+    public GameObject campBullet;
     public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
@@ -90,7 +91,12 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             GameObject _missile = Instantiate(missile, FrontPowerPos.position, FrontPowerPos.rotation);
             _missile.GetComponent<Missile>().Owner = this.gameObject;
         }
-      
+        else if (selectedPower.CompareTag("CampBullet"))
+        {
+            GameObject _bullet = Instantiate(campBullet, FrontPowerPos.position, FrontPowerPos.rotation);
+            _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
+        }
+
     }
     private void UpdatePowerText()
     {
