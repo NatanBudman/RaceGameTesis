@@ -18,7 +18,6 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
     Vector3 destination;
-    public Text powerText;
     private bool isSlowed;
 
     private float TimeSlowed;
@@ -26,10 +25,28 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     private float BaseKarVel;
     [SerializeField] private KartController kart;
 
+    public Image iceWallImage;
+    public Image mugImage;
+    public Image missileImage;
+    public Image campBulletImage;
+
+    private Dictionary<string, Image> powerImages = new Dictionary<string, Image>();
+
     public void Start()
     {
         BaseKarVel = kart.maxSpeed;
+        powerImages["IceWall"] = iceWallImage;
+        powerImages["Mug"] = mugImage;
+        powerImages["Missile"] = missileImage;
+        powerImages["CampBullet"] = campBulletImage;
+    }
 
+    private void UpdatePowerImage(bool isActive)
+    {
+        if (powerImages.TryGetValue(selectedPower.tag, out Image image))
+        {
+            image.gameObject.SetActive(isActive);
+        }
     }
     public GameObject SelectedPower
     {
@@ -56,6 +73,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
                     Debug.Log("poderIA");
 
                     aiController.DecideAction(gameObject, powerRoulette);
+
                 }
                 else
                 {
@@ -63,7 +81,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
                     selectedPower = powerRoulette.GirarRuleta();
                     hasPower = true;
                     Debug.Log(selectedPower);
-                    UpdatePowerText();
+                    UpdatePowerImage(true);
                 }
             }
         }
@@ -86,25 +104,24 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             GameObject _mug = Instantiate(mug, BackPowerPos2.position, BackPowerPos2.rotation);
             _mug.GetComponent<SlowZone>().Owner = this.gameObject;
 
-        }else if (selectedPower.CompareTag("Missile"))
+
+        }
+        else if (selectedPower.CompareTag("Missile"))
         {
             GameObject _missile = Instantiate(missile, FrontPowerPos.position, FrontPowerPos.rotation);
             _missile.GetComponent<Missile>().Owner = this.gameObject;
+
         }
         else if (selectedPower.CompareTag("CampBullet"))
         {
             GameObject _bullet = Instantiate(campBullet, FrontPowerPos.position, FrontPowerPos.rotation);
             _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
+
         }
 
     }
-    private void UpdatePowerText()
-    {
-        if (powerText != null)
-        {
-            powerText.text = selectedPower.name;
-        }
-    }
+   
+
     
     public void Op_UpdateGameplay()
     {
@@ -112,7 +129,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         {
             ActivatePower();
             hasPower = false;
-            powerText.text = "";
+            UpdatePowerImage(false);
         }
 
         if (isSlowed)
