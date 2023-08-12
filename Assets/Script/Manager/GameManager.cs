@@ -50,15 +50,16 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
 
         OnStartRace += StartRacing;
     }
-  /*  private void Start()
+    private void Start()
     {
+        Time.timeScale = 1;
         KartEntity[] kart = FindObjectsOfType<KartEntity>();
 
         for (int i = 0; i < kart.Length; i++)
         {
             KartsInGame[i] = kart[i].gameObject;
         }
-    }*/
+    }
     void StartRacing()
     {
         CurrRaceTimer -= Time.deltaTime * speedStartRace;
