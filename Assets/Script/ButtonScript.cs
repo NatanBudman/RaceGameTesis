@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void EnablePanel(GameObject Panel)
     {
         Panel.SetActive(true);

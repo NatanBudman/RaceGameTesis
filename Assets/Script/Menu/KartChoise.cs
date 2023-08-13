@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class KartChoise : MonoBehaviour
 {
-    public Image Character;
     public Image CharacterModel;
 
     [Header("Kart")]
@@ -51,15 +50,11 @@ public class KartChoise : MonoBehaviour
 
         CurrentStats = Stats[_indexStats];
     }
-    public void SelectedCharacter(Image Selection) 
+    public void SelectedCharacter(Sprite Selection) 
     {
-        Character.sprite = Selection.sprite;
+        CharacterModel.sprite = Selection;
         isSelectedCharacter = true;
         Continue.SetActive(isSelectedCharacter);
 
-    }
-    public void SelectedModel(Sprite Selection)
-    {
-        CharacterModel.sprite = Selection;
     }
 }

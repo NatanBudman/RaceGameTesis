@@ -44,7 +44,7 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
             _KartController.Jump();
         }
         
-        if (Input.GetKey(DriftActive))
+        if (Input.GetKey(DriftActive) && (_KartController.DriftLeft || _KartController.DriftRight))
         {
             _turboManager.GetTurbo();
         }

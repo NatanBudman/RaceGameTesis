@@ -20,7 +20,7 @@ public class KartController : MonoBehaviour
     [Space]
     [Space]
 
-    #region Paramets
+    #region Parameters
 
         [HideInInspector] public float currentSpeed = 0;
         [SerializeField] private float steerAmount;
@@ -38,6 +38,11 @@ public class KartController : MonoBehaviour
     
         [SerializeField] private float outwardDriftForce;
         private bool driftLeft;
+
+        public bool DriftLeft => driftLeft;
+
+        public bool DriftRight => driftRight;
+
         private bool driftRight;
 
     #endregion
@@ -168,7 +173,7 @@ public class KartController : MonoBehaviour
         }
         else if ((realSpeed <= SpeedStats / 6 && realSpeed > 0.01f) || (realSpeed < -1f))
         {
-            steerAmount = (realSpeed * steerDirection * 0.5f) * SteerDirStats;
+            steerAmount = ((realSpeed * steerDirection * 0.5f) * SteerDirStats) * 2.5f;
         }
         else if ((realSpeed < 1f) || (realSpeed > -1f))
         {

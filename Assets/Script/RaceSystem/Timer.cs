@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
     {
         if (lapStarted == true)
         {
-            lapTime = Time.time;
+            lapTime += Time.deltaTime;
             timerText.text = FormatTime(lapTime);
         }
     }
@@ -65,13 +65,13 @@ public class Timer : MonoBehaviour
     public void StartLap()
     {
         lapStarted = true;
-        lapStartTime = Time.time;
+        lapStartTime = lapTime;
         lapCompleted = false;
     }
 
     private void SaveLapTime()
     {
-        float lapElapsedTime = Time.time - lapStartTime;
+        float lapElapsedTime = lapTime - lapStartTime;
         lapTimes.Add(lapElapsedTime);
     }
 
