@@ -38,14 +38,6 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
     private void Awake()
     {
         Time.timeScale = 1;
-//       GameObject player = FindObjectOfType<InputManager>().gameObject;
-
- //       player.GetComponent<KartEntity>()._kartStats = PlayerStats;
-
-   //     KartsInGame = new GameObject[karts + 1];
-
-      
-
         CurrRaceTimer = StartRaceTimer;
 
         OnStartRace += StartRacing;

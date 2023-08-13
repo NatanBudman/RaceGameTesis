@@ -8,6 +8,7 @@ public class RaceFinish : MonoBehaviour
 
     public int pointsInRace;
 
+    public GameObject WinPanel;
     public int MaxTurning => gameManager.RaceLaps;
 
     LookUpTable<GameObject,KartEntity> lookUpTable ;
@@ -39,7 +40,11 @@ public class RaceFinish : MonoBehaviour
             {
                 if (kart.GetCurrentTurning() == MaxTurning)
                 {
-
+                    if (kart.gameObject.tag == "Player") 
+                    {
+                        Time.timeScale = 0;
+                        WinPanel.SetActive(true);
+                    }
                 }
                 else 
                 {
