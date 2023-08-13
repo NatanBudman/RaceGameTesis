@@ -125,7 +125,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     
     public void Op_UpdateGameplay()
     {
-        if (hasPower && Input.GetKey(KeyCode.F))
+        if (aiController == null && hasPower && Input.GetKey(KeyCode.F))
         {
             ActivatePower();
             hasPower = false;
@@ -147,6 +147,28 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
                 isSlowed = false;
             }
         }
+        if(aiController != null)
+        {
+            if (hasPower)
+            {
+                if (aiController.CheckRange(aiController.target) && aiController.CheckAngle(aiController.target) && aiController.CheckView(aiController.target) && (SelectedPower.CompareTag("Missile") || SelectedPower.CompareTag("CampBullet")))
+                {
+                    ActivatePower();
+                    HasPower = false;
+                    Debug.Log("PoderAdelante");
+                }
+                if (aiController.CheckRangeBack(aiController.target) && aiController.CheckAngleBack(aiController.target) && aiController.CheckViewBack(aiController.target) && (SelectedPower.CompareTag("Mug") || SelectedPower.CompareTag("IceWall")))
+                {
+                    ActivatePower();
+                    HasPower = false;
+                    Debug.Log("PoderAtras");
+
+                }
+            }
+            
+
+        }
+        
     }
 
     public void Op_UpdateUX()
