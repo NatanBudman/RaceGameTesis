@@ -272,15 +272,15 @@ GameObject:
   - component: {fileID: 7206470045793419864}
   - component: {fileID: 7206470045793419860}
   - component: {fileID: 7206470045793419865}
-  - component: {fileID: 7206470045793419862}
-  - component: {fileID: 7206470045793419861}
   - component: {fileID: 7206470045793419859}
   - component: {fileID: 7206470045793419858}
-  - component: {fileID: 7206470045793419857}
   - component: {fileID: 1357835398}
   - component: {fileID: 1357835399}
-  - component: {fileID: 1357835400}
   - component: {fileID: 1357835401}
+  - component: {fileID: 1357835400}
+  - component: {fileID: 7206470045793419862}
+  - component: {fileID: 7206470045793419861}
+  - component: {fileID: 7206470045793419857}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Player
@@ -371,35 +371,6 @@ MonoBehaviour:
   Controls: {fileID: 11400000, guid: a1eb206b9d7eaa044b46c5e8ac2c73b9, type: 2}
   _turboManager: {fileID: 7206470045793419860}
   _KartController: {fileID: 7206470045793419864}
---- !u!54 &7206470045793419862
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206470045793419866}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!135 &7206470045793419861
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206470045793419866}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4810791
-  m_Center: {x: 0, y: -0.018920898, z: 0}
 --- !u!114 &7206470045793419859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +389,7 @@ MonoBehaviour:
   MaxRealSpeedRotate: 0
   currentPoint: 0
   currentTurning: 1
+  Coins: 0
 --- !u!114 &7206470045793419858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,19 +404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _updateManager: {fileID: 0}
   isAddManager: 1
---- !u!135 &7206470045793419857
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206470045793419866}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1357835398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,23 +441,6 @@ MonoBehaviour:
   TurboAmount: {fileID: 0}
   currentLaps: 1
   currentTotalLaps: 0
---- !u!114 &1357835400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206470045793419866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d273c2967cd546459b0e0688864a0e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poderes:
-  - {fileID: 2653764941728052636, guid: e6c47f544fa23c24cb4238a8863c27fe, type: 3}
-  - {fileID: 8729065534447439689, guid: 3a24112b1e2385a458ddf2c59d6f723e, type: 3}
-  - {fileID: 322887673027414093, guid: 07c41c6366dc34847a31226ca228e45d, type: 3}
-  - {fileID: 3240615640774796749, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
 --- !u!114 &1357835401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +467,65 @@ MonoBehaviour:
   mugImage: {fileID: 0}
   missileImage: {fileID: 0}
   campBulletImage: {fileID: 0}
+--- !u!114 &1357835400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d273c2967cd546459b0e0688864a0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poderes:
+  - {fileID: 2653764941728052636, guid: e6c47f544fa23c24cb4238a8863c27fe, type: 3}
+  - {fileID: 8729065534447439689, guid: 3a24112b1e2385a458ddf2c59d6f723e, type: 3}
+  - {fileID: 322887673027414093, guid: 07c41c6366dc34847a31226ca228e45d, type: 3}
+  - {fileID: 3240615640774796749, guid: e56f3009e9f966e4da2dd53cd76ae8cb, type: 3}
+--- !u!54 &7206470045793419862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!135 &7206470045793419861
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8994719
+  m_Center: {x: 0, y: 0.8445686, z: 0}
+--- !u!135 &7206470045793419857
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8514493
+  m_Center: {x: 0, y: 0.8318763, z: 0}
 --- !u!1001 &1242057190066954146
 PrefabInstance:
   m_ObjectHideFlags: 0
