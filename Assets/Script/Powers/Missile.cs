@@ -46,14 +46,5 @@ public class Missile : MonoBehaviour
     }
 
 
-    IEnumerator Slower(KartEntity car)
-    {
-        car.SetRealSpeed(slowDrag);
-        car.CatchKart(true);
-        yield return new WaitForSeconds(slowTime);
-
-        car.SetRealSpeed(car.GetSpeed);
-        car.CatchKart(false);
-        StopCoroutine(Slower(car));
-    }
+   
 }

@@ -5,26 +5,23 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-
     public Text timerText;
     public Text lapTimesText;
-    public InputManager carScript;
+    public KartEntity kartEntity;
+    public GameManager gameManager;
+
+    public int MaxTurning => gameManager.RaceLaps;
+
     private float lapStartTime;
     private float lapTime;
     private int lapCount;
     private bool lapStarted = false;
     private List<float> lapTimes = new List<float>();
-    public Collider carCollider;
-    private bool lapCompleted = false;
-    private GameManager gameManager;
+    public int pointsInRace;
 
-    private void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
     private void Update()
     {
-        if (lapStarted == true)
+        if (lapStarted)
         {
             lapTime += Time.deltaTime;
             timerText.text = FormatTime(lapTime);
@@ -33,32 +30,14 @@ public class Timer : MonoBehaviour
 
     private void OnTriggerEnter(Collider carCollider)
     {
-        InputManager car = carCollider.GetComponent<InputManager>();
-        if (car != null && carCollider.isTrigger == false)
+        KartEntity kart = carCollider.GetComponent<KartEntity>();
+        if (kart != null && carCollider.isTrigger == false && kart.gameObject.tag == "Player")
         {
-            if (car != null)
+            if (!lapStarted)
             {
-                if (!lapStarted)
-                {
-                    StartLap();
-
-                }
-                else
-                {
-                    SaveLapTime();
-                    lapCount++;
-                    lapCompleted = true;
-                    if (lapCount >= gameManager.RaceLaps)
-                    {
-                        StopTimer();
-                        ShowLapTimes();
-                    }
-                    else
-                    {
-                        StartLap();
-                    }
-                }
+                StartLap();
             }
+            
         }
     }
 
@@ -66,23 +45,22 @@ public class Timer : MonoBehaviour
     {
         lapStarted = true;
         lapStartTime = lapTime;
-        lapCompleted = false;
     }
 
-    private void SaveLapTime()
+    public void SaveLapTime()
     {
         float lapElapsedTime = lapTime - lapStartTime;
         lapTimes.Add(lapElapsedTime);
     }
 
-    private void StopTimer()
+    public void StopTimer()
     {
         lapStarted = false;
         timerText.text = "Race Completed";
         timerText.enabled = false;
     }
 
-    private void ShowLapTimes()
+    public void ShowLapTimes()
     {
         lapTimesText.text = "Lap Times:\n";
         for (int i = 0; i < lapTimes.Count; i++)
@@ -91,9 +69,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-
-
-    private string FormatTime(float time)
+    public string FormatTime(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);

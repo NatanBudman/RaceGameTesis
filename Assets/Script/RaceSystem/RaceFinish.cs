@@ -9,6 +9,7 @@ public class RaceFinish : MonoBehaviour
     public int pointsInRace;
 
     public GameObject WinPanel;
+    public Timer timer;
     public int MaxTurning => gameManager.RaceLaps;
 
     LookUpTable<GameObject,KartEntity> lookUpTable ;
@@ -44,12 +45,19 @@ public class RaceFinish : MonoBehaviour
                     {
                         Time.timeScale = 0;
                         WinPanel.SetActive(true);
+                        timer.StopTimer();
+                        timer.ShowLapTimes();
                     }
                 }
                 else 
                 {
                     kart.GetPoint();
-
+                  
+                    if (kart.gameObject.tag == "Player")
+                    {
+                        timer.SaveLapTime();
+                        timer.StartLap();
+                    }
                     if (other.gameObject.GetComponent<KartUI>() != null)
                     {
                         KartUI kartUI = ActionLookUpTableUI(other.gameObject);
