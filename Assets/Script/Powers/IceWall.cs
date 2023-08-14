@@ -16,7 +16,7 @@ public class IceWall : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
-        targetPosition = initialPosition + Vector3.up * 4; // Puedes ajustar esta dirección según el tamaño del muro
+        targetPosition = initialPosition + Vector3.up * 4; 
         currentDestroyDuration = 0f;
         StartCoroutine(RiseWall());
     }
