@@ -3422,6 +3422,10 @@ PrefabInstance:
       value: Meta
       objectReference: {fileID: 0}
     - target: {fileID: 4613418101462112644, guid: 3a58011749c12994db2eb9b094bb2d6c, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1662129413}
+    - target: {fileID: 4613418101462112644, guid: 3a58011749c12994db2eb9b094bb2d6c, type: 3}
       propertyPath: WinPanel
       value: 
       objectReference: {fileID: 1836961291}
@@ -6998,8 +7002,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409229635}
-  m_LocalRotation: {x: 0.05294395, y: 0.839297, z: -0.08310884, w: 0.5346686}
-  m_LocalPosition: {x: 615.68567, y: 5.2629333, z: 332.1404}
+  m_LocalRotation: {x: 0.052944034, y: 0.8392947, z: -0.08310818, w: 0.5346724}
+  m_LocalPosition: {x: 615.68567, y: 5.2629213, z: 332.14044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24881,17 +24885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc380bbf0942ecd4aadeed8a9d8e0a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1357835406 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7206470045793419865, guid: f8dec3ab131733f42b9ed96973d3a88f, type: 3}
-  m_PrefabInstance: {fileID: 1181304837}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189137063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ef7827bf02f244181911336a61a2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1357835407 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7206470045793419862, guid: f8dec3ab131733f42b9ed96973d3a88f, type: 3}
@@ -25309,8 +25302,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381346446}
-  m_LocalRotation: {x: 0.05294395, y: 0.839297, z: -0.08310884, w: 0.5346686}
-  m_LocalPosition: {x: 615.68567, y: 5.2629333, z: 332.1404}
+  m_LocalRotation: {x: 0.052944034, y: 0.8392947, z: -0.08310818, w: 0.5346724}
+  m_LocalPosition: {x: 615.68567, y: 5.2629213, z: 332.14044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31149,8 +31142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 284957460}
   lapTimesText: {fileID: 1637243773}
-  carScript: {fileID: 1357835406}
-  carCollider: {fileID: 0}
+  kartEntity: {fileID: 1181304839}
+  gameManager: {fileID: 1998687282}
+  pointsInRace: 7
 --- !u!65 &1662129414
 BoxCollider:
   m_ObjectHideFlags: 0
