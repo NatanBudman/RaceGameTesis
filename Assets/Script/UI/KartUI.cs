@@ -8,6 +8,8 @@ public class KartUI : MonoBehaviour, IOptimizatedUpdate
 {
     public GameManager Manager;
     public TurboManager turbo;
+    public KartEntity entity;
+    public CoinsUIManager CoinsManager;
     // public PositionStack stackPos;
     [Space]
     [Header("StartCount")]
@@ -29,10 +31,14 @@ public class KartUI : MonoBehaviour, IOptimizatedUpdate
     [Header("Turbo")]
     public Image TurboAmount;
 
+    [Header("Coins")]
+    public Text Coins;
+    private int coins;
     public int currentLaps = 1;
     [HideInInspector] public int currentTotalLaps;
     private void Start()
     {
+        entity = GetComponent<KartEntity>();
         OnTimerCurrent += TimerCurrent;
         Laps.text = "" + Manager.RaceLaps;
         UpdateLaps();
@@ -102,14 +108,18 @@ public class KartUI : MonoBehaviour, IOptimizatedUpdate
       {
             Invoke("Go_text", 2);
       }
-
+      if (coins != entity.Coins) 
+      {
+          Coins.text ="" + entity.Coins;
+          CoinsManager.GetCoins(entity.Coins - coins);
+          coins = entity.Coins;
+      }
      //   CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
    }
 
     void Go_text() 
     {
         Go.gameObject.SetActive(false);
-
     }
 
     public void OnPause(bool pause) 

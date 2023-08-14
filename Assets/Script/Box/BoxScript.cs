@@ -85,7 +85,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
                 if (isHaveCoin) ActionLookUpTable(kartCollider.gameObject).Coins += Random.Range(MinCoins, MaxCoins);
 
-                _sefltColl.enabled = false;
+              //  _sefltColl.enabled = false;
 
                 OnBoxFuncion -= Box;
             }

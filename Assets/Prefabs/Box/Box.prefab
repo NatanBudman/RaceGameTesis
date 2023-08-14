@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3295122975644884322}
   m_Layer: 7
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: PowerBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,9 @@ MonoBehaviour:
   BoxModel: {fileID: 1763423710352473605}
   Rotatespeed: 120
   CooldownBoxSpawned: 3
+  isHaveCoin: 0
+  MinCoins: 0
+  MaxCoins: 0
 --- !u!65 &3295122975644884322
 BoxCollider:
   m_ObjectHideFlags: 0
