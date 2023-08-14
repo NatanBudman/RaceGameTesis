@@ -41,8 +41,10 @@ public class RaceFinish : MonoBehaviour
             {
                 if (kart.GetCurrentTurning() == MaxTurning)
                 {
-                    if (kart.gameObject.tag == "Player") 
+                    if (kart.gameObject.tag == "Player")
                     {
+                        timer.SaveLapTime();
+
                         Time.timeScale = 0;
                         WinPanel.SetActive(true);
                         timer.StopTimer();
