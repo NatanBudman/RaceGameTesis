@@ -24,7 +24,8 @@ public class KartEntity : MonoBehaviour
     #region KartGameplay
 
     public int currentPoint;
-    public int currentTurning = 1; 
+    public int currentTurning = 1;
+    public int Coins = 0;
 
     #endregion
     public Vector3 GetForward => transform.forward;
