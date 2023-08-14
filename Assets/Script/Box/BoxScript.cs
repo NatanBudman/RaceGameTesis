@@ -85,8 +85,6 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
                 if (isHaveCoin) ActionLookUpTable(kartCollider.gameObject).Coins += Random.Range(MinCoins, MaxCoins);
 
-                _sefltColl.enabled = false;
-
                 OnBoxFuncion -= Box;
             }
         }
@@ -95,6 +93,8 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
     void DeactivateBoxModel()
     {
         BoxModel.SetActive(false);
+        _sefltColl.enabled = false;
+
     }
 
     public void Op_UpdateGameplay()
