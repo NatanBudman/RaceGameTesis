@@ -195,8 +195,8 @@ GameObject:
   - component: {fileID: 1357835401}
   - component: {fileID: 1357835400}
   - component: {fileID: 7206470045793419862}
-  - component: {fileID: 7206470045793419861}
-  - component: {fileID: 7206470045793419857}
+  - component: {fileID: 1352621184244812784}
+  - component: {fileID: 3298898503010902339}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Player
@@ -418,21 +418,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!135 &7206470045793419861
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206470045793419866}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.8994719
-  m_Center: {x: 0, y: 0.8445686, z: 0}
---- !u!135 &7206470045793419857
-SphereCollider:
+--- !u!65 &1352621184244812784
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -442,8 +429,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8514493
-  m_Center: {x: 0, y: 0.8318763, z: 0}
+  m_Size: {x: 2.8978968, y: 1.7457408, z: 4.129559}
+  m_Center: {x: -0.052020557, y: 0.82298046, z: 0.26790452}
+--- !u!65 &3298898503010902339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7456088, y: 3.0059357, z: 6.150609}
+  m_Center: {x: -0.13309337, y: 1.0029678, z: 0.37383917}
 --- !u!1001 &1242057190066954146
 PrefabInstance:
   m_ObjectHideFlags: 0
