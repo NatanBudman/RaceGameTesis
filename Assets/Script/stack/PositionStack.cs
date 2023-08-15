@@ -11,6 +11,7 @@ public class PositionStack : MonoBehaviour
     public GameObject[] Points;
     public GameObject Player;
     public Image Position;
+    public Image FinishPosition;
 
     public Sprite[] PositionImages;
     
@@ -75,5 +76,6 @@ public class PositionStack : MonoBehaviour
         }
         Debug.Log(GetPos(Player));
         Position.sprite = PositionImages[GetPos(Player) - 1];
+        FinishPosition.sprite = Position.sprite;
     }
 }
