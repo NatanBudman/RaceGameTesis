@@ -62,10 +62,11 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
         else if(OnBoxFuncion == null)
         {
             _currentBoxSpawned += Time.deltaTime;
-            animator.SetBool("Reset", true);
+          
             if (_currentBoxSpawned >= CooldownBoxSpawned) 
             {
                 OnBoxFuncion += Box;
+                animator.SetBool("isReset", true);
                 BoxModel.SetActive(true);
                 _sefltColl.enabled = true;
                 _currentBoxSpawned = 0;
@@ -104,7 +105,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
     }
     void CollisionWhitBox()
     {
-        animator.SetBool("Reset", false);
+        animator.SetBool("isReset", false);
 
         animator.SetTrigger("Destroyed");
     }
