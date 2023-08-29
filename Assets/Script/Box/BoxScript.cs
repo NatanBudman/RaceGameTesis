@@ -8,6 +8,7 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
     public GameObject BoxModel;
 
+
     public float Rotatespeed;
 
     public float CooldownBoxSpawned;
@@ -27,6 +28,8 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
     #endregion
 
+    [Header("Animation")]
+    public Animator animator;
 
 
     LookUpTable<GameObject, KartEntity> lookUpTable;
@@ -59,10 +62,11 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
         else if(OnBoxFuncion == null)
         {
             _currentBoxSpawned += Time.deltaTime;
-
+          
             if (_currentBoxSpawned >= CooldownBoxSpawned) 
             {
                 OnBoxFuncion += Box;
+                animator.SetBool("isReset", true);
                 BoxModel.SetActive(true);
                 _sefltColl.enabled = true;
                 _currentBoxSpawned = 0;
@@ -85,6 +89,9 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
 
                 if (isHaveCoin) ActionLookUpTable(kartCollider.gameObject).Coins += Random.Range(MinCoins, MaxCoins);
 
+                Invoke("CollisionWhitBox", 0.01f);
+
+
                 OnBoxFuncion -= Box;
             }
         }
@@ -92,11 +99,16 @@ public class BoxScript : MonoBehaviour,IOptimizatedUpdate
     }
     void DeactivateBoxModel()
     {
-        BoxModel.SetActive(false);
+        //BoxModel.SetActive(false);
         _sefltColl.enabled = false;
 
     }
+    void CollisionWhitBox()
+    {
+        animator.SetBool("isReset", false);
 
+        animator.SetTrigger("Destroyed");
+    }
     public void Op_UpdateGameplay()
     {
         OnBox();

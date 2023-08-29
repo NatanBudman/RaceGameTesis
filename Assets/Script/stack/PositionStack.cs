@@ -74,7 +74,6 @@ public class PositionStack : MonoBehaviour
             }
      
         }
-        Debug.Log(GetPos(Player));
         Position.sprite = PositionImages[GetPos(Player) - 1];
         FinishPosition.sprite = Position.sprite;
     }
