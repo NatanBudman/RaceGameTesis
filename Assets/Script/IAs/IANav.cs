@@ -14,7 +14,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public Node to;
     public Node to2;
     public List<Node> path;
-    public PointNodes Nodes;
+
     private float Speed => KartEntity.GetMaxRealSpeed;
 
     [Space] [Header("Others")] [Space] public Transform point;
@@ -33,8 +33,6 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     private ObstacleAvoidance _obstacleAvoidance;
     private Pursuit _pursuit;
-
-    int index;
     void Inicialize()
     {
         var Obstacle = new ObstacleAvoidance(transform,Mask,maxObstacleDetected,radius,angle);
@@ -51,7 +49,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     private void Start()
     {
-        NextRoad();
+        road();
     }
 
     private Vector3 GetDir()
@@ -75,17 +73,17 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     
     private int currentWaypointIndex = 0;
 
-    void NextRoad() 
+    void road()
     {
-        int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
-        if (index > lenght) index = 0;
-        int random = Random.Range(0, lenght);
-        to = Nodes.Nodes[index].CheckPOintNodes[random];
-        path = Pathfinding.Path(from, to);
-        from = to;
-        index++;
+        path = Pathfinding.Path(from,to);
+        isTo = true;
     }
-
+    bool isTo = true;
+    void road2()
+    {
+        path = Pathfinding.Path(to, to2);
+        isTo = false;
+    }
     public void Op_UpdateGameplay()
     {
 
@@ -98,6 +96,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 8)
             {
                 Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
+               // Debug.Log(copy[currentWaypointIndex].name);
                 KartEntity.LookRotate(dir);
             }
             else
@@ -106,7 +105,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             }
             if (currentWaypointIndex >= path.Count - 1) 
             {
-                NextRoad();
+                roads();
                 currentWaypointIndex = 0;
             }
             copy = path;
@@ -114,6 +113,20 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     }
 
+    void roads() 
+    {
+        if (isTo)
+        {
+            road2();
+            return;
+        }
+        else 
+        {
+            road();
+            return;
+        }
+      
+    }
     public void Op_UpdateUX()
     {
     }

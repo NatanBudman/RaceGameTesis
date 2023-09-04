@@ -22,29 +22,28 @@ public class KartController : MonoBehaviour
 
     #region Parameters
 
-        public float realSpeed; //not the applied speed
         [HideInInspector] public float currentSpeed = 0;
-        [HideInInspector] public float minSpeedToCrash;
+        [SerializeField] private float steerAmount;
+        [SerializeField] private float steerDirection;
         [SerializeField] private float gravity;
         [SerializeField] private float jumpForce;
         [SerializeField] private float deaccelerationTime;
-        private float steerAmount;
-        private float steerDirection;
         private float driftTime;
-        private float velocit;
+        public float minSpeedToCrash;
+        public float realSpeed; //not the applied speed
         public float maxSpeed => SpeedStats; //max possible speed
 
-        [HideInInspector] public float boostSpeed; //speed while boosting
-        [HideInInspector] public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
+        public float boostSpeed; //speed while boosting
+        public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
     
         [SerializeField] private float outwardDriftForce;
         private bool driftLeft;
-        private bool driftRight;
 
         public bool DriftLeft => driftLeft;
 
         public bool DriftRight => driftRight;
 
+        private bool driftRight;
 
     #endregion
     
@@ -76,7 +75,7 @@ public class KartController : MonoBehaviour
     }
     
 
-    
+    private float velocit;
     public void Drive()
     {
         if (!Choco)
@@ -164,15 +163,15 @@ public class KartController : MonoBehaviour
         {
             steerAmount = (realSpeed / 1.5f * steerDirection) * SteerDirStats;
         }
-        else if ((realSpeed <= SpeedStats / 2  && realSpeed > SpeedStats / 3) || (realSpeed < -(SpeedStats / 3)))
+        else if ((realSpeed <= SpeedStats / 2  && realSpeed > SpeedStats / 4) || (realSpeed < -(SpeedStats / 4)))
         {
             steerAmount = (realSpeed / 1.25f * steerDirection) * SteerDirStats;
         }
-        else if ((realSpeed <= SpeedStats / 3 && realSpeed > SpeedStats / 4) || (realSpeed < -(SpeedStats / 4) && realSpeed >= -(SpeedStats / 3)))
+        else if ((realSpeed <= SpeedStats / 4 && realSpeed > SpeedStats / 6) || (realSpeed < -(SpeedStats / 6) && realSpeed >= -(SpeedStats / 4)))
         {
             steerAmount = (realSpeed * steerDirection) * SteerDirStats;
         }
-        else if ((realSpeed <= SpeedStats / 4 && realSpeed > 0.01f) || (realSpeed < -1f))
+        else if ((realSpeed <= SpeedStats / 6 && realSpeed > 0.01f) || (realSpeed < -1f))
         {
             steerAmount = ((realSpeed * steerDirection * 0.5f) * SteerDirStats) * 2.5f;
         }

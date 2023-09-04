@@ -5,19 +5,6 @@ using UnityEngine.UI;
 
 public class SettingMap : MonoBehaviour
 {
-    [Header("Map Choise")]
-    public Color CurrentMapColor;
-    public Color DefaultMapColor;
-    private Image CurrentMap;
-    public void ChangeColorMap(Image map) 
-    {
-        if (CurrentMap != null) CurrentMap.color = DefaultMapColor;
-
-        CurrentMap = map;
-        CurrentMap.color = CurrentMapColor;
-    }
-
-
     [Header("Game Pameters")]
     public int Runners;
     public int Laps;
