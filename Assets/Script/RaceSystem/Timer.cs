@@ -63,10 +63,11 @@ public class Timer : MonoBehaviour
     public void ShowLapTimes()
     {
         lapTimesText.text = "Lap Times:\n";
-        for (int i = 0; i < lapTimes.Count; i++)
+        for (int i = 0; i < lapTimes.Count - 1; i++) 
         {
-            lapTimesText.text += "Lap " + (i + 1) + ": " + FormatTime(lapTimes[i]) + "\n";
+            lapTimesText.text += "Vuelta " + (i + 1) + ": " + FormatTime(lapTimes[i]) + "\n";
         }
+        
     }
 
     public string FormatTime(float time)

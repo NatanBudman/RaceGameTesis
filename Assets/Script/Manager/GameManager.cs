@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
 
     int karts => Settings.Bots;
     public GameObject[] KartsInGame;
+    public GameObject[] BotsInGame;
 
     [Space]
     public int StartRaceTimer;
@@ -37,6 +38,16 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
 
     private void Awake()
     {
+        int bots = karts;
+        for (int i = 0; i < BotsInGame.Length; i++) 
+        {
+            if (bots <= 0) continue;
+
+            BotsInGame[i].SetActive(true);
+
+            bots -= 1;
+        }
+
         Time.timeScale = 1;
         CurrRaceTimer = StartRaceTimer;
 
