@@ -6739,12 +6739,12 @@ GameObject:
   - component: {fileID: 642033410}
   - component: {fileID: 642033411}
   m_Layer: 5
-  m_Name: HabilitiChoise
+  m_Name: SkillChoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &642033410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6784,14 +6784,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills:
   - SkillName: FakeObject
-    Description: Ability to drop a random roulette power, but the power does not
-      affect players
+    Description: Drops a fake item box that damages players who touch it. Up to 3
+      can be placed. Placing more than 3 removes the oldest one placed.
   - SkillName: Double Oject
-    Description: Drop two powers
+    Description: Upon activation, this skill mimics the current item a player has
+      in their possesion without consuming the item.
   - SkillName: Object Theft
-    Description: NO TENGO IDEA
+    Description: "Allows the player to steal an item from the closest player who
+      owns an item. Cannot steal another character\u2019s skills."
   - SkillName: Force Field
-    Description: Generates a force field around you.
+    Description: 'Generates a force field around the player that lasts for 10 seconds
+      or until it absorbs one point of damage: enemy projectiles and traps, stage
+      hazards, etc.'
   CurrentSkillColor: {r: 0.74509805, g: 0.6, b: 0.17254902, a: 1}
   SkillDefaultColor: {r: 0, g: 0, b: 0, a: 1}
   SkillDescription: {fileID: 1625260566}
