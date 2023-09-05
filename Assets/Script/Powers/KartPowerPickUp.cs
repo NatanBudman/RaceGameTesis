@@ -40,9 +40,9 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public void Start()
     {
         BaseKarVel = kart.maxSpeed;
-        powerImages["Ice"] = iceWallImage;
-        powerImages["Slime"] = mugImage;
-        powerImages["Missil"] = missileImage;
+        powerImages["IceWall"] = iceWallImage;
+        powerImages["Mug"] = mugImage;
+        powerImages["Missile"] = missileImage;
         powerImages["CampBullet"] = campBulletImage;
         currentPowerTimer = powerTimer;
         
