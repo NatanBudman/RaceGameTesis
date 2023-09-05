@@ -36,7 +36,7 @@ public class KartController : MonoBehaviour
 
         [HideInInspector] public float boostSpeed; //speed while boosting
         [HideInInspector] public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
-    
+        public float ShockForce;
         [SerializeField] private float outwardDriftForce;
         private bool driftLeft;
         private bool driftRight;
@@ -242,6 +242,13 @@ public class KartController : MonoBehaviour
             rb.AddForce(direccionRebote * realSpeed, ForceMode.Impulse);
 
             
+        }
+
+        if (collision.collider.CompareTag("Wall")) 
+        {
+                Vector3 backwardImpulse = -transform.forward * ShockForce * rb.velocity.magnitude;
+                rb.AddForce(backwardImpulse, ForceMode.Impulse);
+            Debug.Log("entre");
         }
     }
 
