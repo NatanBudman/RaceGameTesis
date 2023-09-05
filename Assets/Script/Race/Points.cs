@@ -32,9 +32,9 @@ public class Points : MonoBehaviour,IOptimizatedUpdate
         {
             for (int i = 0; i < checkPoints.Length; i++)
             {
-                Transform newpos = checkPoints[i].GetComponent<Point>().InitialPos;
-                checkPoints[i].transform.position = new Vector3( newpos.position.x + Random.Range(-10, 10), newpos.position.y,
-                    newpos.position.z + Random.Range(-10, 10));
+             //   Transform newpos = checkPoints[i].GetComponent<Point>().InitialPos;
+          //      checkPoints[i].transform.position = new Vector3( newpos.position.x + Random.Range(-10, 10), newpos.position.y,
+               //     newpos.position.z + Random.Range(-10, 10));
             }
 
             indexOrder = 0;

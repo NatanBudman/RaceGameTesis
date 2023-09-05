@@ -42,6 +42,7 @@ public class IceWall : MonoBehaviour
             Vector3 newPosition = Vector3.Lerp(initialPosition, targetPosition, t);
             transform.position = Vector3.MoveTowards(transform.position, newPosition, currentSpeed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
+            Debug.Log("Power");
             yield return null;
         }
         transform.position = targetPosition;
