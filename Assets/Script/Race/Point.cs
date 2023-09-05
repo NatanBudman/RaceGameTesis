@@ -7,12 +7,10 @@ using Random = UnityEngine.Random;
 public class Point : MonoBehaviour
 {
    public Points Points;
-   public Transform InitialPos;
    public int PointOrder;
 
    private void Start()
    {
-      InitialPos = transform;
    }
 
    private void OnTriggerEnter(Collider other)

@@ -77,8 +77,9 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     void NextRoad() 
     {
+        int lenghNodes = Nodes.Nodes.Length;
+        if (index > lenghNodes) index = 0;
         int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
-        if (index > lenght) index = 0;
         int random = Random.Range(0, lenght);
         to = Nodes.Nodes[index].CheckPOintNodes[random];
         path = Pathfinding.Path(from, to);
