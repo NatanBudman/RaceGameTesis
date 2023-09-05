@@ -14,9 +14,11 @@ public class PlaySound : MonoBehaviour
     public AudioSource chooseskill;
     public AudioSource selectamap;
     public AudioSource readyfortherace;
+    public AudioSource racingtour;
     public AudioSource options;
     public AudioSource credits;
     public AudioSource kartmotor;
+    public AudioSource error;
 
     void Start()
     {
@@ -87,6 +89,16 @@ public class PlaySound : MonoBehaviour
     public void PlaySoundKartMotor()
     {
         kartmotor.Play();
+    }
+
+    public void PlaySoundRacingTour()
+    {
+        racingtour.Play();
+    }
+
+    public void PlaySoundError()
+    {
+        error.Play();
     }
 
 }
