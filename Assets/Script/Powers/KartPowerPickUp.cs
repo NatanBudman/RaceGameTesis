@@ -9,6 +9,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public PowerController aiController;
     public RuletaPoderes powerRoulette;
     private bool hasPower = false;
+    private bool availablePower = false;
     private GameObject selectedPower;
     public GameObject risingWallPrefab;
     public GameObject mug;
@@ -17,12 +18,16 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
+    public Animator ruletteAnimation;
     Vector3 destination;
     private bool isSlowed;
 
     private float TimeSlowed;
     private float VelSlowed;
     private float BaseKarVel;
+    public float powerTimer = 10f;
+    private float currentPowerTimer;
+    private float currenPowerTimerIA;
     [SerializeField] private KartController kart;
 
     public Image iceWallImage;
@@ -35,10 +40,12 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public void Start()
     {
         BaseKarVel = kart.maxSpeed;
-        powerImages["IceWall"] = iceWallImage;
-        powerImages["Mug"] = mugImage;
-        powerImages["Missile"] = missileImage;
+        powerImages["Ice"] = iceWallImage;
+        powerImages["Slime"] = mugImage;
+        powerImages["Missil"] = missileImage;
         powerImages["CampBullet"] = campBulletImage;
+        currentPowerTimer = powerTimer;
+        
     }
 
     private void UpdatePowerImage(bool isActive)
@@ -60,31 +67,60 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         get { return hasPower; }
         set { hasPower = value; }
     }
+    public bool AvailablePower
+    {
+        get { return availablePower; }
+        set { availablePower = value; }
 
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PowerBox"))
         {
+
             if (!hasPower)
             {
-                if (aiController != null)
-                {
-                    // Si hay un controlador de IA, dejar que tome la decisión
-                    Debug.Log("poderIA");
 
-                    aiController.DecideAction(gameObject, powerRoulette);
+               
+                    if (aiController != null)
+                    {
+                        // Si hay un controlador de IA, dejar que tome la decisión
+                        Debug.Log("poderIA");
 
-                }
-                else
-                {
-                    // Si no hay un controlador de IA, el jugador toma la decisión
-                    selectedPower = powerRoulette.GirarRuleta();
-                    hasPower = true;
-                    Debug.Log(selectedPower);
-                    UpdatePowerImage(true);
-                }
+                        currentPowerTimer = powerTimer;
+                        aiController.DecideAction(gameObject, powerRoulette);
+
+                    }
+                    else
+                    {
+                     if (!availablePower)
+                     {
+ 
+                        // Si no hay un controlador de IA, el jugador toma la decisión
+                        selectedPower = powerRoulette.GirarRuleta();
+                        ruletteAnimation.SetBool("activarRuleta", true);
+                        availablePower = true;
+                     }
+                    }
+                        
+
+                
+                
+                
             }
         }
+    }
+    
+    public void PoderPlayer()
+    {
+        ruletteAnimation.SetBool("activarRuleta", false);
+
+        hasPower = true;
+        Debug.Log(selectedPower);
+        UpdatePowerImage(true);
+        currentPowerTimer = powerTimer;
+        availablePower = false;
     }
     public void Slowed(bool isSlowed, float TimeSlow, float velocySlow)
     {
@@ -120,9 +156,8 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         }
 
     }
-   
 
-    
+
     public void Op_UpdateGameplay()
     {
         if (aiController == null && hasPower && Input.GetKey(KeyCode.F))
@@ -131,7 +166,18 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             hasPower = false;
             UpdatePowerImage(false);
         }
+        if(availablePower)
+        {
+            currentPowerTimer -= Time.deltaTime;
+            currenPowerTimerIA -= Time.deltaTime;
+        }
+        if (currentPowerTimer <= 0)
+        {
 
+            PoderPlayer();
+
+        }
+       
         if (isSlowed)
         {
 
@@ -151,6 +197,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         {
             if (hasPower)
             {
+
                 if (aiController.CheckRange(aiController.target) && aiController.CheckAngle(aiController.target) && aiController.CheckView(aiController.target) && (SelectedPower.CompareTag("Missile") || SelectedPower.CompareTag("CampBullet")))
                 {
                     ActivatePower();
