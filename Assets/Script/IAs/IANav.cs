@@ -12,9 +12,9 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public pathfinding Pathfinding;
     public Node from;
     public Node to;
-    public Node to2;
     public List<Node> path;
     public PointNodes Nodes;
+    TurboManager turbo;
     private float Speed => KartEntity.GetMaxRealSpeed;
 
     [Space] [Header("Others")] [Space] public Transform point;
@@ -51,6 +51,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     private void Start()
     {
+        turbo = GetComponent<TurboManager>();
         NextRoad();
     }
 
@@ -78,7 +79,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     void NextRoad() 
     {
         int lenghNodes = Nodes.Nodes.Length;
-        if (index > lenghNodes) index = 0;
+        if (index >= lenghNodes) index = 0;
         int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
         int random = Random.Range(0, lenght);
         to = Nodes.Nodes[index].CheckPOintNodes[random];
@@ -96,7 +97,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
         {
             List<Node> copy = new List<Node>(path);
 
-            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 8)
+            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 10)
             {
                 Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
                 KartEntity.LookRotate(dir);
@@ -108,6 +109,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             if (currentWaypointIndex >= path.Count - 1) 
             {
                 NextRoad();
+                StartCoroutine(Turbo());
                 currentWaypointIndex = 0;
             }
             copy = path;
@@ -115,6 +117,14 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     }
 
+    IEnumerator Turbo()
+    {
+        turbo.GetTurbo();
+        yield return new WaitForSeconds(3);
+        turbo.Turbo(true);
+        yield return new WaitForSeconds(3);
+        StopCoroutine(Turbo());
+    }
     public void Op_UpdateUX()
     {
     }

@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 7206470045793419862}
   - component: {fileID: 1352621184244812784}
   - component: {fileID: 3298898503010902339}
+  - component: {fileID: 6247079128541998705}
   m_Layer: 0
   m_Name: KartGameObject
   m_TagString: Player
@@ -238,16 +239,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 7206470045793419865}
   kartEntity: {fileID: 7206470045793419859}
+  realSpeed: 0
   currentSpeed: 0
-  steerAmount: 0
-  steerDirection: 120
+  minSpeedToCrash: 10
   gravity: 9.8
   jumpForce: 0
   deaccelerationTime: 0.5
-  minSpeedToCrash: 10
-  realSpeed: 0
   boostSpeed: 12
   jumpDirection: {x: 0, y: 0, z: 1}
+  ShockForce: 0
   outwardDriftForce: 0
   isGrounded: 0
   hasInputManager: 0
@@ -380,6 +380,8 @@ MonoBehaviour:
   FrontPowerPos: {fileID: 1059784944}
   BackPowerPos: {fileID: 124361795}
   BackPowerPos2: {fileID: 1275971310}
+  ruletteAnimation: {fileID: 0}
+  powerTimer: 10
   kart: {fileID: 7206470045793419864}
   iceWallImage: {fileID: 0}
   mugImage: {fileID: 0}
@@ -444,6 +446,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7456088, y: 3.0059357, z: 6.150609}
   m_Center: {x: -0.13309337, y: 1.0029678, z: 0.37383917}
+--- !u!95 &6247079128541998705
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470045793419866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc868e4be6c221b4594aacca14978b26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1242057190066954146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80ad30b27fca8d74bb1eb8edd24e6073, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80ad30b27fca8d74bb1eb8edd24e6073, type: 3}
       propertyPath: m_LocalPosition.z
