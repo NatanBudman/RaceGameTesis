@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class KartController : MonoBehaviour
 {
-    [SerializeField] private InputManager _inputManager;
+    public TrailRenderer[] tireMarks;
     [SerializeField] private KartEntity kartEntity;
+    [SerializeField] private InputManager _inputManager;
 
 
     #region Stats
@@ -213,11 +214,13 @@ public class KartController : MonoBehaviour
             {
                 driftRight = true;
                 driftLeft = false;
+                StartEmmiter();
             }
             else if (steerDirection < 0)
             {
                 driftLeft = true;
                 driftRight = false;
+                StartEmmiter();
             }
         }
 
@@ -225,6 +228,7 @@ public class KartController : MonoBehaviour
         {
             driftLeft = false;
             driftRight = false;
+            StopEmmiter();
         }
     }
 
@@ -246,8 +250,8 @@ public class KartController : MonoBehaviour
 
         if (collision.collider.CompareTag("Wall")) 
         {
-                Vector3 backwardImpulse = -transform.forward * ShockForce * rb.velocity.magnitude;
-                rb.AddForce(backwardImpulse, ForceMode.Impulse);
+            Vector3 backwardImpulse = -transform.forward * ShockForce * rb.velocity.magnitude;
+            rb.AddForce(backwardImpulse, ForceMode.Impulse);
             Debug.Log("entre");
         }
     }
@@ -259,6 +263,22 @@ public class KartController : MonoBehaviour
     }
 
 
+    private void StartEmmiter()
+    {
+        foreach (var T in tireMarks)
+        {
+            T.emitting = true;
+        }
+    }
+    private void StopEmmiter()
+    {
+        foreach (var T in tireMarks)
+        {
+            T.emitting = false;
+        }
+    }
+    
+    
     private void Crash(GameObject collision)
         {
             Vector3 posicionAnterior = transform.position;
