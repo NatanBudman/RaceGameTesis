@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 public class KartEntity : MonoBehaviour
 {
+    public Animator animation;
     [SerializeField] private Rigidbody _rb;
     public KartStats _kartStats;
 
@@ -36,6 +37,7 @@ public class KartEntity : MonoBehaviour
 
     private void Start()
     {
+        animation = GetComponent<Animator>();
         MaxRealSpeedRotate = GetSpeedRotate;
     }
 

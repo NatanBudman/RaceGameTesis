@@ -38,8 +38,8 @@ public class KartController : MonoBehaviour
         [HideInInspector] public Vector3 jumpDirection = new Vector3(0,0,1); //direction in which the kart will jump, strictly up for now
         public float ShockForce;
         [SerializeField] private float outwardDriftForce;
-        private bool driftLeft;
-        private bool driftRight;
+        [HideInInspector] public bool driftLeft;
+        [HideInInspector] public bool driftRight;
 
         public bool DriftLeft => driftLeft;
 
@@ -72,7 +72,13 @@ public class KartController : MonoBehaviour
             Steering();
         }
         GroundNormalRotation();
-        Drift(); 
+        Drift();
+
+        if (kartEntity.animation != null) 
+        {
+            kartEntity.animation.SetBool("DriftLeft", driftRight);
+            kartEntity.animation.SetBool("DriftRight", driftLeft);
+        }
     }
     
 
