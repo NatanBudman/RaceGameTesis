@@ -8,7 +8,6 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 {
     public PowerController aiController;
     public RuletaPoderes powerRoulette;
-    public KartEntity entity;
     private bool hasPower = false;
     private bool availablePower = false;
     private GameObject selectedPower;
@@ -16,10 +15,6 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public GameObject mug;
     public GameObject missile;
     public GameObject campBullet;
-    public GameObject risingWallPrefab2;
-    public GameObject mug2;
-    public GameObject missile2;
-    public GameObject campBullet2;
     public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
@@ -33,7 +28,6 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public float powerTimer = 10f;
     private float currentPowerTimer;
     private float currenPowerTimerIA;
-    public int specialPower = 10;
     [SerializeField] private KartController kart;
 
     public Image iceWallImage;
@@ -51,8 +45,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         powerImages["Missile"] = missileImage;
         powerImages["CampBullet"] = campBulletImage;
         currentPowerTimer = powerTimer;
-        entity = GetComponent<KartEntity>();
-
+        
     }
 
     private void UpdatePowerImage(bool isActive)
@@ -137,62 +130,30 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     }
     public void ActivatePower()
     {
-        if (entity.Coins >= specialPower)
+        if (selectedPower.CompareTag("IceWall"))
         {
-            if (selectedPower.CompareTag("IceWall2"))
-            {
-                GameObject _risingWallPrefab = Instantiate(risingWallPrefab2, BackPowerPos.position, BackPowerPos.rotation);
-                _risingWallPrefab.GetComponent<IceWall>().Owner = this.gameObject;
-            }
-            else if (selectedPower.CompareTag("Mug2"))
-            {
-                GameObject _mug = Instantiate(mug2, BackPowerPos2.position, BackPowerPos2.rotation);
-                _mug.GetComponent<SlowZone>().Owner = this.gameObject;
-
-
-            }
-            else if (selectedPower.CompareTag("Missile2"))
-            {
-                GameObject _missile = Instantiate(missile2, FrontPowerPos.position, FrontPowerPos.rotation);
-                _missile.GetComponent<Missile>().Owner = this.gameObject;
-
-            }
-            else if (selectedPower.CompareTag("CampBullet2"))
-            {
-                GameObject _bullet = Instantiate(campBullet2, FrontPowerPos.position, FrontPowerPos.rotation);
-                _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
-
-            }
+            GameObject _risingWallPrefab = Instantiate(risingWallPrefab, BackPowerPos.position, BackPowerPos.rotation);
+            _risingWallPrefab.GetComponent<IceWall>().Owner = this.gameObject;
         }
-        else
+        else if (selectedPower.CompareTag("Mug"))
         {
-            if (selectedPower.CompareTag("IceWall"))
-            {
-                GameObject _risingWallPrefab = Instantiate(risingWallPrefab, BackPowerPos.position, BackPowerPos.rotation);
-                _risingWallPrefab.GetComponent<IceWall>().Owner = this.gameObject;
-            }
-            else if (selectedPower.CompareTag("Mug"))
-            {
-                GameObject _mug = Instantiate(mug, BackPowerPos2.position, BackPowerPos2.rotation);
-                _mug.GetComponent<SlowZone>().Owner = this.gameObject;
+            GameObject _mug = Instantiate(mug, BackPowerPos2.position, BackPowerPos2.rotation);
+            _mug.GetComponent<SlowZone>().Owner = this.gameObject;
 
-
-            }
-            else if (selectedPower.CompareTag("Missile"))
-            {
-                GameObject _missile = Instantiate(missile, FrontPowerPos.position, FrontPowerPos.rotation);
-                _missile.GetComponent<Missile>().Owner = this.gameObject;
-
-            }
-            else if (selectedPower.CompareTag("CampBullet"))
-            {
-                GameObject _bullet = Instantiate(campBullet, FrontPowerPos.position, FrontPowerPos.rotation);
-                _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
-
-            }
 
         }
-       
+        else if (selectedPower.CompareTag("Missile"))
+        {
+            GameObject _missile = Instantiate(missile, FrontPowerPos.position, FrontPowerPos.rotation);
+            _missile.GetComponent<Missile>().Owner = this.gameObject;
+
+        }
+        else if (selectedPower.CompareTag("CampBullet"))
+        {
+            GameObject _bullet = Instantiate(campBullet, FrontPowerPos.position, FrontPowerPos.rotation);
+            _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
+
+        }
 
     }
 
