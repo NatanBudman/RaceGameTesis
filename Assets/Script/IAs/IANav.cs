@@ -97,7 +97,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
         {
             List<Node> copy = new List<Node>(path);
 
-            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 10)
+            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 5)
             {
                 Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
                 KartEntity.LookRotate(dir);
