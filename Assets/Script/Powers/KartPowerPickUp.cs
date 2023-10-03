@@ -143,11 +143,13 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             {
                 GameObject _risingWallPrefab = Instantiate(risingWallPrefab2, BackPowerPos.position, BackPowerPos.rotation);
                 _risingWallPrefab.GetComponent<IceWall>().Owner = this.gameObject;
+                entity.Coins -= 10;
             }
             else if (selectedPower.CompareTag("Mug2"))
             {
                 GameObject _mug = Instantiate(mug2, BackPowerPos2.position, BackPowerPos2.rotation);
                 _mug.GetComponent<SlowZone>().Owner = this.gameObject;
+                entity.Coins -= 10;
 
 
             }
@@ -155,12 +157,14 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             {
                 GameObject _missile = Instantiate(missile2, FrontPowerPos.position, FrontPowerPos.rotation);
                 _missile.GetComponent<Missile>().Owner = this.gameObject;
+                entity.Coins -= 10;
 
             }
             else if (selectedPower.CompareTag("CampBullet2"))
             {
                 GameObject _bullet = Instantiate(campBullet2, FrontPowerPos.position, FrontPowerPos.rotation);
                 _bullet.GetComponent<CampBullet>().Owner = this.gameObject;
+                entity.Coins -= 10;
 
             }
         }

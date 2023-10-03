@@ -17,6 +17,7 @@ public class RuletaPoderes : MonoBehaviour
             int indicePoder = Random.Range(0, poderesEvolucioneados.Length);
             GameObject poderSeleccionado = poderesEvolucioneados[indicePoder];
             return poderSeleccionado;
+            
         }
         else
         {
