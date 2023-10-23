@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 [RequireComponent(typeof(OptimizatedUpdateGameplay))]
-public class IANav : MonoBehaviour,IOptimizatedUpdate
+public class IANav : MonoBehaviour, IOptimizatedUpdate
 {
     public KartController _KartController;
     public KartEntity KartEntity;
@@ -19,12 +18,12 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     [Space] [Header("Others")] [Space] public Transform point;
 
-    [Header("Persuit")] 
+    [Header("Persuit")]
     public int time;
 
     public float _distanceToPursuit;
 
-    [Header("Obstacles")] 
+    [Header("Obstacles")]
     [SerializeField] private float radius;
     public LayerMask Mask;
     public int maxObstacleDetected;
@@ -33,19 +32,20 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
     private ObstacleAvoidance _obstacleAvoidance;
     private Pursuit _pursuit;
-
+    public LayerMask IgnoreLayer;
+    public Transform pivot;
     int index;
     void Inicialize()
     {
-        var Obstacle = new ObstacleAvoidance(transform,Mask,maxObstacleDetected,radius,angle);
-        var pursuit = new Pursuit(transform,playerEntiti,time);
+        var Obstacle = new ObstacleAvoidance(transform, Mask, maxObstacleDetected, radius, angle);
+        var pursuit = new Pursuit(transform, playerEntiti, time);
         _obstacleAvoidance = Obstacle;
         _pursuit = pursuit;
     }
 
     private void Awake()
     {
-       
+
         Inicialize();
     }
 
@@ -58,25 +58,25 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     private Vector3 GetDir()
     {
         Vector3 dir = Vector3.zero;
-        
+
         float diffDist = Vector3.Distance(playerEntiti.transform.position, transform.position);
-        
-        if (_distanceToPursuit > diffDist && transform.position.z < playerEntiti.transform.position.z) 
+
+        if (_distanceToPursuit > diffDist && transform.position.z < playerEntiti.transform.position.z)
         {
             dir = (playerEntiti.transform.position - transform.position).normalized;
             Debug.Log("entre");
         }
-        else if(_distanceToPursuit < diffDist)
+        else if (_distanceToPursuit < diffDist)
         {
             dir = (point.transform.position - transform.position).normalized;
         }
 
         return dir;
     }
-    
+
     private int currentWaypointIndex = 0;
 
-    void NextRoad() 
+    void NextRoad()
     {
         int lenghNodes = Nodes.Nodes.Length;
         if (index >= lenghNodes) index = 0;
@@ -97,14 +97,23 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
         {
             List<Node> copy = new List<Node>(path);
 
-            if (Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position) > 5)
+            float dis = Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position);
+
+
+            Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
+            KartEntity.LookRotate(dir);
+            if (dis < 15)
             {
-                Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
-                KartEntity.LookRotate(dir);
-            }
-            else
-            {
-                currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+                if (copy[currentWaypointIndex + 1] != null)
+                {
+                    if (isSeeNode(copy[currentWaypointIndex + 1].transform, pivot))
+                        currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+                }
+                else 
+                {
+                    if (isSeeNode(copy[currentWaypointIndex].transform, pivot))
+                        currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+                }
             }
             if (currentWaypointIndex >= path.Count - 1)
             {
@@ -117,13 +126,28 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
 
-        if (dist < 10 || playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) 
+        if (dist < 10 || playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning)
         {
             turbo.Turbo(true);
         }
 
     }
+    bool isSeeNode(Transform target, Transform from)
+    {
+        Vector3 direccion = target.position - from.position;
+        Debug.DrawRay(from.position, direccion, Color.red);
+        RaycastHit hit;
+        if (Physics.Raycast(from.position, direccion, out hit, Mathf.Infinity, IgnoreLayer))
+        {
+            // Verificar si el objeto observado está en línea de visión directa
+            if (hit.transform != target)
+            {
+                return false;
+            }
+        }
 
+        return true;
+    }
     IEnumerator Turbo()
     {
         turbo.GetTurbo();
