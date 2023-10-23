@@ -230,7 +230,7 @@ public class KartController : MonoBehaviour
             }
         }
 
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space) || !isGrounded)
         {
             driftLeft = false;
             driftRight = false;
@@ -271,6 +271,7 @@ public class KartController : MonoBehaviour
 
     private void StartEmmiter()
     {
+        
         foreach (var T in tireMarks)
         {
             T.emitting = true;

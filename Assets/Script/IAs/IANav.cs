@@ -91,8 +91,8 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
     public void Op_UpdateGameplay()
     {
 
-        
-       
+
+
         if (path.Count > 0)
         {
             List<Node> copy = new List<Node>(path);
@@ -106,7 +106,7 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             {
                 currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
             }
-            if (currentWaypointIndex >= path.Count - 1) 
+            if (currentWaypointIndex >= path.Count - 1)
             {
                 NextRoad();
                 StartCoroutine(Turbo());
@@ -115,14 +115,19 @@ public class IANav : MonoBehaviour,IOptimizatedUpdate
             copy = path;
         }
 
+        float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
+
+        if (dist < 10 || playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) 
+        {
+            turbo.Turbo(true);
+        }
+
     }
 
     IEnumerator Turbo()
     {
         turbo.GetTurbo();
-        yield return new WaitForSeconds(3);
-        turbo.Turbo(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         StopCoroutine(Turbo());
     }
     public void Op_UpdateUX()
