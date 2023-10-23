@@ -137,8 +137,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     }
     public void ActivatePower()
     {
-        if (entity.Coins >= specialPower)
-        {
+      
             if (selectedPower.CompareTag("IceWall2"))
             {
                 GameObject _risingWallPrefab = Instantiate(risingWallPrefab2, BackPowerPos.position, BackPowerPos.rotation);
@@ -167,9 +166,8 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
                 entity.Coins -= 10;
 
             }
-        }
-        else
-        {
+        
+       
             if (selectedPower.CompareTag("IceWall"))
             {
                 GameObject _risingWallPrefab = Instantiate(risingWallPrefab, BackPowerPos.position, BackPowerPos.rotation);
@@ -195,7 +193,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
             }
 
-        }
+        
 
 
     }
@@ -241,13 +239,13 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
             if (hasPower)
             {
 
-                if (aiController.CheckRange(aiController.target) && aiController.CheckAngle(aiController.target) && aiController.CheckView(aiController.target) && (SelectedPower.CompareTag("Missile") || SelectedPower.CompareTag("CampBullet")))
+                if (aiController.CheckRange(aiController.target) && aiController.CheckAngle(aiController.target) && aiController.CheckView(aiController.target) && (SelectedPower.CompareTag("Missile") || SelectedPower.CompareTag("CampBullet") || SelectedPower.CompareTag("Missile2") || SelectedPower.CompareTag("CampBullet2")))
                 {
                     ActivatePower();
                     HasPower = false;
                     Debug.Log("PoderAdelante");
                 }
-                if (aiController.CheckRangeBack(aiController.target) && aiController.CheckAngleBack(aiController.target) && aiController.CheckViewBack(aiController.target) && (SelectedPower.CompareTag("Mug") || SelectedPower.CompareTag("IceWall")))
+                if (aiController.CheckRangeBack(aiController.target) && aiController.CheckAngleBack(aiController.target) && aiController.CheckViewBack(aiController.target) && (SelectedPower.CompareTag("Mug") || SelectedPower.CompareTag("IceWall") || SelectedPower.CompareTag("Mug2") || SelectedPower.CompareTag("IceWall2")))
                 {
                     ActivatePower();
                     HasPower = false;
