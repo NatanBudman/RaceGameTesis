@@ -181,7 +181,7 @@ public class KartController : MonoBehaviour
         }
         else if ((realSpeed <= SpeedStats / 4 && realSpeed > 0.01f) || (realSpeed < -1f))
         {
-            steerAmount = ((realSpeed * steerDirection * 0.5f) * SteerDirStats) * 2.5f;
+            steerAmount = ((realSpeed * steerDirection * 0.5f) * SteerDirStats) * 4f;
         }
         else if ((realSpeed < 1f) || (realSpeed > -1f))
         {
@@ -229,7 +229,6 @@ public class KartController : MonoBehaviour
                 StartEmmiter();
             }
         }
-
         if (!Input.GetKey(KeyCode.Space) || !isGrounded)
         {
             driftLeft = false;
@@ -271,7 +270,6 @@ public class KartController : MonoBehaviour
 
     private void StartEmmiter()
     {
-        
         foreach (var T in tireMarks)
         {
             T.emitting = true;
