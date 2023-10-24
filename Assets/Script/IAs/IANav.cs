@@ -34,7 +34,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     private Pursuit _pursuit;
     public LayerMask IgnoreLayer;
     public Transform pivot;
-    int index;
+    int index = 0;
     void Inicialize()
     {
         var Obstacle = new ObstacleAvoidance(transform, Mask, maxObstacleDetected, radius, angle);
@@ -52,7 +52,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     private void Start()
     {
         turbo = GetComponent<TurboManager>();
-        NextRoad();
+        P();
     }
 
     private Vector3 GetDir()
@@ -76,8 +76,19 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
     private int currentWaypointIndex = 0;
 
+    void P() 
+    {
+        int lenghNodes = Nodes.Nodes.Length;
+        if (index >= lenghNodes) index = 0;
+        int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
+        int random = Random.Range(0, lenght);
+        to = Nodes.Nodes[index].CheckPOintNodes[random];
+        path = Pathfinding.Path(from, to);
+        index++;
+    }
     void NextRoad()
     {
+        Debug.Log("1");
         int lenghNodes = Nodes.Nodes.Length;
         if (index >= lenghNodes) index = 0;
         int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
@@ -102,7 +113,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
             Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
             KartEntity.LookRotate(dir);
-            if (dis < 15)
+            if (dis < 10)
             {
                 if (copy[currentWaypointIndex + 1] != null)
                 {
@@ -121,7 +132,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
                 StartCoroutine(Turbo());
                 currentWaypointIndex = 0;
             }
-            copy = path;
+                copy = path;
         }
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
@@ -135,9 +146,10 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     bool isSeeNode(Transform target, Transform from)
     {
         Vector3 direccion = target.position - from.position;
-        Debug.DrawRay(from.position, direccion, Color.red);
         RaycastHit hit;
-        if (Physics.Raycast(from.position, direccion, out hit, Mathf.Infinity, IgnoreLayer))
+        float sphereRadius = 0.5f; // Set the desired radius for the sphere cast
+
+        if (Physics.SphereCast(from.position, sphereRadius, direccion, out hit, Mathf.Infinity, IgnoreLayer))
         {
             // Verificar si el objeto observado está en línea de visión directa
             if (hit.transform != target)
