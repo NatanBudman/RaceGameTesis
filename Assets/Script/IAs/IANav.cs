@@ -45,14 +45,15 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
     private void Awake()
     {
-
+        turbo = GetComponent<TurboManager>();
         Inicialize();
+        P();
     }
 
     private void Start()
     {
-        turbo = GetComponent<TurboManager>();
-        P();
+     
+       
     }
 
     private Vector3 GetDir()
@@ -88,7 +89,6 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     }
     void NextRoad()
     {
-        Debug.Log("1");
         int lenghNodes = Nodes.Nodes.Length;
         if (index >= lenghNodes) index = 0;
         int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
@@ -97,6 +97,8 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
         path = Pathfinding.Path(from, to);
         from = to;
         index++;
+        currentWaypointIndex = 0;
+        return;
     }
 
     public void Op_UpdateGameplay()
@@ -113,7 +115,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
             Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
             KartEntity.LookRotate(dir);
-            if (dis < 10)
+            if (dis < 8.5f)
             {
                 if (copy[currentWaypointIndex + 1] != null)
                 {
@@ -126,11 +128,11 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
                         currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
                 }
             }
-            if (currentWaypointIndex >= path.Count - 1)
+            if (currentWaypointIndex >= copy.Count - 1)
             {
-                NextRoad();
                 StartCoroutine(Turbo());
-                currentWaypointIndex = 0;
+                NextRoad();
+              
             }
                 copy = path;
         }
