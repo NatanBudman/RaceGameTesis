@@ -20,6 +20,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public GameObject mug2;
     public GameObject missile2;
     public GameObject campBullet2;
+    public GameObject fakeObjectPrefab;
     public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
@@ -42,6 +43,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Image campBulletImage;
 
     private Dictionary<string, Image> powerImages = new Dictionary<string, Image>();
+
+    private float launchCooldown = 20f; 
+    private float currentLaunchCooldown = 0.0f;
+    private bool canLaunch = true;
+    public Image fillImage;
 
     public void Start()
     {
@@ -135,7 +141,18 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         TimeSlowed = TimeSlow;
         VelSlowed = velocySlow;
     }
-    public void ActivatePower()
+    private void SpawnFakeObject()
+    {
+        // Asegúrate de que fakeObjectPrefab esté asignado en el Inspector
+        if (fakeObjectPrefab != null)
+        {
+
+
+            GameObject fakeObject = Instantiate(fakeObjectPrefab, BackPowerPos2.position, BackPowerPos2.rotation);
+
+        }
+    }
+        public void ActivatePower()
     {
       
             if (selectedPower.CompareTag("IceWall2"))
@@ -256,7 +273,30 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
 
         }
+        if (!canLaunch)
+        {
+            currentLaunchCooldown -= Time.deltaTime;
 
+            if (currentLaunchCooldown <= 0.0f)
+            {
+                canLaunch = true;
+                currentLaunchCooldown = 0.0f;
+            }
+            else
+            {
+                float fillAmount = 1.0f - (currentLaunchCooldown / launchCooldown);
+                fillImage.fillAmount = fillAmount;
+            }
+        }
+
+        // Verifica si se presionó la tecla "G" y el temporizador termino
+        if (aiController == null && Input.GetKeyDown(KeyCode.G) && canLaunch)
+        {
+            SpawnFakeObject();
+            canLaunch = false;
+            fillImage.fillAmount = 0.0f;
+            currentLaunchCooldown = launchCooldown;
+        }
     }
 
     public void Op_UpdateUX()
