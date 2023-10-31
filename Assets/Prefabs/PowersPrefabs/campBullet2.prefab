@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3702465746709522738}
   - component: {fileID: 3702465746709522737}
   - component: {fileID: 3702465746709522736}
+  - component: {fileID: 4317806137318686858}
+  - component: {fileID: -2773401015712503008}
   m_Layer: 0
   m_Name: campBullet2
   m_TagString: CampBullet2
@@ -115,3 +117,32 @@ MonoBehaviour:
   TimeLife: 3
   Owner: {fileID: 0}
   campForce: {fileID: 5355152445116519068, guid: 8065e497633448e408c4ab9944eb7b22, type: 3}
+--- !u!54 &4317806137318686858
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702465746709522743}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-2773401015712503008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702465746709522743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6598072, y: 1.9999998, z: 0.7972443}
+  m_Center: {x: -0.02504253, y: 0, z: 0.014581062}
