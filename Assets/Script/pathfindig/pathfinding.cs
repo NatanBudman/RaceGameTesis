@@ -6,13 +6,11 @@ using UnityEngine;
 public class pathfinding : MonoBehaviour
 {
     
-
     public List<Node> Path(Node from , Node to)
     {
         List<Node> visited = new List<Node>();
         List<Node> parent = new List<Node>();
         List<Node> path =new List<Node>();
-        List<Node> nodesRecored =new List<Node>();
         List<Node> currentList = new List<Node>();
         parent.Add(from);
         Node currentNode = from;

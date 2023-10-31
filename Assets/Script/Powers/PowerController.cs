@@ -26,7 +26,6 @@ public class PowerController : MonoBehaviour, IAIController
         {
             powerPickUp.SelectedPower = powerRoulette.GirarRuleta();
             powerPickUp.HasPower = true;
-            Debug.Log(powerPickUp.SelectedPower);
 
 
 

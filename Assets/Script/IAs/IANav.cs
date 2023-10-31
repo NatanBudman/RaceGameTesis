@@ -35,6 +35,11 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     public LayerMask IgnoreLayer;
     public Transform pivot;
     int index = 0;
+    Node lastNode;
+    public bool X = false;
+
+
+   
     void Inicialize()
     {
         var Obstacle = new ObstacleAvoidance(transform, Mask, maxObstacleDetected, radius, angle);
@@ -47,13 +52,13 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     {
         turbo = GetComponent<TurboManager>();
         Inicialize();
-        P();
+       
     }
 
     private void Start()
     {
-     
-       
+        P();
+        index++;
     }
 
     private Vector3 GetDir()
@@ -79,16 +84,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
     void P() 
     {
-        int lenghNodes = Nodes.Nodes.Length;
-        if (index >= lenghNodes) index = 0;
-        int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
-        int random = Random.Range(0, lenght);
-        to = Nodes.Nodes[index].CheckPOintNodes[random];
-        path = Pathfinding.Path(from, to);
-        index++;
-    }
-    void NextRoad()
-    {
+        lastNode = from;
         int lenghNodes = Nodes.Nodes.Length;
         if (index >= lenghNodes) index = 0;
         int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
@@ -96,33 +92,62 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
         to = Nodes.Nodes[index].CheckPOintNodes[random];
         path = Pathfinding.Path(from, to);
         from = to;
-        index++;
-        currentWaypointIndex = 0;
+       
         return;
     }
-
+    void NextRoad()
+    {
+        lastNode = from;
+        int lenghNodes = Nodes.Nodes.Length;
+        if (index >= lenghNodes) index = 0;
+        int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
+        int random = Random.Range(0, lenght);
+        to = Nodes.Nodes[index].CheckPOintNodes[random];
+        path = Pathfinding.Path(from, to);
+      
+        return;
+    }
+    void RefreshRoad() 
+    {
+        int lenghNodes = Nodes.Nodes.Length;
+       
+        int lenght = Nodes.Nodes[index].CheckPOintNodes.Length;
+        int random = Random.Range(0, lenght);
+        to = Nodes.Nodes[index - 1].CheckPOintNodes[random];
+        path = Pathfinding.Path(lastNode, to);
+        
+    }
+    List<Node> copy = new List<Node>();
+    private void Update()
+    {
+       
+    }
+    void M() 
+    {
+        from = to;
+    }
     public void Op_UpdateGameplay()
     {
 
-
-
         if (path.Count > 0)
         {
-            List<Node> copy = new List<Node>(path);
+            copy = path;
+
 
             float dis = Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position);
 
 
             Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
             KartEntity.LookRotate(dir);
-            if (dis < 8.5f)
+            if (dis < 9.25f)
             {
-                if (copy[currentWaypointIndex + 1] != null)
+                int p = (currentWaypointIndex + 1) % path.Count;
+                if (copy[p] != null)
                 {
                     if (isSeeNode(copy[currentWaypointIndex + 1].transform, pivot))
                         currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
                 }
-                else 
+                else
                 {
                     if (isSeeNode(copy[currentWaypointIndex].transform, pivot))
                         currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
@@ -130,11 +155,20 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
             }
             if (currentWaypointIndex >= copy.Count - 1)
             {
+                Invoke("M", 1);
                 StartCoroutine(Turbo());
-                NextRoad();
-              
-            }
                 copy = path;
+                NextRoad();
+                currentWaypointIndex = 0;
+                index++;
+                return;
+
+            }
+            copy = path;
+        }
+        if (path.Count >= 150) 
+        {
+            RefreshRoad();
         }
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
