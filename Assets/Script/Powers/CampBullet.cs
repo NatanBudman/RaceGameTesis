@@ -33,10 +33,22 @@ public class CampBullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(campForce,this.transform.position, this.transform.rotation);
+        KartController kart = other.GetComponent<KartController>();
+       
+        if (kart != null)
+        {
+            Instantiate(campForce, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
+            return;
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("wall"))
+        {
+            Instantiate(campForce, this.transform.position, this.transform.rotation);
 
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+            return;
+        }
 
     }
-
+    
 }

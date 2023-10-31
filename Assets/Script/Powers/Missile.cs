@@ -41,10 +41,16 @@ public class Missile : MonoBehaviour
             other.GetComponent<KartPowerPickUp>().Slowed(true, 1.5f, 0);
             Destroy(this.gameObject);
             return;
-
         }
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("wall"))
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
     }
 
 
-   
+
 }
