@@ -3323,6 +3323,7 @@ GameObject:
   - component: {fileID: 324030703}
   - component: {fileID: 324030702}
   - component: {fileID: 324030705}
+  - component: {fileID: 324030706}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3422,6 +3423,102 @@ MonoBehaviour:
   credits: {fileID: 1867994422}
   kartmotor: {fileID: 1334679373}
   error: {fileID: 1069676602}
+--- !u!82 &324030706
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324030701}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5272560026196534600, guid: 0344e7348ef6bae4b9259d440592232a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 68f33ce18a47c8d4d93e1b25ac051be1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &370068812
 GameObject:
   m_ObjectHideFlags: 0
@@ -7139,18 +7236,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills:
   - SkillName: FakeObject
-    Description: Drops a fake item box that damages players who touch it. Up to 3
-      can be placed. Placing more than 3 removes the oldest one placed.
+    Description: "Deja caer una caja de objeto falsa que da\xF1a a los jugadores
+      que la tocan. Se pueden colocar hasta 3. Al colocar m\xE1s de 3 se elimina
+      la m\xE1s antigua colocada."
   - SkillName: Double Oject
-    Description: Upon activation, this skill mimics the current item a player has
-      in their possesion without consuming the item.
+    Description: "Tras la activaci\xF3n, esta habilidad imita el objeto actual que
+      un jugador tiene en su poder sin consumirlo."
   - SkillName: Object Theft
-    Description: "Allows the player to steal an item from the closest player who
-      owns an item. Cannot steal another character\u2019s skills."
+    Description: "Permite al jugador robar un objeto del jugador m\xE1s cercano que
+      posea un objeto. No se pueden robar las habilidades de otro personaje."
   - SkillName: Force Field
-    Description: 'Generates a force field around the player that lasts for 10 seconds
-      or until it absorbs one point of damage: enemy projectiles and traps, stage
-      hazards, etc.'
+    Description: "Genera un campo de fuerza alrededor del jugador que dura 10 segundos
+      o hasta que absorbe un punto de da\xF1o: proyectiles enemigos, trampas y obst\xE1culos
+      del escenario."
   CurrentSkillColor: {r: 0.74509805, g: 0.6, b: 0.17254902, a: 1}
   SkillDefaultColor: {r: 0, g: 0, b: 0, a: 1}
   SkillDescription: {fileID: 1625260566}
@@ -7325,7 +7423,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Difficulty
+  m_Text: Difficultad
 --- !u!222 &660345095
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14290,13 +14388,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Runners
+  m_Text: "N\xB0 de corredores"
 --- !u!222 &1402029540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15582,7 +15680,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3d4116861716d3348bececbf6ed79611, type: 3}
-    m_FontSize: 23
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -19904,7 +20002,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Laps
+  m_Text: Vueltas
 --- !u!222 &2059736888
 CanvasRenderer:
   m_ObjectHideFlags: 0

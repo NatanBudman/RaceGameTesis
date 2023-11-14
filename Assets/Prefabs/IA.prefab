@@ -283,6 +283,7 @@ MonoBehaviour:
   mug2: {fileID: 6914092887006704724, guid: 8b9cd84e61ed9ee4da1eeecac35bdd76, type: 3}
   missile2: {fileID: 6877659160321110942, guid: bdfd4976551dc9645b80f354965c4b47, type: 3}
   campBullet2: {fileID: 3702465746709522743, guid: f695bcf13ec54874a93b1b4aa12e5481, type: 3}
+  fakeObjectPrefab: {fileID: 0}
   FrontPowerPos: {fileID: 2140045859988646572}
   BackPowerPos: {fileID: 2140045861304749944}
   BackPowerPos2: {fileID: 2140045861304749944}
@@ -294,6 +295,7 @@ MonoBehaviour:
   mugImage: {fileID: 0}
   missileImage: {fileID: 0}
   campBulletImage: {fileID: 0}
+  fillImage: {fileID: 0}
 --- !u!114 &2140045860070823673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +350,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   pivot: {fileID: 5855619227519789489}
+  X: 0
 --- !u!114 &360369530365380028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +556,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 28498b9ebcb776a46b3c9479a664bfc7, type: 2}
+  - {fileID: 2100000, guid: b9ccefbb3297873448354223de9723b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
