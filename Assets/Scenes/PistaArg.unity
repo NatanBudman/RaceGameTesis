@@ -6920,8 +6920,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409229635}
-  m_LocalRotation: {x: 0.052944098, y: 0.8392969, z: -0.08310908, w: 0.5346686}
-  m_LocalPosition: {x: 589.7553, y: 3.5329244, z: 343.24026}
+  m_LocalRotation: {x: 0.052943986, y: 0.8392947, z: -0.0831081, w: 0.5346724}
+  m_LocalPosition: {x: 589.75555, y: 3.5329306, z: 343.2404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24916,8 +24916,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381346446}
-  m_LocalRotation: {x: 0.052944098, y: 0.8392969, z: -0.08310908, w: 0.5346686}
-  m_LocalPosition: {x: 589.7553, y: 3.5329244, z: 343.24026}
+  m_LocalRotation: {x: 0.052943986, y: 0.8392947, z: -0.0831081, w: 0.5346724}
+  m_LocalPosition: {x: 589.75555, y: 3.5329306, z: 343.2404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25569,7 +25569,7 @@ Terrain:
   m_GameObject: {fileID: 1422068510}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 917274f78459b014198e7dc432e070b1, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -25606,39 +25606,6 @@ MonoBehaviour:
   m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfacevecs: []
-  tdataFloat: []
-  terrainData: {fileID: 15600000, guid: 917274f78459b014198e7dc432e070b1, type: 2}
-  xStart: 0
-  zStart: 0
-  roadSurface: {fileID: 0}
-  surfaceMesh: {fileID: 0}
-  surfaceCollider: {fileID: 0}
-  terrainDataStored: []
-  terrainChanges: []
-  terrainTrees: []
-  detailInstances: []
-  detailInstanceStarts: 
-  surfaceObjects: []
-  terrainTestPoints: []
-  splatData: []
-  addedTrees: []
-  holes: []
-  terrainHeightsBackup: []
-  terrainTreesBackup: []
-  terrainDetailBackup: []
-  terrainSplatBackup: []
-  detailInstanceStartsBackUp: 
-  heightmapFlag: 0
-  splatmapFlag: 0
-  treeFlag: 0
-  detailFlag: 0
-  holesFlag: 0
-  terrainDone: 0
-  backupFlagNotification: 0
-  ignore: 0
-  backupObject: {fileID: 0}
-  terrain: {fileID: 0}
 --- !u!154 &1422068513
 TerrainCollider:
   m_ObjectHideFlags: 0
