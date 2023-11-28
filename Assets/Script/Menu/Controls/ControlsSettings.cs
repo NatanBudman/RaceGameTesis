@@ -100,8 +100,8 @@ public class ControlsSettings : MonoBehaviour
             KartControls.Drift = KeyCode.Space;
             Drift.text = "SPACE";
 
-            KartControls.Power= KeyCode.E;
-            Power.text = "E";
+            KartControls.Power= KeyCode.K;
+            Power.text = "K";
 
             KartControls.Turbo = KeyCode.LeftShift;
             Turbo.text = "SHIFT";

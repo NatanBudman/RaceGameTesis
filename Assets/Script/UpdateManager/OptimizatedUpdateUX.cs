@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OptimizatedUpdateUX : MonoBehaviour
@@ -11,9 +9,7 @@ public class OptimizatedUpdateUX : MonoBehaviour
     private void Start()
     {
         _updateManager = FindObjectOfType<UpdateManager>();
-        
         _updateManager.AddUpdate(this);
-
         _optimizatedUpdate = GetComponents<IOptimizatedUpdate>();
     }
     

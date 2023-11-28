@@ -10,8 +10,8 @@ public class KartControls : ScriptableObject
    public KeyCode Left = KeyCode.A;
    public KeyCode Right = KeyCode.D;
    
-   public KeyCode Jump = KeyCode.Q;
+   public KeyCode Jump = KeyCode.J;
    public KeyCode Turbo = KeyCode.LeftShift;
    public KeyCode Drift = KeyCode.Space;
-   public KeyCode Power = KeyCode.E;
+   public KeyCode Power = KeyCode.K;
 }
