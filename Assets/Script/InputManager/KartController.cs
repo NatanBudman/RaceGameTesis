@@ -245,13 +245,15 @@ public class KartController : MonoBehaviour
         {
             Choco = true;
             
-            // Obtener la normal de la colisión para obtener la dirección de rebote
-            Vector3 direccionRebote = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
-            realSpeed -= 10;
-            // Aplicar una fuerza en la dirección de rebote
-            rb.AddForce(direccionRebote * realSpeed, ForceMode.Impulse);
+            //// Obtener la normal de la colisión para obtener la dirección de rebote
+            //Vector3 direccionRebote = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
+            //// Aplicar una fuerza en la dirección de rebote
+            //rb.AddForce(direccionRebote * realSpeed * 4, ForceMode.Impulse);
 
-            
+            Vector3 newVelocity = -rb.velocity;
+
+            rb.velocity = newVelocity;
+
         }
 
         if (collision.collider.CompareTag("Wall")) 
