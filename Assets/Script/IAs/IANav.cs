@@ -52,13 +52,13 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     {
         turbo = GetComponent<TurboManager>();
         Inicialize();
-       
+
     }
 
     private void Start()
     {
-        P();
-        index++;
+        //P();
+        //index++;
     }
 
     private Vector3 GetDir()
@@ -129,46 +129,57 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
     public void Op_UpdateGameplay()
     {
 
-        if (path.Count > 0)
+        //if (path.Count > 0)
+        //{
+        //    copy = path;
+
+
+        //    float dis = Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position);
+
+
+        //    Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
+        //    KartEntity.LookRotate(dir);
+        //    if (dis < 9.25f)
+        //    {
+        //        int p = (currentWaypointIndex + 1) % path.Count;
+        //        if (copy[p] != null)
+        //        {
+        //            if (isSeeNode(copy[currentWaypointIndex + 1].transform, pivot))
+        //                currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+        //        }
+        //        else
+        //        {
+        //            if (isSeeNode(copy[currentWaypointIndex].transform, pivot))
+        //                currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
+        //        }
+        //    }
+        //    if (currentWaypointIndex >= copy.Count - 1)
+        //    {
+        //        Invoke("M", 1);
+        //        StartCoroutine(Turbo());
+        //        copy = path;
+        //        NextRoad();
+        //        currentWaypointIndex = 0;
+        //        index++;
+        //        return;
+
+        //    }
+        //    copy = path;
+        //}
+        //if (path.Count >= 150) 
+        //{
+        //    RefreshRoad();
+        //}
+
+        float dis = Vector2.Distance(from.transform.position, transform.position);
+
+        Vector3 dir = (from.transform.position - transform.position).normalized;
+        KartEntity.LookRotate(dir);
+
+        if (dis < 9.25f && isSeeNode(from.transform, pivot))
         {
-            copy = path;
-
-
-            float dis = Vector2.Distance(copy[currentWaypointIndex].transform.position, transform.position);
-
-
-            Vector3 dir = (copy[currentWaypointIndex].transform.position - transform.position).normalized;
-            KartEntity.LookRotate(dir);
-            if (dis < 9.25f)
-            {
-                int p = (currentWaypointIndex + 1) % path.Count;
-                if (copy[p] != null)
-                {
-                    if (isSeeNode(copy[currentWaypointIndex + 1].transform, pivot))
-                        currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
-                }
-                else
-                {
-                    if (isSeeNode(copy[currentWaypointIndex].transform, pivot))
-                        currentWaypointIndex = (currentWaypointIndex + 1) % path.Count;
-                }
-            }
-            if (currentWaypointIndex >= copy.Count - 1)
-            {
-                Invoke("M", 1);
-                StartCoroutine(Turbo());
-                copy = path;
-                NextRoad();
-                currentWaypointIndex = 0;
-                index++;
-                return;
-
-            }
-            copy = path;
-        }
-        if (path.Count >= 150) 
-        {
-            RefreshRoad();
+            var random = Random.Range(0, from.NeighboarNodes.Length);
+            from = from.NeighboarNodes[random];
         }
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
