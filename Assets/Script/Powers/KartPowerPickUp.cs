@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 {
     public PowerController aiController;
+    private InputManager inputManager;
     public RuletaPoderes powerRoulette;
     public KartEntity entity;
     private bool hasPower = false;
@@ -58,6 +59,8 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         powerImages["CampBullet"] = campBulletImage;
         currentPowerTimer = powerTimer;
         entity = GetComponent<KartEntity>();
+        inputManager = GetComponent<InputManager>();
+
 
     }
 
@@ -218,7 +221,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
     public void Op_UpdateGameplay()
     {
-        if (aiController == null && hasPower && Input.GetKey(KeyCode.F))
+        if (aiController == null && hasPower && Input.GetKey(inputManager.PowerActive))
         {
             ActivatePower();
             hasPower = false;

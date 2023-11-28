@@ -214,7 +214,9 @@ public class KartController : MonoBehaviour
     
     private void Drift()
     {
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
+
+        if (_inputManager == null) return;
+        if (Input.GetKey(_inputManager.DriftActive) && isGrounded)
         {
             if (steerDirection > 0)
             {

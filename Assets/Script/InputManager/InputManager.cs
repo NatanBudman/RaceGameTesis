@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour,IOptimizatedUpdate
 
     #region ActionInputs
 
-      private KeyCode PowerActive => Controls.Power;
+      public KeyCode PowerActive => Controls.Power;
       private KeyCode SkillActivate;
       public KeyCode JumpActive => Controls.Jump;
       public KeyCode TurboActive => Controls.Turbo;
