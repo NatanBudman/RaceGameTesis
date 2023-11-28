@@ -114,7 +114,7 @@ public class KartUI : MonoBehaviour, IOptimizatedUpdate
           CoinsManager.GetCoins(entity.Coins - coins);
           coins = entity.Coins;
       }
-      //   CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
+     //   CurrentPos.text = $"{this.gameObject.name}  Position : " + stackPos.GetPos(this.gameObject);
    }
 
     void Go_text() 

@@ -6,11 +6,14 @@ using UnityEngine;
 public class UpdateManager : MonoBehaviour
 {
     public GameManager _Manager;
+    
     public List<OptimizatedUpdateGameplay> GameplayUpdates;
     [Space]
+
     public List<OptimizatedUpdateUX> UXUpdates;
     
     #region FPS
+
         private int GameplayFPS => _Manager.GameplayFPS;
         private int UXFPS => _Manager.UXFPS;
         
@@ -19,6 +22,8 @@ public class UpdateManager : MonoBehaviour
         
         private float GameplaynextTime = 0;
         private float UInextTime = 0;
+
+
     #endregion
 
     private void Awake()
@@ -26,7 +31,8 @@ public class UpdateManager : MonoBehaviour
         GameplayUpdates = new List<OptimizatedUpdateGameplay>(1000);
         UXUpdates = new List<OptimizatedUpdateUX>(1000);
     }
-    
+
+    // Start is called before the first frame update
     void Start()
     {
         // Set Limited FPS
@@ -45,6 +51,7 @@ public class UpdateManager : MonoBehaviour
         if (GameplaynextTime >= GameplaytimePerFrame)
         {
             List<OptimizatedUpdateGameplay> updatesCopy = new List<OptimizatedUpdateGameplay>(GameplayUpdates);
+
             foreach (var updateGameplay in updatesCopy)
             {
                 if (updateGameplay != null)
@@ -53,17 +60,21 @@ public class UpdateManager : MonoBehaviour
                 }
             }
             updatesCopy = GameplayUpdates;
+
             GameplaynextTime = 0;
+
         }
       
         if (UInextTime >= UItimePerFrame)
         {
             for (int i = 0; i < UXLenght; i++)
             {
-                UXUpdates[i].UpdateUX();
+                    UXUpdates[i].UpdateUX();
             }
+
             UInextTime = 0;
         }
+     
     }
 
 

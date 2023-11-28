@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class KartController : MonoBehaviour
@@ -46,6 +49,9 @@ public class KartController : MonoBehaviour
 
     #endregion
     
+    // fuerzaDeChoque
+  
+
     public bool isGrounded;
     public bool hasInputManager;
 
@@ -244,6 +250,8 @@ public class KartController : MonoBehaviour
             realSpeed -= 10;
             // Aplicar una fuerza en la dirección de rebote
             rb.AddForce(direccionRebote * realSpeed, ForceMode.Impulse);
+
+            
         }
 
         if (collision.collider.CompareTag("Wall")) 
@@ -263,6 +271,7 @@ public class KartController : MonoBehaviour
 
     private void StartEmmiter()
     {
+        
         foreach (var T in tireMarks)
         {
             T.emitting = true;
@@ -277,38 +286,38 @@ public class KartController : MonoBehaviour
     }
     
     
-    // private void Crash(GameObject collision)
-    //     {
-    //         Vector3 posicionAnterior = transform.position;
-    //         Vector3 posicionActual = collision.gameObject.transform.position;
-    //
-    //         Vector3 distanciaMovida = posicionActual - posicionAnterior;
-    //         float distanciaX = Mathf.Abs(distanciaMovida.x);
-    //         float distanciaY = Mathf.Abs(distanciaMovida.y);
-    //         float distanciaZ = Mathf.Abs(distanciaMovida.z);
-    //
-    //         if (distanciaX >= distanciaY && distanciaX >= distanciaZ)
-    //         {
-    //             // El objeto ha chocado por el lado derecho o izquierdo
-    //             if (distanciaMovida.x >= 0)
-    //             {
-    //                 // El objeto ha chocado por el lado derecho
-    //                 transform.Rotate(new Vector3(0, transform.forward.y - 25, 0));
-    //             }
-    //             else
-    //             {
-    //                 // El objeto ha chocado por el lado izquierdo
-    //                 transform.Rotate(new Vector3(0, transform.forward.y + 25, 0));
-    //             }
-    //         }
-    //         bool haChocadoPorDerecha = (distanciaMovida.x >= 0);
-    //         Debug.Log(haChocadoPorDerecha);
-    //     }
-    //
-    // private void Crash2(GameObject collision)
-    //     {
-    //    
-    //     }
+    private void Crash(GameObject collision)
+        {
+            Vector3 posicionAnterior = transform.position;
+            Vector3 posicionActual = collision.gameObject.transform.position;
+
+            Vector3 distanciaMovida = posicionActual - posicionAnterior;
+            float distanciaX = Mathf.Abs(distanciaMovida.x);
+            float distanciaY = Mathf.Abs(distanciaMovida.y);
+            float distanciaZ = Mathf.Abs(distanciaMovida.z);
+
+            if (distanciaX >= distanciaY && distanciaX >= distanciaZ)
+            {
+                // El objeto ha chocado por el lado derecho o izquierdo
+                if (distanciaMovida.x >= 0)
+                {
+                    // El objeto ha chocado por el lado derecho
+                    transform.Rotate(new Vector3(0, transform.forward.y - 25, 0));
+                }
+                else
+                {
+                    // El objeto ha chocado por el lado izquierdo
+                    transform.Rotate(new Vector3(0, transform.forward.y + 25, 0));
+                }
+            }
+            bool haChocadoPorDerecha = (distanciaMovida.x >= 0);
+            Debug.Log(haChocadoPorDerecha);
+        }
+
+    private void Crash2(GameObject collision)
+        {
+       
+        }
 
       
         
