@@ -68,7 +68,7 @@ public class SettingMap : MonoBehaviour
         {
             Laps++;
         }
-        else if(positive < 0 && Laps >= 1)
+        else if(positive < 0 && Laps >= 2)
         {
             Laps--;
         }

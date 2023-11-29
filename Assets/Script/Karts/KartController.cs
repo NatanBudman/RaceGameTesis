@@ -29,8 +29,8 @@ public class KartController : MonoBehaviour
         [SerializeField] private float gravity;
         [SerializeField] private float jumpForce;
         [SerializeField] private float deaccelerationTime;
-        private float steerAmount;
         private float steerDirection;
+        [SerializeField] private float steerAmount;
         private float driftTime;
         private float velocit;
         public float maxSpeed => SpeedStats; //max possible speed
@@ -49,9 +49,6 @@ public class KartController : MonoBehaviour
 
     #endregion
     
-    // fuerzaDeChoque
-  
-
     public bool isGrounded;
     public bool hasInputManager;
 
@@ -145,9 +142,6 @@ public class KartController : MonoBehaviour
         if (driftLeft && !driftRight) //drift a izq
         {
             steerDirection = Input.GetAxis("Horizontal") < 0 ? -1.5f : -0.5f;
-            
-            //_turboSystem.GetTurbo();
-            
             if (isGrounded)
             {
                 rb.AddForce(transform.right * (outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);
@@ -156,7 +150,6 @@ public class KartController : MonoBehaviour
         else if (driftRight && !driftLeft) //drift a der
         {
             steerDirection = Input.GetAxis("Horizontal") > 0 ? 1.5f : 0.5f;
-            //_turboSystem.GetTurbo();
             if (isGrounded)
             {
                 rb.AddForce(transform.right * (-outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);
@@ -173,23 +166,27 @@ public class KartController : MonoBehaviour
         }
         else if ((realSpeed <= SpeedStats / 2  && realSpeed > SpeedStats / 3) || (realSpeed < -(SpeedStats / 3)))
         {
-            steerAmount = (realSpeed / 1.25f * steerDirection) * SteerDirStats;
+            steerAmount = (realSpeed / 1.25f * steerDirection) * SteerDirStats * 2;
         }
         else if ((realSpeed <= SpeedStats / 3 && realSpeed > SpeedStats / 4) || (realSpeed < -(SpeedStats / 4) && realSpeed >= -(SpeedStats / 3)))
         {
-            steerAmount = (realSpeed * steerDirection) * SteerDirStats;
+            steerAmount = (realSpeed * steerDirection) * SteerDirStats * 3f;
         }
-        else if ((realSpeed <= SpeedStats / 4 && realSpeed > 0.01f) || (realSpeed < -1f))
+        else if ((realSpeed <= SpeedStats / 4 && realSpeed > 0.01f))
         {
-            steerAmount = ((realSpeed * steerDirection * 0.5f) * SteerDirStats) * 2.5f;
+            steerAmount = ((realSpeed * steerDirection) * SteerDirStats) * 4.5f;
+        }
+        else if ((realSpeed < -1f))
+        {
+            steerAmount = ((realSpeed * steerDirection) * SteerDirStats) * 6f;
         }
         else if ((realSpeed < 1f) || (realSpeed > -1f))
         {
             steerAmount = 0;
         }
-
+        
         steerDirVector = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + steerAmount, transform.eulerAngles.z);
-
+        
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, steerDirVector, 1.5f * Time.deltaTime);
     }
 
