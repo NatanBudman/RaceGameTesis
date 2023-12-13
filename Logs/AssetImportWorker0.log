@@ -15,15 +15,9 @@ D:/GitHub/RaceGameTesis
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-<<<<<<< Updated upstream
 50368
 Successfully changed project path to: D:/GitHub/RaceGameTesis
 D:/GitHub/RaceGameTesis
-=======
-63832
-Successfully changed project path to: D:/GitHubRepos/RaceGameTesis
-D:/GitHubRepos/RaceGameTesis
->>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -53,19 +47,11 @@ D:/GitHubRepos/RaceGameTesis
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-<<<<<<< Updated upstream
 Player connection [7960] Host "[IP] 192.168.1.100 [Port] 0 [Flags] 2 [Guid] 17384446 [EditorId] 17384446 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3EJR84T) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [7960] Host "[IP] 192.168.1.100 [Port] 0 [Flags] 2 [Guid] 17384446 [EditorId] 17384446 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3EJR84T) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 Refreshing native plugins compatible for Editor in 34.69 ms, found 2 plugins.
-=======
-Player connection [9720] Host "[IP] 192.168.1.44 [Port] 0 [Flags] 2 [Guid] 2722268206 [EditorId] 2722268206 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
-
-Player connection [9720] Host "[IP] 192.168.1.44 [Port] 0 [Flags] 2 [Guid] 2722268206 [EditorId] 2722268206 [Version] 1048832 [Id] WindowsEditor(7,GUAN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
-
-Refreshing native plugins compatible for Editor in 28.73 ms, found 2 plugins.
->>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.18f1 (3129e69bc0c7)
 [Subsystems] Discovering subsystems at path D:/Unity/Unity 2021.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -78,7 +64,6 @@ Direct3D:
     VRAM:     8170 MB
     Driver:   31.0.21029.6002
 Initialize mono
-<<<<<<< Updated upstream
 Mono path[0] = 'D:/Unity/Unity 2021.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity/Unity 2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Unity/Unity 2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
@@ -95,30 +80,11 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (5748ms)
 		BeginReloadAssembly (4185ms)
-=======
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56820
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.112426 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 26.11 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  4.969 seconds
-Domain Reload Profiling:
-	ReloadAssembly (4969ms)
-		BeginReloadAssembly (3735ms)
->>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-<<<<<<< Updated upstream
 		EndReloadAssembly (1024ms)
 			LoadAssemblies (4185ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -126,36 +92,19 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (28ms)
 			SetupLoadedEditorAssemblies (218ms)
-=======
-		EndReloadAssembly (770ms)
-			LoadAssemblies (3729ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (489ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (25ms)
-			SetupLoadedEditorAssemblies (199ms)
->>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-<<<<<<< Updated upstream
 				RefreshPlugins (35ms)
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (122ms)
 				ProcessInitializeOnLoadMethodAttributes (52ms)
-=======
-				RefreshPlugins (26ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (103ms)
-				ProcessInitializeOnLoadMethodAttributes (56ms)
->>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-<<<<<<< Updated upstream
 Registered in 0.002839 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -166,23 +115,10 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (3385ms)
 		BeginReloadAssembly (113ms)
-=======
-Registered in 0.002438 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.712 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3713ms)
-		BeginReloadAssembly (139ms)
->>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-<<<<<<< Updated upstream
 			CreateAndSetChildDomain (18ms)
 		EndReloadAssembly (3148ms)
 			LoadAssemblies (2011ms)
@@ -191,53 +127,27 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (48ms)
 			SetupLoadedEditorAssemblies (441ms)
-=======
-			CreateAndSetChildDomain (17ms)
-		EndReloadAssembly (3425ms)
-			LoadAssemblies (2370ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (516ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (482ms)
->>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-<<<<<<< Updated upstream
 				BeforeProcessingInitializeOnLoad (46ms)
 				ProcessInitializeOnLoadAttributes (361ms)
 				ProcessInitializeOnLoadMethodAttributes (24ms)
 				AfterProcessingInitializeOnLoad (4ms)
-=======
-				BeforeProcessingInitializeOnLoad (67ms)
-				ProcessInitializeOnLoadAttributes (358ms)
-				ProcessInitializeOnLoadMethodAttributes (21ms)
-				AfterProcessingInitializeOnLoad (25ms)
->>>>>>> Stashed changes
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-<<<<<<< Updated upstream
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
 Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
-=======
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
->>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1648 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 30 unused Assets / (122.3 KB). Loaded Objects now: 2136.
 Memory consumption went from 90.1 MB to 90.0 MB.
-<<<<<<< Updated upstream
 Total: 2.924400 ms (FindLiveObjects: 0.176000 ms CreateObjectMapping: 0.041200 ms MarkObjects: 2.572700 ms  DeleteObjects: 0.133300 ms)
-=======
-Total: 2.444400 ms (FindLiveObjects: 0.133100 ms CreateObjectMapping: 0.039000 ms MarkObjects: 2.163200 ms  DeleteObjects: 0.108300 ms)
->>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -251,26 +161,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-<<<<<<< Updated upstream
   Time since last request: 911272.420961 seconds.
   path: Assets/Prefabs/Decoraciones/Obelisco.fbx
   artifactKey: Guid(2126755e0c19c6b4eae3eb7fae4b663c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Decoraciones/Obelisco.fbx using Guid(2126755e0c19c6b4eae3eb7fae4b663c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bca85fbe1fc583b4a01e29e4cec229b') in 0.303849 seconds 
-=======
-  Time since last request: 22462.838895 seconds.
-  path: Assets/3DModels/Props/Montaña1.fbx
-  artifactKey: Guid(4b51002d68601e84b80f7d0b12013624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3DModels/Props/Montaña1.fbx using Guid(4b51002d68601e84b80f7d0b12013624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bdcbe4679e66246e078da0f8128ec9a') in 0.209896 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/3DModels/Props/Montaña3.fbx
-  artifactKey: Guid(06add48ee9add284eaf1c95cca00c522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3DModels/Props/Montaña3.fbx using Guid(06add48ee9add284eaf1c95cca00c522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d1a0e85a3c0f33aab854a964d55df8e') in 0.020782 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/3DModels/Props/Montaña2.fbx
-  artifactKey: Guid(823dd4a0bf3d1dd4a99e517b5a99666e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3DModels/Props/Montaña2.fbx using Guid(823dd4a0bf3d1dd4a99e517b5a99666e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7493ee933412776e21b46b8f17b5953e') in 0.028309 seconds 
->>>>>>> Stashed changes
