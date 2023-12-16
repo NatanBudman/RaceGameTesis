@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour,IOptimizatedUpdate
+public class GameManager : MonoBehaviourSingleton<GameManager>,IOptimizatedUpdate
 {
     [Header("SettingsGame")] 
 
@@ -36,8 +36,10 @@ public class GameManager : MonoBehaviour,IOptimizatedUpdate
         
     public KartStats PlayerStats => Settings.playerStats;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
+
         int bots = karts;
         for (int i = 0; i < BotsInGame.Length; i++) 
         {
