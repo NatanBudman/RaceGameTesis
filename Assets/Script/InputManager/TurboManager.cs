@@ -71,5 +71,11 @@ public class TurboManager : MonoBehaviour
          turboAmount += TurboAmountGet;
       }
    }
-
+    public void GetTurbo(int amount)
+    {
+        if (isKartAcceleration() && !isHasMaxTurboAmount())
+        {
+            turboAmount += amount;
+        }
+    }
 }
