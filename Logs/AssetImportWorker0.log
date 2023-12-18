@@ -15,7 +15,7 @@ D:/BACK UP 2023/Proyectos/CarrerasLatam
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57155
+65210
 Successfully changed project path to: D:/BACK UP 2023/Proyectos/CarrerasLatam
 D:/BACK UP 2023/Proyectos/CarrerasLatam
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ D:/BACK UP 2023/Proyectos/CarrerasLatam
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [16468] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 965851177 [EditorId] 965851177 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [13560] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 3984463214 [EditorId] 3984463214 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [16468] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 965851177 [EditorId] 965851177 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13560] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 3984463214 [EditorId] 3984463214 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 50.17 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 56.80 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.18f1 (3129e69bc0c7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -67,87 +67,87 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56840
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008527 seconds.
+Registered in 0.007762 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 50.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 58.08 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.729 seconds
+- Completed reload, in  0.718 seconds
 Domain Reload Profiling:
-	ReloadAssembly (730ms)
-		BeginReloadAssembly (95ms)
+	ReloadAssembly (718ms)
+		BeginReloadAssembly (93ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (498ms)
-			LoadAssemblies (92ms)
+		EndReloadAssembly (496ms)
+			LoadAssemblies (90ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (110ms)
+			SetupTypeCache (125ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (37ms)
-			SetupLoadedEditorAssemblies (290ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (281ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (51ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (140ms)
-				ProcessInitializeOnLoadMethodAttributes (89ms)
+				RefreshPlugins (58ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (150ms)
+				ProcessInitializeOnLoadMethodAttributes (62ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.061061 seconds.
+Registered in 0.003923 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.163 seconds
+- Completed reload, in  1.838 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1164ms)
-		BeginReloadAssembly (148ms)
+	ReloadAssembly (1839ms)
+		BeginReloadAssembly (170ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
+			DisableScriptedObjects (10ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (24ms)
-		EndReloadAssembly (883ms)
-			LoadAssemblies (95ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (1525ms)
+			LoadAssemblies (99ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (239ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (87ms)
-			SetupLoadedEditorAssemblies (424ms)
+			SetupTypeCache (318ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (304ms)
+			SetupLoadedEditorAssemblies (710ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (58ms)
-				ProcessInitializeOnLoadAttributes (321ms)
-				ProcessInitializeOnLoadMethodAttributes (28ms)
-				AfterProcessingInitializeOnLoad (11ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (573ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
+Refreshing native plugins compatible for Editor in 0.97 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2302 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 30 unused Assets / (130.9 KB). Loaded Objects now: 2792.
-Memory consumption went from 142.8 MB to 142.7 MB.
-Total: 3.769600 ms (FindLiveObjects: 0.306200 ms CreateObjectMapping: 0.422500 ms MarkObjects: 2.910400 ms  DeleteObjects: 0.129500 ms)
+Unloading 30 unused Assets / (121.6 KB). Loaded Objects now: 2769.
+Memory consumption went from 129.2 MB to 129.1 MB.
+Total: 5.859700 ms (FindLiveObjects: 0.408000 ms CreateObjectMapping: 0.307800 ms MarkObjects: 5.046700 ms  DeleteObjects: 0.096300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -161,157 +161,137 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 125760.033156 seconds.
-  path: Assets/Prefabs/IA.prefab
-  artifactKey: Guid(cb04a5a153039b74d941386ae8204f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/IA.prefab using Guid(cb04a5a153039b74d941386ae8204f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf7ec62ee4670529a51fbe2b32fe5bbb') in 0.273114 seconds 
+  Time since last request: 212312.911158 seconds.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(a3793bec6d221494aa716ca567eadba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain.asset using Guid(a3793bec6d221494aa716ca567eadba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree Bush_01 must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree Grass_01 must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree Weeds_01 must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree Weeds_02 must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '75f4aaf57e9312679ba2e70e9d9f286f') in 0.212129 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000028 seconds.
-  path: Assets/Prefabs/KartGameObject.prefab
-  artifactKey: Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/KartGameObject.prefab using Guid(f8dec3ab131733f42b9ed96973d3a88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e96bb0995ba6fe279a9f89f1b563424') in 0.058660 seconds 
+  path: Assets/New Terrain 1.asset
+  artifactKey: Guid(0987332c05a3cf04c9ebad7af1a50f90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain 1.asset using Guid(0987332c05a3cf04c9ebad7af1a50f90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3829851de737c7eb6bff73281358b63') in 0.048832 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Prefabs/TurboPath.prefab
-  artifactKey: Guid(f692aba70c09f9444a6114c8a43716ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/TurboPath.prefab using Guid(f692aba70c09f9444a6114c8a43716ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67857828db533519fbcc805abd5e3355') in 0.023729 seconds 
+  Time since last request: 0.000035 seconds.
+  path: Assets/MasterGroup.mixer
+  artifactKey: Guid(0344e7348ef6bae4b9259d440592232a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MasterGroup.mixer using Guid(0344e7348ef6bae4b9259d440592232a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ba777ccec705e05c741188a85e23fcb') in 0.013211 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 444.906081 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a35a99b74f58c328ad6930905914f93') in 0.005236 seconds 
+  Time since last request: 3.588200 seconds.
+  path: Assets/Scenes/PistaArg.unity
+  artifactKey: Guid(f5f28bd5349d6084ca917c261c0b6eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PistaArg.unity using Guid(f5f28bd5349d6084ca917c261c0b6eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc2f7d1911470368ce64fb4ed489e786') in 0.007847 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 5.270065 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e911079f4e05c0346a9ebd14a39cbb3f') in 0.034943 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002236 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.077 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1077ms)
+		BeginReloadAssembly (123ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (831ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (203ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (65ms)
+			SetupLoadedEditorAssemblies (434ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (49ms)
+				ProcessInitializeOnLoadAttributes (324ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2081 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 13 unused Assets / (0.6 MB). Loaded Objects now: 2789.
+Memory consumption went from 107.6 MB to 107.0 MB.
+Total: 3.499100 ms (FindLiveObjects: 0.206900 ms CreateObjectMapping: 0.159800 ms MarkObjects: 2.777900 ms  DeleteObjects: 0.353400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 11.929985 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec1c10b0134ade9d8c44e0c8d0a287a4') in 0.002102 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 41.708786 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aac10d1532444b5e5f94f7ca866f58a0') in 0.007518 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.047548 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f1f614924cefd08adc75991f9d1097a') in 0.002497 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.516362 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '757c068d7000e8c78c01fbe34c72510c') in 0.059853 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 30.503072 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef93a44e00d0234a7403254903af455e') in 0.014597 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.060654 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '999da26faf5c699f4c8d1b55badd8941') in 0.020444 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.896061 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2c0a792566f8ffd0b8a76c16564f97d') in 0.010649 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.635536 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5152220eae1480cc091e26d35dcf25e') in 0.030132 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.770327 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'feaad43fef382bdb688cac4cd9175b10') in 0.065338 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.671956 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eab217033a521d1b18e82bf51ee73108') in 0.005156 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 25.009418 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1014168e39209b75a613f005c4d9e331') in 0.008851 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 21.044244 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f828f1de4c31932ed6cf53beaf3f2323') in 0.003846 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.898192 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31bc66669e477c75be9d391ffe56639e') in 0.047575 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.008921 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac0a896228d48b2fb44b32ffc623bc82') in 0.010728 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.558579 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bde810f822397929d8a1196ba89724e') in 0.002436 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 135.733022 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd487fa3ad05edbd37875c48e2cd33d0') in 0.002361 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 17.413950 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c926cabf1d60419d41aaf7490cf7ec6') in 0.001994 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.867295 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cea47b7c3c95d6ca2758f5421546444') in 0.016054 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.680886 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '120cb6653597ab2f1d691843eab3ffc7') in 0.003419 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.100131 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadShaders.shader
-  artifactKey: Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadShaders.shader using Guid(45aeb62d42f856e4c9652c877e5c1823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '893e5db53b1303695d0acc8829ebfbed') in 0.004711 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.033141 seconds.
-  path: Assets/Shaders/TurboPad/TurboPadMaterial.mat
-  artifactKey: Guid(95d568d121eddec49850c7207027854b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders/TurboPad/TurboPadMaterial.mat using Guid(95d568d121eddec49850c7207027854b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06b55c6a8c886a0af6936cb5ea6201ff') in 0.035191 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003293 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.515 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1520ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (1259ms)
+			LoadAssemblies (86ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (248ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (78ms)
+			SetupLoadedEditorAssemblies (777ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (604ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (30ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2081 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (95.4 KB). Loaded Objects now: 2804.
+Memory consumption went from 107.0 MB to 107.0 MB.
+Total: 5.715500 ms (FindLiveObjects: 0.349300 ms CreateObjectMapping: 0.799600 ms MarkObjects: 4.527900 ms  DeleteObjects: 0.037700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
