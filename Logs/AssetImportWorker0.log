@@ -15,9 +15,15 @@ C:/Users/Santi/Documents/GitHub/RaceGameTesis
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< Updated upstream
 59002
 Successfully changed project path to: C:/Users/Santi/Documents/GitHub/RaceGameTesis
 C:/Users/Santi/Documents/GitHub/RaceGameTesis
+=======
+51763
+Successfully changed project path to: D:/BACK UP 2023/Proyectos/CarrerasLatam
+D:/BACK UP 2023/Proyectos/CarrerasLatam
+>>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,11 +53,19 @@ C:/Users/Santi/Documents/GitHub/RaceGameTesis
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
 Player connection [30272] Host "[IP] 192.168.0.183 [Port] 0 [Flags] 2 [Guid] 621013500 [EditorId] 621013500 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-A0T3Q1B) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [30272] Host "[IP] 192.168.0.183 [Port] 0 [Flags] 2 [Guid] 621013500 [EditorId] 621013500 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-A0T3Q1B) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 Refreshing native plugins compatible for Editor in 37.52 ms, found 2 plugins.
+=======
+Player connection [21972] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 3720037663 [EditorId] 3720037663 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [21972] Host "[IP] 192.168.0.129 [Port] 0 [Flags] 2 [Guid] 3720037663 [EditorId] 3720037663 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1CIJ789) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 95.30 ms, found 2 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.18f1 (3129e69bc0c7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -67,6 +81,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -80,11 +95,27 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (508ms)
 		BeginReloadAssembly (66ms)
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007587 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 64.14 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.239 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1239ms)
+		BeginReloadAssembly (98ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
 		EndReloadAssembly (345ms)
 			LoadAssemblies (64ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -99,12 +130,29 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (103ms)
 				ProcessInitializeOnLoadMethodAttributes (40ms)
+=======
+		EndReloadAssembly (810ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (160ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (541ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (64ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (396ms)
+				ProcessInitializeOnLoadMethodAttributes (68ms)
+>>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< Updated upstream
 Registered in 0.002628 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -148,6 +196,51 @@ Unloading 2305 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 30 unused Assets / (122.5 KB). Loaded Objects now: 2790.
 Memory consumption went from 143.0 MB to 142.8 MB.
 Total: 2.428800 ms (FindLiveObjects: 0.216900 ms CreateObjectMapping: 0.125300 ms MarkObjects: 2.003300 ms  DeleteObjects: 0.082700 ms)
+=======
+Registered in 0.002844 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.686 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4688ms)
+		BeginReloadAssembly (228ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (18ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (4215ms)
+			LoadAssemblies (146ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (350ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (108ms)
+			SetupLoadedEditorAssemblies (3454ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (7ms)
+				BeforeProcessingInitializeOnLoad (1699ms)
+				ProcessInitializeOnLoadAttributes (1676ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2305 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 30 unused Assets / (130.6 KB). Loaded Objects now: 2795.
+Memory consumption went from 144.4 MB to 144.3 MB.
+Total: 3.409000 ms (FindLiveObjects: 0.363200 ms CreateObjectMapping: 0.213400 ms MarkObjects: 2.702300 ms  DeleteObjects: 0.129100 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -161,6 +254,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 20187.356433 seconds.
   path: Assets/Prefabs/Meta.prefab
   artifactKey: Guid(3a58011749c12994db2eb9b094bb2d6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -2991,3 +3085,153 @@ Received Import Request.
   path: Assets/Prefabs/ForceFields/ForceFieldArg.prefab
   artifactKey: Guid(980a97aa591727b4596c9be3c01176d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/ForceFields/ForceFieldArg.prefab using Guid(980a97aa591727b4596c9be3c01176d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dadcb3daff7c923cdc8e1ab6964be11') in 0.210257 seconds 
+=======
+  Time since last request: 204775.917237 seconds.
+  path: Assets/Prefabs/Water.prefab
+  artifactKey: Guid(a282fc643acc386499540300bb67a8ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Water.prefab using Guid(a282fc643acc386499540300bb67a8ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd24bb11959a044421e4e810a15442f9b') in 0.990188 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Prefabs/TurboPath.prefab
+  artifactKey: Guid(f692aba70c09f9444a6114c8a43716ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TurboPath.prefab using Guid(f692aba70c09f9444a6114c8a43716ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cf3cc1871ccf9e5f4b7356b84ce587a') in 0.377240 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1310.907143 seconds.
+  path: Assets/Prefabs/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd82283800672493165f7a5f44c963a6d') in 0.166301 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.125561 seconds.
+  path: Assets/3DModels/BanderaArgentina
+  artifactKey: Guid(5bb3e490c8eeb674aacddb3f494d9897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina using Guid(5bb3e490c8eeb674aacddb3f494d9897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a043912e692f40676385fb4e20a5f11d') in 0.005677 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.865761 seconds.
+  path: Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '652114d4658e4b1787c580450bd1aead') in 0.036045 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.898895 seconds.
+  path: Assets/3DModels/BanderaArgentina/Materials
+  artifactKey: Guid(6a2223cd68672d84da107a21240685ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/Materials using Guid(6a2223cd68672d84da107a21240685ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b0b81b0b2d62ee82fdf7f0c392800d0') in 0.018804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.599613 seconds.
+  path: Assets/3DModels/BanderaArgentina/Materials/images.mat
+  artifactKey: Guid(442ab9432ae98bb43b5b1214a0f17f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/Materials/images.mat using Guid(442ab9432ae98bb43b5b1214a0f17f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2657da6ef2c95da9b8b02ca14ffd57c5') in 0.020186 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/3DModels/BanderaArgentina/Materials/Palo.mat
+  artifactKey: Guid(2cfa8ab32e61f65408af5f1fc1ffc8b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/Materials/Palo.mat using Guid(2cfa8ab32e61f65408af5f1fc1ffc8b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa682327ca5deeb65459a1151d20a811') in 0.024737 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/3DModels/BanderaArgentina/Materials/TexturaBanderaArgentina.mat
+  artifactKey: Guid(a5eae85951972294d81a9560414e361b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/Materials/TexturaBanderaArgentina.mat using Guid(a5eae85951972294d81a9560414e361b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06df4a3e7133de74129223a37122d690') in 0.023234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.170664 seconds.
+  path: Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc140f027a79fdd9f4b069ac6ddbb215') in 0.036529 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3DModels/BanderaArgentina/TexturaBanderaArgentina.jpg
+  artifactKey: Guid(ae70a90b485be7b4cab8ef3a706b7237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/TexturaBanderaArgentina.jpg using Guid(ae70a90b485be7b4cab8ef3a706b7237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45d5247b7ab18896e43442971636ba1f') in 0.038414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.122620 seconds.
+  path: Assets/3DModels/BanderaArgentina/images.jpg
+  artifactKey: Guid(2d99466395dddee4b8fcb12cac6e205a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/images.jpg using Guid(2d99466395dddee4b8fcb12cac6e205a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2eef19543c752da38c34ce9a4043f2e3') in 0.020454 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.629072 seconds.
+  path: Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a407c7ef29f0f3fc74a8703bccd26a9') in 0.060232 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.768716 seconds.
+  path: Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34de795179eb5387c7d421828e70ee7b') in 0.052602 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 133.706890 seconds.
+  path: Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx
+  artifactKey: Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/BanderaArgentina/BanderaArgentina.fbx using Guid(8403ea7545182754fa8ccab8f5fad934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c38145d6c4bb806863d159dc3d7f0a4') in 0.047380 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.909062 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro.cginc
+  artifactKey: Guid(407bc68d299748449bbf7f48ee690f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Shaders/TMPro.cginc using Guid(407bc68d299748449bbf7f48ee690f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9166bc1abaeb281fc6783cc3fe76c458') in 0.034058 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc
+  artifactKey: Guid(d930090c0cd643c7b55f19a38538c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc using Guid(d930090c0cd643c7b55f19a38538c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b707fb793fd60a56581099cf81a197e') in 0.026548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
+  artifactKey: Guid(3997e2241185407d80309a82f9148466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc using Guid(3997e2241185407d80309a82f9148466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7506c69260bf7c1cdf33a8f62db534a1') in 0.029680 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+  artifactKey: Guid(c334973cef89a9840b0b0c507e0377ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc using Guid(c334973cef89a9840b0b0c507e0377ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89ec19a9bb5cbf8bdad0e1633e175a9e') in 0.024317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.723863 seconds.
+  path: Assets/Shaders/Flag
+  artifactKey: Guid(bcb151d1cf0a32f4591d46732396a958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Flag using Guid(bcb151d1cf0a32f4591d46732396a958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a511df6d37bacd16f0204b74b394d85') in 0.015392 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.032698 seconds.
+  path: Assets/Shaders/Flag/Flag.mat
+  artifactKey: Guid(aed99568c91a12043a42467af13a117e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Flag/Flag.mat using Guid(aed99568c91a12043a42467af13a117e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6da329ee152ff342f80a5e3673802e9') in 0.027085 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 82.037798 seconds.
+  path: Assets/Shaders/Flag/FlagPost.shader
+  artifactKey: Guid(ab0236f018554c248aab1b8ffedb7c55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Flag/FlagPost.shader using Guid(ab0236f018554c248aab1b8ffedb7c55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44cb7a2a1bf51b5a074bc8a8942c265a') in 0.012656 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.219505 seconds.
+  path: Assets/Shaders/Flag/Flag.mat
+  artifactKey: Guid(aed99568c91a12043a42467af13a117e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Flag/Flag.mat using Guid(aed99568c91a12043a42467af13a117e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c6bd66b78ac95239b1c702c00df7e11') in 0.013439 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 917.507140 seconds.
+  path: Assets/Prefabs/BanderaArgentina.prefab
+  artifactKey: Guid(d96dfba0bec3c594797c04b02b972d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BanderaArgentina.prefab using Guid(d96dfba0bec3c594797c04b02b972d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920336d9be6763e3474cd6ccb7999f5f') in 0.037663 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.811461 seconds.
+  path: Assets/Prefabs/BanderaArgentina.prefab
+  artifactKey: Guid(d96dfba0bec3c594797c04b02b972d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BanderaArgentina.prefab using Guid(d96dfba0bec3c594797c04b02b972d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b40f6c88463798c12b642e800db10e76') in 0.015823 seconds 
+>>>>>>> Stashed changes
