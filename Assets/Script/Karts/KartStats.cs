@@ -7,4 +7,5 @@ public class KartStats : ScriptableObject
     public float MaxSpeed;
     public float MaxAcceleration;
     public float SteerDirSpeed;
+  
 }
