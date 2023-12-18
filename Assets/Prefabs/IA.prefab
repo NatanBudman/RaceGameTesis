@@ -139,6 +139,7 @@ Transform:
   - {fileID: 2140045861304749944}
   - {fileID: 2140045859988646572}
   - {fileID: 5855619227519789489}
+  - {fileID: 1037463143966506084}
   m_Father: {fileID: 4584453495704859367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 184.632, z: 0}
@@ -285,7 +286,7 @@ MonoBehaviour:
   campBullet2: {fileID: 3702465746709522743, guid: f695bcf13ec54874a93b1b4aa12e5481, type: 3}
   fakeObjectPrefab: {fileID: 0}
   FrontPowerPos: {fileID: 2140045859988646572}
-  BackPowerPos: {fileID: 2140045861304749944}
+  BackPowerPos: {fileID: 1037463143966506084}
   BackPowerPos2: {fileID: 2140045861304749944}
   ruletteAnimation: {fileID: 0}
   powerTimer: 10
@@ -328,29 +329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac9d4fc5835c3344b557a6883e40c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _KartController: {fileID: 360369530365380028}
   KartEntity: {fileID: 7966296926995394228}
   playerEntiti: {fileID: 0}
-  Pathfinding: {fileID: 0}
   from: {fileID: 0}
-  to: {fileID: 0}
-  path: []
-  Nodes: {fileID: 0}
-  point: {fileID: 0}
-  time: 1
-  _distanceToPursuit: 20
-  radius: 35
-  Mask:
-    serializedVersion: 2
-    m_Bits: 64
-  maxObstacleDetected: 10
-  angle: 120
-  mutliplier: 2
   IgnoreLayer:
     serializedVersion: 2
     m_Bits: 1024
   pivot: {fileID: 5855619227519789489}
-  X: 0
 --- !u!114 &360369530365380028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +357,7 @@ MonoBehaviour:
   gravity: 9.8
   jumpForce: 0
   deaccelerationTime: 0
+  steerAmount: 0
   boostSpeed: 12
   jumpDirection: {x: 0, y: 0, z: 1}
   ShockForce: 0
@@ -494,6 +480,37 @@ Transform:
   - {fileID: 2707858442029923707}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5665085469403737699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037463143966506084}
+  m_Layer: 10
+  m_Name: IceWallSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037463143966506084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665085469403737699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.19, y: -2.5, z: -11.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2707858442029923707}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6919875195820216996
 GameObject:
@@ -877,6 +894,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7425683674286675618, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.014977517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425683674286675618, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.057039734
+      objectReference: {fileID: 0}
     - target: {fileID: 7495497953556327077, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -888,6 +913,14 @@ PrefabInstance:
     - target: {fileID: 7747386286466032205, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772905293679460203, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00463732
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772905293679460203, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0116511285
       objectReference: {fileID: 0}
     - target: {fileID: 8253857499297624874, guid: 18de44de1e1defe439d5035dd2b9dca9, type: 3}
       propertyPath: m_Layer
