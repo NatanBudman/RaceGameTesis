@@ -32,7 +32,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
 
-        if (dist < 10 || playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning)
+        if ((dist > 10 && playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) || turbo.turboAmount > 50)
         {
             turbo.Turbo(true);
         }
