@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 [RequireComponent(typeof(OptimizatedUpdateGameplay))]
@@ -32,9 +31,27 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
 
         float dist = Vector3.Distance(transform.position, playerEntiti.transform.position);
 
-        if ((dist > 10 && playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) || turbo.turboAmount > 50)
+        if (GameManager.Instance.Settings.BotsDificult == 0)
         {
-            turbo.Turbo(true);
+            if ((dist > 10 && playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning))
+            {
+                turbo.Turbo(true);
+            }
+        }
+
+        if (GameManager.Instance.Settings.BotsDificult == 1)
+        {
+            if ((dist > 10 && playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) || turbo.turboAmount > 15)
+            {
+                turbo.Turbo(true);
+            }
+        }
+        if (GameManager.Instance.Settings.BotsDificult == 2)
+        {
+            if ((dist > 10 && playerEntiti.currentPoint > KartEntity.currentPoint || playerEntiti.currentTurning > KartEntity.currentTurning) || turbo.turboAmount > 0)
+            {
+                turbo.Turbo(true);
+            }
         }
 
     }

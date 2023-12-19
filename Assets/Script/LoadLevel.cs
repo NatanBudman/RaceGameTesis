@@ -29,17 +29,22 @@ public class LoadLevel : MonoBehaviour
         {
             currentPercent = loadAsync.progress * 100 / 0.9f;
             progres.text = "Loading.." + currentPercent.ToString("00") + "%";
-            button.SetActive(true);
             yield return null;
         }
+         
 
     }
     void Update()
     {
         SliderProgress.value = Mathf.MoveTowards(SliderProgress.value, currentPercent, 10 * Time.deltaTime);
+        if (SliderProgress.value == 1)
+        {
+            button.SetActive(true);
+            progres.gameObject.SetActive(false);
+        }
     }
 
-    public void StartScene() 
+    public void StartScene()
     {
         loadAsync.allowSceneActivation = true;
     }
