@@ -50,6 +50,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     private bool canLaunch = true;
     public Image fillImage;
 
+
+    public KartStats _kartStats;
+
+
+
     public void Start()
     {
         BaseKarVel = kart.maxSpeed;
@@ -60,7 +65,6 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         currentPowerTimer = powerTimer;
         entity = GetComponent<KartEntity>();
         inputManager = GetComponent<InputManager>();
-
 
     }
 
@@ -218,7 +222,26 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
     }
 
+    /*private void SkillSelected()
+    {
+        if (currentPower.GetComponent<ForceField>())
+        {
+            Debug.Log("campo de fuerza");
+            return;
+        }
+       
+        if (currentPower.GetComponent<FakeBox>())
+        {
+            SpawnFakeObject();
+            canLaunch = false;
+            fillImage.fillAmount = 0.0f;
+            currentLaunchCooldown = launchCooldown;
+            return;
+            Debug.Log("objeto falso");
 
+        }
+    }
+    */
     public void Op_UpdateGameplay()
     {
         if (aiController == null && hasPower && Input.GetKey(inputManager.PowerActive))
@@ -295,11 +318,9 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         // Verifica si se presionó la tecla "G" y el temporizador termino
         if (aiController == null && Input.GetKeyDown(KeyCode.G) && canLaunch)
         {
-            SpawnFakeObject();
-            canLaunch = false;
-            fillImage.fillAmount = 0.0f;
-            currentLaunchCooldown = launchCooldown;
+           // SkillSelected();
         }
+
     }
 
     public void Op_UpdateUX()
