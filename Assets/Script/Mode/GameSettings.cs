@@ -29,5 +29,8 @@ public class GameSettings : ScriptableObject
 
     public KartStats playerStats;
 
+    public GameObject playerSkill;
+
+
     #endregion
 }

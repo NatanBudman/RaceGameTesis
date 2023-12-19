@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>,IOptimizatedUpdat
         
     public KartStats PlayerStats => Settings.playerStats;
 
+
+
     public override void Awake()
     {
         base.Awake();
