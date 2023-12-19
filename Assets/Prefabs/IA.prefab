@@ -297,6 +297,10 @@ MonoBehaviour:
   mugImage: {fileID: 0}
   missileImage: {fileID: 0}
   campBulletImage: {fileID: 0}
+  iceWallImage2: {fileID: 0}
+  mugImage2: {fileID: 0}
+  missileImage2: {fileID: 0}
+  campBulletImage2: {fileID: 0}
   fillImage: {fileID: 0}
   gameManager: {fileID: 0}
 --- !u!114 &2140045860070823673
@@ -312,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 39.26
-  angle: 90
+  angle: 85
   rangeBack: 40.78
   angleBack: 90
   mask:
@@ -446,9 +450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kart: {fileID: 7966296926995394228}
-  TurboSpeed: 80
+  TurboSpeed: 85
   turboAmount: 100
-  ConsumeTurboAmount: 0.22
+  ConsumeTurboAmount: 0.12
   MaxTurboAmount: 100
   TurboAmountGet: 0.15
 --- !u!1 &4584453495704859366
