@@ -9,6 +9,7 @@ public class RaceFinish : MonoBehaviour
     public GameObject WinPanel;
     public Timer timer;
     public int MaxTurning => gameManager.RaceLaps;
+    public bool mostrarVictoria = false;
 
     LookUpTable<GameObject, KartEntity> lookUpTable;
     LookUpTable<GameObject, KartUI> lookUpTableUI;
@@ -51,9 +52,14 @@ public class RaceFinish : MonoBehaviour
                     kartUI.currentLaps += 1;
                     kartUI.currentTotalLaps = MaxTurning;
                     kartUI.UpdateLaps();
+                    if(kart.GetCurrentTurning() == MaxTurning)
+                    {
+
+                        mostrarVictoria = true;
+                    }
                 }
 
-                if (kart.GetCurrentTurning() == MaxTurning)
+                if (mostrarVictoria == true)
                 {
 
 
