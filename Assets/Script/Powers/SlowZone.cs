@@ -8,7 +8,9 @@ public class SlowZone : MonoBehaviour
     public GameObject Owner;
     public float slowTime;
     public float destroyDuration;
+    public float destroyColliderDuration;
     private float currentDestroyDuration;
+    public BoxCollider boxCollider;
     private void Start()
     {
        
@@ -17,6 +19,9 @@ public class SlowZone : MonoBehaviour
     private void Update()
     {
         currentDestroyDuration += Time.deltaTime;
+       
+      
+
         if (currentDestroyDuration >= destroyDuration)
         {
             Destroy(gameObject);
@@ -28,7 +33,7 @@ public class SlowZone : MonoBehaviour
     {
         KartEntity kart = other.GetComponent<KartEntity>();
 
-        if (kart != null)
+        if (kart != null && destroyColliderDuration > currentDestroyDuration)
         {
             StartCoroutine(Slower(kart));
         }

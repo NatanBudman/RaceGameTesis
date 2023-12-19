@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RaceFinish : MonoBehaviour
@@ -11,9 +9,10 @@ public class RaceFinish : MonoBehaviour
     public GameObject WinPanel;
     public Timer timer;
     public int MaxTurning => gameManager.RaceLaps;
+    public bool mostrarVictoria = false;
 
-    LookUpTable<GameObject,KartEntity> lookUpTable ;
-    LookUpTable<GameObject,KartUI> lookUpTableUI ;
+    LookUpTable<GameObject, KartEntity> lookUpTable;
+    LookUpTable<GameObject, KartUI> lookUpTableUI;
 
     private void Start()
     {
@@ -34,14 +33,35 @@ public class RaceFinish : MonoBehaviour
         if (ActionLookUpTable(other.gameObject) != null)
         {
             KartEntity kart = ActionLookUpTable(other.gameObject);
-       
+
 
 
             if (kart.isNextCurrentPoint(pointsInRace))
             {
-                if (kart.GetCurrentTurning() == MaxTurning)
+
+                kart.GetPoint();
+
+                if (kart.gameObject.tag == "Player")
                 {
-                   
+                    timer.SaveLapTime();
+                    timer.StartLap();
+                }
+                if (other.gameObject.GetComponent<KartUI>() != null)
+                {
+                    KartUI kartUI = ActionLookUpTableUI(other.gameObject);
+                    kartUI.currentLaps += 1;
+                    kartUI.currentTotalLaps = MaxTurning;
+                    kartUI.UpdateLaps();
+                    if(kart.GetCurrentTurning() == MaxTurning)
+                    {
+
+                        mostrarVictoria = true;
+                    }
+                }
+
+                if (mostrarVictoria == true)
+                {
+
 
                     if (kart.gameObject.tag == "Player")
                     {
@@ -54,27 +74,9 @@ public class RaceFinish : MonoBehaviour
                         timer.ShowLapTimes();
 
                     }
-                    
-                }
-                else 
-                {
-                    kart.GetPoint();
-                  
-                    if (kart.gameObject.tag == "Player")
-                    {
-                        timer.SaveLapTime();
-                        timer.StartLap();
-                    }
-                    if (other.gameObject.GetComponent<KartUI>() != null)
-                    {
-                        KartUI kartUI = ActionLookUpTableUI(other.gameObject);
-                        kartUI.currentLaps += 1;
-                        kartUI.currentTotalLaps = MaxTurning;
-                        kartUI.UpdateLaps();
-                    }
 
                 }
-              
+
             }
         }
     }

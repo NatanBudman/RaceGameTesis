@@ -22,13 +22,15 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public GameObject missile2;
     public GameObject campBullet2;
     public GameObject fakeObjectPrefab;
+    public GameObject forceField;
+
     public Transform FrontPowerPos;
     public Transform BackPowerPos;
     public Transform BackPowerPos2;
+
     public Animator ruletteAnimation;
     Vector3 destination;
     private bool isSlowed;
-
     private float TimeSlowed;
     private float VelSlowed;
     private float BaseKarVel;
@@ -159,7 +161,19 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
         }
     }
-        public void ActivatePower()
+
+    private void SpawnForceField()
+    {
+        // Asegúrate de que fakeObjectPrefab esté asignado en el Inspector
+        if (fakeObjectPrefab != null)
+        {
+
+
+            forceField.SetActive(true);
+
+        }
+    }
+    public void ActivatePower()
     {
       
             if (selectedPower.CompareTag("IceWall2"))
@@ -226,6 +240,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     {
         if (GameManager.Instance.Settings.playerSkill.GetComponent<ForceField>())
         {
+            SpawnForceField();
             Debug.Log("campo de fuerza");
             canLaunch = false;
             fillImage.fillAmount = 0.0f;
