@@ -11,12 +11,11 @@ public class SlowZone : MonoBehaviour
     public float destroyColliderDuration;
     private float currentDestroyDuration;
     public BoxCollider boxCollider;
-    private MeshRenderer meshRenderer;
+    public GameObject meshRenderer;
     private void Start()
     {
        
         currentDestroyDuration = 0f;
-        meshRenderer = GetComponent<MeshRenderer>();
     }
     private void Update()
     {
@@ -30,12 +29,12 @@ public class SlowZone : MonoBehaviour
         }
         if (destroyColliderDuration > currentDestroyDuration)
         {
-            meshRenderer.enabled = true;
+            meshRenderer.SetActive(true);
 
         }
         else
         {
-            meshRenderer.enabled = false;
+            meshRenderer.SetActive(false);
 
         }
 
