@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class KatSkillChoise : MonoBehaviour
 {
     public Skills[] skills;
-    
-    [Space]
-    [Space]
-    [Space]
 
+    [Space]
+    [Space]
+    [Space]
+    public GameSettings _gameSettings;
     public Color CurrentSkillColor;
     public Color SkillDefaultColor;
 
@@ -32,6 +32,13 @@ public class KatSkillChoise : MonoBehaviour
     {
         SkillDescription.text = skills[i].Description;
     }
+
+    public void CurrentSkill(GameObject skillGameObject)
+    {
+        _gameSettings.playerSkill = skillGameObject;
+    }
+
+
 }
 
 [System.Serializable]

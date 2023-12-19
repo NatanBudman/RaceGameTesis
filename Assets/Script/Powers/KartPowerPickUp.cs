@@ -51,7 +51,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Image fillImage;
 
 
-    public KartStats _kartStats;
+    public GameManager gameManager;
 
 
 
@@ -222,26 +222,28 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
 
     }
 
-    /*private void SkillSelected()
+    private void SkillSelected()
     {
-        if (currentPower.GetComponent<ForceField>())
+        if (GameManager.Instance.Settings.playerSkill.GetComponent<ForceField>())
         {
             Debug.Log("campo de fuerza");
-            return;
+            canLaunch = false;
+            fillImage.fillAmount = 0.0f;
+            currentLaunchCooldown = launchCooldown;
+
         }
        
-        if (currentPower.GetComponent<FakeBox>())
+        if (GameManager.Instance.Settings.playerSkill.GetComponent<FakeBox>())
         {
             SpawnFakeObject();
             canLaunch = false;
             fillImage.fillAmount = 0.0f;
             currentLaunchCooldown = launchCooldown;
-            return;
             Debug.Log("objeto falso");
 
         }
     }
-    */
+    
     public void Op_UpdateGameplay()
     {
         if (aiController == null && hasPower && Input.GetKey(inputManager.PowerActive))
@@ -318,7 +320,7 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         // Verifica si se presionó la tecla "G" y el temporizador termino
         if (aiController == null && Input.GetKeyDown(KeyCode.G) && canLaunch)
         {
-           // SkillSelected();
+            SkillSelected();
         }
 
     }
