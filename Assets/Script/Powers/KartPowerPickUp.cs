@@ -45,6 +45,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
     public Image missileImage;
     public Image campBulletImage;
 
+    public Image iceWallImage2;
+    public Image mugImage2;
+    public Image missileImage2;
+    public Image campBulletImage2;
+
     private Dictionary<string, Image> powerImages = new Dictionary<string, Image>();
 
     private float launchCooldown = 20f; 
@@ -64,6 +69,11 @@ public class KartPowerPickUp : MonoBehaviour, IOptimizatedUpdate
         powerImages["Mug"] = mugImage;
         powerImages["Missile"] = missileImage;
         powerImages["CampBullet"] = campBulletImage;
+       
+        powerImages["IceWall2"] = iceWallImage2;
+        powerImages["Mug2"] = mugImage2;
+        powerImages["Missile2"] = missileImage2;
+        powerImages["CampBullet2"] = campBulletImage2;
         currentPowerTimer = powerTimer;
         entity = GetComponent<KartEntity>();
         inputManager = GetComponent<InputManager>();
