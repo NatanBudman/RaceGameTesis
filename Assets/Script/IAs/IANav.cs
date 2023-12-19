@@ -23,7 +23,7 @@ public class IANav : MonoBehaviour, IOptimizatedUpdate
         Vector3 dir = (from.transform.position - transform.position).normalized;
         KartEntity.LookRotate(dir);
 
-        if (dis < 9.25f && isSeeNode(from.transform, pivot))
+        if (dis < 11f && isSeeNode(from.transform, pivot))
         {
             var random = Random.Range(0, from.NeighboarNodes.Length);
             from = from.NeighboarNodes[random];
